@@ -20,7 +20,7 @@ or products provided by Evrim please follow the respective company's security re
 
 ### Evrim Terms and Policies
 
-Please contact dev-feedback@evrim.com for any questions or concerns regarding security of our services.
+Please contact chris@evrim.ai for any questions or concerns regarding security of our services.
 
 ---
 
