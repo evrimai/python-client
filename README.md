@@ -15,12 +15,9 @@ The REST API documentation can be found on [docs.evrim.com](https://docs.evrim.c
 ## Installation
 
 ```sh
-# install from the production repo
-pip install git+ssh://git@github.com/evrimai/python-client.git
+# install from PyPI
+pip install evrim
 ```
-
-> [!NOTE]
-> Once this package is [published to PyPI](https://app.stainlessapi.com/docs/guides/publish), this will become: `pip install --pre evrim`
 
 ## Usage
 
