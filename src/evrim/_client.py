@@ -59,12 +59,12 @@ class Evrim(SyncAPIClient):
     with_streaming_response: EvrimWithStreamedResponse
 
     # client options
-    knox_api_token: str
+    api_token: str
 
     def __init__(
         self,
         *,
-        knox_api_token: str | None = None,
+        api_token: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -86,20 +86,20 @@ class Evrim(SyncAPIClient):
     ) -> None:
         """Construct a new synchronous evrim client instance.
 
-        This automatically infers the `knox_api_token` argument from the `KNOX_API_TOKEN` environment variable if it is not provided.
+        This automatically infers the `api_token` argument from the `EVRIM_API_TOKEN` environment variable if it is not provided.
         """
-        if knox_api_token is None:
-            knox_api_token = os.environ.get("KNOX_API_TOKEN")
-        if knox_api_token is None:
+        if api_token is None:
+            api_token = os.environ.get("EVRIM_API_TOKEN")
+        if api_token is None:
             raise EvrimError(
-                "The knox_api_token client option must be set either by passing knox_api_token to the client or by setting the KNOX_API_TOKEN environment variable"
+                "The api_token client option must be set either by passing api_token to the client or by setting the EVRIM_API_TOKEN environment variable"
             )
-        self.knox_api_token = knox_api_token
+        self.api_token = api_token
 
         if base_url is None:
             base_url = os.environ.get("EVRIM_BASE_URL")
         if base_url is None:
-            base_url = f"https://localhost:8080/test-api"
+            base_url = f"https://api.evrim.ai"
 
         super().__init__(
             version=__version__,
@@ -136,8 +136,8 @@ class Evrim(SyncAPIClient):
     @property
     @override
     def auth_headers(self) -> dict[str, str]:
-        knox_api_token = self.knox_api_token
-        return {"Authorization": f"Bearer {knox_api_token}"}
+        api_token = self.api_token
+        return {"Authorization": f"Bearer {api_token}"}
 
     @property
     @override
@@ -151,7 +151,7 @@ class Evrim(SyncAPIClient):
     def copy(
         self,
         *,
-        knox_api_token: str | None = None,
+        api_token: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
         http_client: httpx.Client | None = None,
@@ -185,7 +185,7 @@ class Evrim(SyncAPIClient):
 
         http_client = http_client or self._client
         return self.__class__(
-            knox_api_token=knox_api_token or self.knox_api_token,
+            api_token=api_token or self.api_token,
             base_url=base_url or self.base_url,
             timeout=self.timeout if isinstance(timeout, NotGiven) else timeout,
             http_client=http_client,
@@ -251,12 +251,12 @@ class AsyncEvrim(AsyncAPIClient):
     with_streaming_response: AsyncEvrimWithStreamedResponse
 
     # client options
-    knox_api_token: str
+    api_token: str
 
     def __init__(
         self,
         *,
-        knox_api_token: str | None = None,
+        api_token: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: Union[float, Timeout, None, NotGiven] = NOT_GIVEN,
         max_retries: int = DEFAULT_MAX_RETRIES,
@@ -278,20 +278,20 @@ class AsyncEvrim(AsyncAPIClient):
     ) -> None:
         """Construct a new async evrim client instance.
 
-        This automatically infers the `knox_api_token` argument from the `KNOX_API_TOKEN` environment variable if it is not provided.
+        This automatically infers the `api_token` argument from the `EVRIM_API_TOKEN` environment variable if it is not provided.
         """
-        if knox_api_token is None:
-            knox_api_token = os.environ.get("KNOX_API_TOKEN")
-        if knox_api_token is None:
+        if api_token is None:
+            api_token = os.environ.get("EVRIM_API_TOKEN")
+        if api_token is None:
             raise EvrimError(
-                "The knox_api_token client option must be set either by passing knox_api_token to the client or by setting the KNOX_API_TOKEN environment variable"
+                "The api_token client option must be set either by passing api_token to the client or by setting the EVRIM_API_TOKEN environment variable"
             )
-        self.knox_api_token = knox_api_token
+        self.api_token = api_token
 
         if base_url is None:
             base_url = os.environ.get("EVRIM_BASE_URL")
         if base_url is None:
-            base_url = f"https://localhost:8080/test-api"
+            base_url = f"https://api.evrim.ai"
 
         super().__init__(
             version=__version__,
@@ -328,8 +328,8 @@ class AsyncEvrim(AsyncAPIClient):
     @property
     @override
     def auth_headers(self) -> dict[str, str]:
-        knox_api_token = self.knox_api_token
-        return {"Authorization": f"Bearer {knox_api_token}"}
+        api_token = self.api_token
+        return {"Authorization": f"Bearer {api_token}"}
 
     @property
     @override
@@ -343,7 +343,7 @@ class AsyncEvrim(AsyncAPIClient):
     def copy(
         self,
         *,
-        knox_api_token: str | None = None,
+        api_token: str | None = None,
         base_url: str | httpx.URL | None = None,
         timeout: float | Timeout | None | NotGiven = NOT_GIVEN,
         http_client: httpx.AsyncClient | None = None,
@@ -377,7 +377,7 @@ class AsyncEvrim(AsyncAPIClient):
 
         http_client = http_client or self._client
         return self.__class__(
-            knox_api_token=knox_api_token or self.knox_api_token,
+            api_token=api_token or self.api_token,
             base_url=base_url or self.base_url,
             timeout=self.timeout if isinstance(timeout, NotGiven) else timeout,
             http_client=http_client,

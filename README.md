@@ -10,17 +10,14 @@ It is generated with [Stainless](https://www.stainlessapi.com/).
 
 ## Documentation
 
-The REST API documentation can be found on [docs.evrim.com](https://docs.evrim.com). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [docs.evrim.ai](https://docs.evrim.ai). The full API of this library can be found in [api.md](api.md).
 
 ## Installation
 
 ```sh
-# install from the production repo
-pip install git+ssh://git@github.com/evrimai/python-client.git
+# install from PyPI
+pip install evrim
 ```
-
-> [!NOTE]
-> Once this package is [published to PyPI](https://app.stainlessapi.com/docs/guides/publish), this will become: `pip install --pre evrim`
 
 ## Usage
 
@@ -38,10 +35,10 @@ profile = client.profiles.create(
 print(profile.id)
 ```
 
-While you can provide a `knox_api_token` keyword argument,
+While you can provide a `api_token` keyword argument,
 we recommend using [python-dotenv](https://pypi.org/project/python-dotenv/)
-to add `KNOX_API_TOKEN="My Knox API Token"` to your `.env` file
-so that your Knox API Token is not stored in source control.
+to add `EVRIM_API_TOKEN="My API Token"` to your `.env` file
+so that your API Token is not stored in source control.
 
 ## Async usage
 
