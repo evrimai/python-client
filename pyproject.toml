@@ -5,7 +5,7 @@ description = "The official Python library for the evrim API"
 dynamic = ["readme"]
 license = "Apache-2.0"
 authors = [
-{ name = "Evrim", email = "chris@evrim.ai" },
+{ name = "Evrim", email = "support@evrim.ai" },
 ]
 dependencies = [
     "httpx>=0.23.0, <1",
