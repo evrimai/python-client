@@ -30,7 +30,7 @@ from evrim._base_client import DEFAULT_TIMEOUT, HTTPX_DEFAULT_TIMEOUT, BaseClien
 from .utils import update_env
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
-knox_api_token = "My Knox API Token"
+api_token = "My API Token"
 
 
 def _get_params(client: BaseClient[Any, Any]) -> dict[str, str]:
@@ -52,7 +52,7 @@ def _get_open_connections(client: Evrim | AsyncEvrim) -> int:
 
 
 class TestEvrim:
-    client = Evrim(base_url=base_url, knox_api_token=knox_api_token, _strict_response_validation=True)
+    client = Evrim(base_url=base_url, api_token=api_token, _strict_response_validation=True)
 
     @pytest.mark.respx(base_url=base_url)
     def test_raw_response(self, respx_mock: MockRouter) -> None:
@@ -78,9 +78,9 @@ class TestEvrim:
         copied = self.client.copy()
         assert id(copied) != id(self.client)
 
-        copied = self.client.copy(knox_api_token="another My Knox API Token")
-        assert copied.knox_api_token == "another My Knox API Token"
-        assert self.client.knox_api_token == "My Knox API Token"
+        copied = self.client.copy(api_token="another My API Token")
+        assert copied.api_token == "another My API Token"
+        assert self.client.api_token == "My API Token"
 
     def test_copy_default_options(self) -> None:
         # options that have a default are overridden correctly
@@ -100,10 +100,7 @@ class TestEvrim:
 
     def test_copy_default_headers(self) -> None:
         client = Evrim(
-            base_url=base_url,
-            knox_api_token=knox_api_token,
-            _strict_response_validation=True,
-            default_headers={"X-Foo": "bar"},
+            base_url=base_url, api_token=api_token, _strict_response_validation=True, default_headers={"X-Foo": "bar"}
         )
         assert client.default_headers["X-Foo"] == "bar"
 
@@ -137,10 +134,7 @@ class TestEvrim:
 
     def test_copy_default_query(self) -> None:
         client = Evrim(
-            base_url=base_url,
-            knox_api_token=knox_api_token,
-            _strict_response_validation=True,
-            default_query={"foo": "bar"},
+            base_url=base_url, api_token=api_token, _strict_response_validation=True, default_query={"foo": "bar"}
         )
         assert _get_params(client)["foo"] == "bar"
 
@@ -265,7 +259,7 @@ class TestEvrim:
 
     def test_client_timeout_option(self) -> None:
         client = Evrim(
-            base_url=base_url, knox_api_token=knox_api_token, _strict_response_validation=True, timeout=httpx.Timeout(0)
+            base_url=base_url, api_token=api_token, _strict_response_validation=True, timeout=httpx.Timeout(0)
         )
 
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
@@ -276,10 +270,7 @@ class TestEvrim:
         # custom timeout given to the httpx client should be used
         with httpx.Client(timeout=None) as http_client:
             client = Evrim(
-                base_url=base_url,
-                knox_api_token=knox_api_token,
-                _strict_response_validation=True,
-                http_client=http_client,
+                base_url=base_url, api_token=api_token, _strict_response_validation=True, http_client=http_client
             )
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
@@ -289,10 +280,7 @@ class TestEvrim:
         # no timeout given to the httpx client should not use the httpx default
         with httpx.Client() as http_client:
             client = Evrim(
-                base_url=base_url,
-                knox_api_token=knox_api_token,
-                _strict_response_validation=True,
-                http_client=http_client,
+                base_url=base_url, api_token=api_token, _strict_response_validation=True, http_client=http_client
             )
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
@@ -302,10 +290,7 @@ class TestEvrim:
         # explicitly passing the default timeout currently results in it being ignored
         with httpx.Client(timeout=HTTPX_DEFAULT_TIMEOUT) as http_client:
             client = Evrim(
-                base_url=base_url,
-                knox_api_token=knox_api_token,
-                _strict_response_validation=True,
-                http_client=http_client,
+                base_url=base_url, api_token=api_token, _strict_response_validation=True, http_client=http_client
             )
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
@@ -317,17 +302,14 @@ class TestEvrim:
             async with httpx.AsyncClient() as http_client:
                 Evrim(
                     base_url=base_url,
-                    knox_api_token=knox_api_token,
+                    api_token=api_token,
                     _strict_response_validation=True,
                     http_client=cast(Any, http_client),
                 )
 
     def test_default_headers_option(self) -> None:
         client = Evrim(
-            base_url=base_url,
-            knox_api_token=knox_api_token,
-            _strict_response_validation=True,
-            default_headers={"X-Foo": "bar"},
+            base_url=base_url, api_token=api_token, _strict_response_validation=True, default_headers={"X-Foo": "bar"}
         )
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         assert request.headers.get("x-foo") == "bar"
@@ -335,7 +317,7 @@ class TestEvrim:
 
         client2 = Evrim(
             base_url=base_url,
-            knox_api_token=knox_api_token,
+            api_token=api_token,
             _strict_response_validation=True,
             default_headers={
                 "X-Foo": "stainless",
@@ -349,7 +331,7 @@ class TestEvrim:
     def test_default_query_option(self) -> None:
         client = Evrim(
             base_url=base_url,
-            knox_api_token=knox_api_token,
+            api_token=api_token,
             _strict_response_validation=True,
             default_query={"query_param": "bar"},
         )
@@ -551,9 +533,7 @@ class TestEvrim:
         assert response.foo == 2
 
     def test_base_url_setter(self) -> None:
-        client = Evrim(
-            base_url="https://example.com/from_init", knox_api_token=knox_api_token, _strict_response_validation=True
-        )
+        client = Evrim(base_url="https://example.com/from_init", api_token=api_token, _strict_response_validation=True)
         assert client.base_url == "https://example.com/from_init/"
 
         client.base_url = "https://example.com/from_setter"  # type: ignore[assignment]
@@ -562,20 +542,16 @@ class TestEvrim:
 
     def test_base_url_env(self) -> None:
         with update_env(EVRIM_BASE_URL="http://localhost:5000/from/env"):
-            client = Evrim(knox_api_token=knox_api_token, _strict_response_validation=True)
+            client = Evrim(api_token=api_token, _strict_response_validation=True)
             assert client.base_url == "http://localhost:5000/from/env/"
 
     @pytest.mark.parametrize(
         "client",
         [
+            Evrim(base_url="http://localhost:5000/custom/path/", api_token=api_token, _strict_response_validation=True),
             Evrim(
                 base_url="http://localhost:5000/custom/path/",
-                knox_api_token=knox_api_token,
-                _strict_response_validation=True,
-            ),
-            Evrim(
-                base_url="http://localhost:5000/custom/path/",
-                knox_api_token=knox_api_token,
+                api_token=api_token,
                 _strict_response_validation=True,
                 http_client=httpx.Client(),
             ),
@@ -595,14 +571,10 @@ class TestEvrim:
     @pytest.mark.parametrize(
         "client",
         [
+            Evrim(base_url="http://localhost:5000/custom/path/", api_token=api_token, _strict_response_validation=True),
             Evrim(
                 base_url="http://localhost:5000/custom/path/",
-                knox_api_token=knox_api_token,
-                _strict_response_validation=True,
-            ),
-            Evrim(
-                base_url="http://localhost:5000/custom/path/",
-                knox_api_token=knox_api_token,
+                api_token=api_token,
                 _strict_response_validation=True,
                 http_client=httpx.Client(),
             ),
@@ -622,14 +594,10 @@ class TestEvrim:
     @pytest.mark.parametrize(
         "client",
         [
+            Evrim(base_url="http://localhost:5000/custom/path/", api_token=api_token, _strict_response_validation=True),
             Evrim(
                 base_url="http://localhost:5000/custom/path/",
-                knox_api_token=knox_api_token,
-                _strict_response_validation=True,
-            ),
-            Evrim(
-                base_url="http://localhost:5000/custom/path/",
-                knox_api_token=knox_api_token,
+                api_token=api_token,
                 _strict_response_validation=True,
                 http_client=httpx.Client(),
             ),
@@ -647,7 +615,7 @@ class TestEvrim:
         assert request.url == "https://myapi.com/foo"
 
     def test_copied_client_does_not_close_http(self) -> None:
-        client = Evrim(base_url=base_url, knox_api_token=knox_api_token, _strict_response_validation=True)
+        client = Evrim(base_url=base_url, api_token=api_token, _strict_response_validation=True)
         assert not client.is_closed()
 
         copied = client.copy()
@@ -658,7 +626,7 @@ class TestEvrim:
         assert not client.is_closed()
 
     def test_client_context_manager(self) -> None:
-        client = Evrim(base_url=base_url, knox_api_token=knox_api_token, _strict_response_validation=True)
+        client = Evrim(base_url=base_url, api_token=api_token, _strict_response_validation=True)
         with client as c2:
             assert c2 is client
             assert not c2.is_closed()
@@ -679,12 +647,7 @@ class TestEvrim:
 
     def test_client_max_retries_validation(self) -> None:
         with pytest.raises(TypeError, match=r"max_retries cannot be None"):
-            Evrim(
-                base_url=base_url,
-                knox_api_token=knox_api_token,
-                _strict_response_validation=True,
-                max_retries=cast(Any, None),
-            )
+            Evrim(base_url=base_url, api_token=api_token, _strict_response_validation=True, max_retries=cast(Any, None))
 
     @pytest.mark.respx(base_url=base_url)
     def test_received_text_for_expected_json(self, respx_mock: MockRouter) -> None:
@@ -693,12 +656,12 @@ class TestEvrim:
 
         respx_mock.get("/foo").mock(return_value=httpx.Response(200, text="my-custom-format"))
 
-        strict_client = Evrim(base_url=base_url, knox_api_token=knox_api_token, _strict_response_validation=True)
+        strict_client = Evrim(base_url=base_url, api_token=api_token, _strict_response_validation=True)
 
         with pytest.raises(APIResponseValidationError):
             strict_client.get("/foo", cast_to=Model)
 
-        client = Evrim(base_url=base_url, knox_api_token=knox_api_token, _strict_response_validation=False)
+        client = Evrim(base_url=base_url, api_token=api_token, _strict_response_validation=False)
 
         response = client.get("/foo", cast_to=Model)
         assert isinstance(response, str)  # type: ignore[unreachable]
@@ -726,7 +689,7 @@ class TestEvrim:
     )
     @mock.patch("time.time", mock.MagicMock(return_value=1696004797))
     def test_parse_retry_after_header(self, remaining_retries: int, retry_after: str, timeout: float) -> None:
-        client = Evrim(base_url=base_url, knox_api_token=knox_api_token, _strict_response_validation=True)
+        client = Evrim(base_url=base_url, api_token=api_token, _strict_response_validation=True)
 
         headers = httpx.Headers({"retry-after": retry_after})
         options = FinalRequestOptions(method="get", url="/foo", max_retries=3)
@@ -844,7 +807,7 @@ class TestEvrim:
 
 
 class TestAsyncEvrim:
-    client = AsyncEvrim(base_url=base_url, knox_api_token=knox_api_token, _strict_response_validation=True)
+    client = AsyncEvrim(base_url=base_url, api_token=api_token, _strict_response_validation=True)
 
     @pytest.mark.respx(base_url=base_url)
     @pytest.mark.asyncio
@@ -872,9 +835,9 @@ class TestAsyncEvrim:
         copied = self.client.copy()
         assert id(copied) != id(self.client)
 
-        copied = self.client.copy(knox_api_token="another My Knox API Token")
-        assert copied.knox_api_token == "another My Knox API Token"
-        assert self.client.knox_api_token == "My Knox API Token"
+        copied = self.client.copy(api_token="another My API Token")
+        assert copied.api_token == "another My API Token"
+        assert self.client.api_token == "My API Token"
 
     def test_copy_default_options(self) -> None:
         # options that have a default are overridden correctly
@@ -894,10 +857,7 @@ class TestAsyncEvrim:
 
     def test_copy_default_headers(self) -> None:
         client = AsyncEvrim(
-            base_url=base_url,
-            knox_api_token=knox_api_token,
-            _strict_response_validation=True,
-            default_headers={"X-Foo": "bar"},
+            base_url=base_url, api_token=api_token, _strict_response_validation=True, default_headers={"X-Foo": "bar"}
         )
         assert client.default_headers["X-Foo"] == "bar"
 
@@ -931,10 +891,7 @@ class TestAsyncEvrim:
 
     def test_copy_default_query(self) -> None:
         client = AsyncEvrim(
-            base_url=base_url,
-            knox_api_token=knox_api_token,
-            _strict_response_validation=True,
-            default_query={"foo": "bar"},
+            base_url=base_url, api_token=api_token, _strict_response_validation=True, default_query={"foo": "bar"}
         )
         assert _get_params(client)["foo"] == "bar"
 
@@ -1059,7 +1016,7 @@ class TestAsyncEvrim:
 
     async def test_client_timeout_option(self) -> None:
         client = AsyncEvrim(
-            base_url=base_url, knox_api_token=knox_api_token, _strict_response_validation=True, timeout=httpx.Timeout(0)
+            base_url=base_url, api_token=api_token, _strict_response_validation=True, timeout=httpx.Timeout(0)
         )
 
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
@@ -1070,10 +1027,7 @@ class TestAsyncEvrim:
         # custom timeout given to the httpx client should be used
         async with httpx.AsyncClient(timeout=None) as http_client:
             client = AsyncEvrim(
-                base_url=base_url,
-                knox_api_token=knox_api_token,
-                _strict_response_validation=True,
-                http_client=http_client,
+                base_url=base_url, api_token=api_token, _strict_response_validation=True, http_client=http_client
             )
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
@@ -1083,10 +1037,7 @@ class TestAsyncEvrim:
         # no timeout given to the httpx client should not use the httpx default
         async with httpx.AsyncClient() as http_client:
             client = AsyncEvrim(
-                base_url=base_url,
-                knox_api_token=knox_api_token,
-                _strict_response_validation=True,
-                http_client=http_client,
+                base_url=base_url, api_token=api_token, _strict_response_validation=True, http_client=http_client
             )
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
@@ -1096,10 +1047,7 @@ class TestAsyncEvrim:
         # explicitly passing the default timeout currently results in it being ignored
         async with httpx.AsyncClient(timeout=HTTPX_DEFAULT_TIMEOUT) as http_client:
             client = AsyncEvrim(
-                base_url=base_url,
-                knox_api_token=knox_api_token,
-                _strict_response_validation=True,
-                http_client=http_client,
+                base_url=base_url, api_token=api_token, _strict_response_validation=True, http_client=http_client
             )
 
             request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
@@ -1111,17 +1059,14 @@ class TestAsyncEvrim:
             with httpx.Client() as http_client:
                 AsyncEvrim(
                     base_url=base_url,
-                    knox_api_token=knox_api_token,
+                    api_token=api_token,
                     _strict_response_validation=True,
                     http_client=cast(Any, http_client),
                 )
 
     def test_default_headers_option(self) -> None:
         client = AsyncEvrim(
-            base_url=base_url,
-            knox_api_token=knox_api_token,
-            _strict_response_validation=True,
-            default_headers={"X-Foo": "bar"},
+            base_url=base_url, api_token=api_token, _strict_response_validation=True, default_headers={"X-Foo": "bar"}
         )
         request = client._build_request(FinalRequestOptions(method="get", url="/foo"))
         assert request.headers.get("x-foo") == "bar"
@@ -1129,7 +1074,7 @@ class TestAsyncEvrim:
 
         client2 = AsyncEvrim(
             base_url=base_url,
-            knox_api_token=knox_api_token,
+            api_token=api_token,
             _strict_response_validation=True,
             default_headers={
                 "X-Foo": "stainless",
@@ -1143,7 +1088,7 @@ class TestAsyncEvrim:
     def test_default_query_option(self) -> None:
         client = AsyncEvrim(
             base_url=base_url,
-            knox_api_token=knox_api_token,
+            api_token=api_token,
             _strict_response_validation=True,
             default_query={"query_param": "bar"},
         )
@@ -1346,7 +1291,7 @@ class TestAsyncEvrim:
 
     def test_base_url_setter(self) -> None:
         client = AsyncEvrim(
-            base_url="https://example.com/from_init", knox_api_token=knox_api_token, _strict_response_validation=True
+            base_url="https://example.com/from_init", api_token=api_token, _strict_response_validation=True
         )
         assert client.base_url == "https://example.com/from_init/"
 
@@ -1356,20 +1301,18 @@ class TestAsyncEvrim:
 
     def test_base_url_env(self) -> None:
         with update_env(EVRIM_BASE_URL="http://localhost:5000/from/env"):
-            client = AsyncEvrim(knox_api_token=knox_api_token, _strict_response_validation=True)
+            client = AsyncEvrim(api_token=api_token, _strict_response_validation=True)
             assert client.base_url == "http://localhost:5000/from/env/"
 
     @pytest.mark.parametrize(
         "client",
         [
             AsyncEvrim(
-                base_url="http://localhost:5000/custom/path/",
-                knox_api_token=knox_api_token,
-                _strict_response_validation=True,
+                base_url="http://localhost:5000/custom/path/", api_token=api_token, _strict_response_validation=True
             ),
             AsyncEvrim(
                 base_url="http://localhost:5000/custom/path/",
-                knox_api_token=knox_api_token,
+                api_token=api_token,
                 _strict_response_validation=True,
                 http_client=httpx.AsyncClient(),
             ),
@@ -1390,13 +1333,11 @@ class TestAsyncEvrim:
         "client",
         [
             AsyncEvrim(
-                base_url="http://localhost:5000/custom/path/",
-                knox_api_token=knox_api_token,
-                _strict_response_validation=True,
+                base_url="http://localhost:5000/custom/path/", api_token=api_token, _strict_response_validation=True
             ),
             AsyncEvrim(
                 base_url="http://localhost:5000/custom/path/",
-                knox_api_token=knox_api_token,
+                api_token=api_token,
                 _strict_response_validation=True,
                 http_client=httpx.AsyncClient(),
             ),
@@ -1417,13 +1358,11 @@ class TestAsyncEvrim:
         "client",
         [
             AsyncEvrim(
-                base_url="http://localhost:5000/custom/path/",
-                knox_api_token=knox_api_token,
-                _strict_response_validation=True,
+                base_url="http://localhost:5000/custom/path/", api_token=api_token, _strict_response_validation=True
             ),
             AsyncEvrim(
                 base_url="http://localhost:5000/custom/path/",
-                knox_api_token=knox_api_token,
+                api_token=api_token,
                 _strict_response_validation=True,
                 http_client=httpx.AsyncClient(),
             ),
@@ -1441,7 +1380,7 @@ class TestAsyncEvrim:
         assert request.url == "https://myapi.com/foo"
 
     async def test_copied_client_does_not_close_http(self) -> None:
-        client = AsyncEvrim(base_url=base_url, knox_api_token=knox_api_token, _strict_response_validation=True)
+        client = AsyncEvrim(base_url=base_url, api_token=api_token, _strict_response_validation=True)
         assert not client.is_closed()
 
         copied = client.copy()
@@ -1453,7 +1392,7 @@ class TestAsyncEvrim:
         assert not client.is_closed()
 
     async def test_client_context_manager(self) -> None:
-        client = AsyncEvrim(base_url=base_url, knox_api_token=knox_api_token, _strict_response_validation=True)
+        client = AsyncEvrim(base_url=base_url, api_token=api_token, _strict_response_validation=True)
         async with client as c2:
             assert c2 is client
             assert not c2.is_closed()
@@ -1476,10 +1415,7 @@ class TestAsyncEvrim:
     async def test_client_max_retries_validation(self) -> None:
         with pytest.raises(TypeError, match=r"max_retries cannot be None"):
             AsyncEvrim(
-                base_url=base_url,
-                knox_api_token=knox_api_token,
-                _strict_response_validation=True,
-                max_retries=cast(Any, None),
+                base_url=base_url, api_token=api_token, _strict_response_validation=True, max_retries=cast(Any, None)
             )
 
     @pytest.mark.respx(base_url=base_url)
@@ -1490,12 +1426,12 @@ class TestAsyncEvrim:
 
         respx_mock.get("/foo").mock(return_value=httpx.Response(200, text="my-custom-format"))
 
-        strict_client = AsyncEvrim(base_url=base_url, knox_api_token=knox_api_token, _strict_response_validation=True)
+        strict_client = AsyncEvrim(base_url=base_url, api_token=api_token, _strict_response_validation=True)
 
         with pytest.raises(APIResponseValidationError):
             await strict_client.get("/foo", cast_to=Model)
 
-        client = AsyncEvrim(base_url=base_url, knox_api_token=knox_api_token, _strict_response_validation=False)
+        client = AsyncEvrim(base_url=base_url, api_token=api_token, _strict_response_validation=False)
 
         response = await client.get("/foo", cast_to=Model)
         assert isinstance(response, str)  # type: ignore[unreachable]
@@ -1524,7 +1460,7 @@ class TestAsyncEvrim:
     @mock.patch("time.time", mock.MagicMock(return_value=1696004797))
     @pytest.mark.asyncio
     async def test_parse_retry_after_header(self, remaining_retries: int, retry_after: str, timeout: float) -> None:
-        client = AsyncEvrim(base_url=base_url, knox_api_token=knox_api_token, _strict_response_validation=True)
+        client = AsyncEvrim(base_url=base_url, api_token=api_token, _strict_response_validation=True)
 
         headers = httpx.Headers({"retry-after": retry_after})
         options = FinalRequestOptions(method="get", url="/foo", max_retries=3)

@@ -28,7 +28,7 @@ def pytest_collection_modifyitems(items: list[pytest.Function]) -> None:
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
-knox_api_token = "My Knox API Token"
+api_token = "My API Token"
 
 
 @pytest.fixture(scope="session")
@@ -37,7 +37,7 @@ def client(request: FixtureRequest) -> Iterator[Evrim]:
     if not isinstance(strict, bool):
         raise TypeError(f"Unexpected fixture parameter type {type(strict)}, expected {bool}")
 
-    with Evrim(base_url=base_url, knox_api_token=knox_api_token, _strict_response_validation=strict) as client:
+    with Evrim(base_url=base_url, api_token=api_token, _strict_response_validation=strict) as client:
         yield client
 
 
@@ -47,7 +47,5 @@ async def async_client(request: FixtureRequest) -> AsyncIterator[AsyncEvrim]:
     if not isinstance(strict, bool):
         raise TypeError(f"Unexpected fixture parameter type {type(strict)}, expected {bool}")
 
-    async with AsyncEvrim(
-        base_url=base_url, knox_api_token=knox_api_token, _strict_response_validation=strict
-    ) as client:
+    async with AsyncEvrim(base_url=base_url, api_token=api_token, _strict_response_validation=strict) as client:
         yield client
