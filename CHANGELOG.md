@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.1.1 (2025-01-10)
+
+Full Changelog: [v2.1.0...v2.1.1](https://github.com/evrimai/python-client/compare/v2.1.0...v2.1.1)
+
+### Bug Fixes
+
+* correctly handle deserialising `cls` fields ([#10](https://github.com/evrimai/python-client/issues/10)) ([022ce03](https://github.com/evrimai/python-client/commit/022ce03bbd753d947e8b0bb47216df124cfef0c7))
+
+
+### Chores
+
+* **internal:** version bump ([#8](https://github.com/evrimai/python-client/issues/8)) ([bc30d36](https://github.com/evrimai/python-client/commit/bc30d368e3a47f4516b0ee1ac5d6d5c9bf0d2747))
+
 ## 2.1.0 (2025-01-08)
 
 Full Changelog: [v2.0.0...v2.1.0](https://github.com/evrimai/python-client/compare/v2.0.0...v2.1.0)
