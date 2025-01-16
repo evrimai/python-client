@@ -3,10 +3,11 @@
 from __future__ import annotations
 
 from typing import List, Optional
+from typing_extensions import Literal
 
 import httpx
 
-from ..types import field_create_params, field_update_params, field_template_params
+from ..types import field_list_params, field_create_params, field_update_params, field_template_params
 from .._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven
 from .._utils import (
     maybe_transform,
@@ -179,6 +180,8 @@ class FieldsResource(SyncAPIResource):
     def list(
         self,
         *,
+        name: str | NotGiven = NOT_GIVEN,
+        type: Literal["bln", "enm", "flt", "int", "rel", "str"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -186,10 +189,37 @@ class FieldsResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> FieldListResponse:
+        """
+        Args:
+          type: - `str` - String
+              - `int` - Integer
+              - `flt` - Float
+              - `bln` - Boolean
+              - `rel` - Relationship
+              - `enm` - Enum
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
         return self._get(
             "/prod/v0/fields/",
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "name": name,
+                        "type": type,
+                    },
+                    field_list_params.FieldListParams,
+                ),
             ),
             cast_to=FieldListResponse,
         )
@@ -409,6 +439,8 @@ class AsyncFieldsResource(AsyncAPIResource):
     async def list(
         self,
         *,
+        name: str | NotGiven = NOT_GIVEN,
+        type: Literal["bln", "enm", "flt", "int", "rel", "str"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -416,10 +448,37 @@ class AsyncFieldsResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> FieldListResponse:
+        """
+        Args:
+          type: - `str` - String
+              - `int` - Integer
+              - `flt` - Float
+              - `bln` - Boolean
+              - `rel` - Relationship
+              - `enm` - Enum
+
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
         return await self._get(
             "/prod/v0/fields/",
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {
+                        "name": name,
+                        "type": type,
+                    },
+                    field_list_params.FieldListParams,
+                ),
             ),
             cast_to=FieldListResponse,
         )
