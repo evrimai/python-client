@@ -8,7 +8,10 @@ from typing import Any, cast
 import pytest
 
 from evrim import Evrim, AsyncEvrim
-from evrim.types import Template, TemplateListResponse
+from evrim.types import (
+    Template,
+    TemplateListResponse,
+)
 from tests.utils import assert_matches_type
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -177,6 +180,13 @@ class TestTemplates:
     @parametrize
     def test_method_list(self, client: Evrim) -> None:
         template = client.templates.list()
+        assert_matches_type(TemplateListResponse, template, path=["response"])
+
+    @parametrize
+    def test_method_list_with_all_params(self, client: Evrim) -> None:
+        template = client.templates.list(
+            name="name",
+        )
         assert_matches_type(TemplateListResponse, template, path=["response"])
 
     @parametrize
@@ -394,6 +404,13 @@ class TestAsyncTemplates:
     @parametrize
     async def test_method_list(self, async_client: AsyncEvrim) -> None:
         template = await async_client.templates.list()
+        assert_matches_type(TemplateListResponse, template, path=["response"])
+
+    @parametrize
+    async def test_method_list_with_all_params(self, async_client: AsyncEvrim) -> None:
+        template = await async_client.templates.list(
+            name="name",
+        )
         assert_matches_type(TemplateListResponse, template, path=["response"])
 
     @parametrize
