@@ -134,7 +134,7 @@ Methods:
 - <code title="post /prod/v0/fields/">client.fields.<a href="./src/evrim/resources/fields.py">create</a>(\*\*<a href="src/evrim/types/field_create_params.py">params</a>) -> <a href="./src/evrim/types/field.py">Field</a></code>
 - <code title="get /prod/v0/fields/{id}/">client.fields.<a href="./src/evrim/resources/fields.py">retrieve</a>(id) -> <a href="./src/evrim/types/field.py">Field</a></code>
 - <code title="patch /prod/v0/fields/{id}/">client.fields.<a href="./src/evrim/resources/fields.py">update</a>(\*, path_id, \*\*<a href="src/evrim/types/field_update_params.py">params</a>) -> <a href="./src/evrim/types/field.py">Field</a></code>
-- <code title="get /prod/v0/fields/">client.fields.<a href="./src/evrim/resources/fields.py">list</a>() -> <a href="./src/evrim/types/field_list_response.py">FieldListResponse</a></code>
+- <code title="get /prod/v0/fields/">client.fields.<a href="./src/evrim/resources/fields.py">list</a>(\*\*<a href="src/evrim/types/field_list_params.py">params</a>) -> <a href="./src/evrim/types/field_list_response.py">FieldListResponse</a></code>
 - <code title="delete /prod/v0/fields/{id}/">client.fields.<a href="./src/evrim/resources/fields.py">delete</a>(id) -> None</code>
 - <code title="post /prod/v0/fields/{field_id}/template/">client.fields.<a href="./src/evrim/resources/fields.py">template</a>(field_id, \*\*<a href="src/evrim/types/field_template_params.py">params</a>) -> <a href="./src/evrim/types/field_to_template.py">FieldToTemplate</a></code>
 
@@ -167,7 +167,7 @@ Methods:
 - <code title="post /prod/v0/profiles/">client.profiles.<a href="./src/evrim/resources/profiles/profiles.py">create</a>(\*\*<a href="src/evrim/types/profile_create_params.py">params</a>) -> <a href="./src/evrim/types/shared/profile.py">Profile</a></code>
 - <code title="get /prod/v0/profiles/{id}/">client.profiles.<a href="./src/evrim/resources/profiles/profiles.py">retrieve</a>(id) -> <a href="./src/evrim/types/shared/profile.py">Profile</a></code>
 - <code title="patch /prod/v0/profiles/{id}/">client.profiles.<a href="./src/evrim/resources/profiles/profiles.py">update</a>(id, \*\*<a href="src/evrim/types/profile_update_params.py">params</a>) -> <a href="./src/evrim/types/shared/profile.py">Profile</a></code>
-- <code title="get /prod/v0/profiles/">client.profiles.<a href="./src/evrim/resources/profiles/profiles.py">list</a>() -> <a href="./src/evrim/types/profile_list_response.py">ProfileListResponse</a></code>
+- <code title="get /prod/v0/profiles/">client.profiles.<a href="./src/evrim/resources/profiles/profiles.py">list</a>(\*\*<a href="src/evrim/types/profile_list_params.py">params</a>) -> <a href="./src/evrim/types/profile_list_response.py">ProfileListResponse</a></code>
 - <code title="delete /prod/v0/profiles/{id}/">client.profiles.<a href="./src/evrim/resources/profiles/profiles.py">delete</a>(id) -> None</code>
 - <code title="post /prod/v0/profiles/{profile_id}/tag/">client.profiles.<a href="./src/evrim/resources/profiles/profiles.py">tag</a>(profile_id, \*\*<a href="src/evrim/types/profile_tag_params.py">params</a>) -> <a href="./src/evrim/types/tag_profile.py">TagProfile</a></code>
 
@@ -318,7 +318,7 @@ Methods:
 - <code title="post /prod/v0/templates/">client.templates.<a href="./src/evrim/resources/templates/templates.py">create</a>(\*\*<a href="src/evrim/types/template_create_params.py">params</a>) -> <a href="./src/evrim/types/template.py">Template</a></code>
 - <code title="get /prod/v0/templates/{id}/">client.templates.<a href="./src/evrim/resources/templates/templates.py">retrieve</a>(id) -> <a href="./src/evrim/types/template.py">Template</a></code>
 - <code title="patch /prod/v0/templates/{id}/">client.templates.<a href="./src/evrim/resources/templates/templates.py">update</a>(id, \*\*<a href="src/evrim/types/template_update_params.py">params</a>) -> <a href="./src/evrim/types/template.py">Template</a></code>
-- <code title="get /prod/v0/templates/">client.templates.<a href="./src/evrim/resources/templates/templates.py">list</a>() -> <a href="./src/evrim/types/template_list_response.py">TemplateListResponse</a></code>
+- <code title="get /prod/v0/templates/">client.templates.<a href="./src/evrim/resources/templates/templates.py">list</a>(\*\*<a href="src/evrim/types/template_list_params.py">params</a>) -> <a href="./src/evrim/types/template_list_response.py">TemplateListResponse</a></code>
 - <code title="delete /prod/v0/templates/{id}/">client.templates.<a href="./src/evrim/resources/templates/templates.py">delete</a>(id) -> None</code>
 
 ## Profiles

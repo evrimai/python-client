@@ -20,6 +20,7 @@ from .tag_profile import TagProfile as TagProfile
 from .created_field import CreatedField as CreatedField
 from .template_param import TemplateParam as TemplateParam
 from .prompt_template import PromptTemplate as PromptTemplate
+from .field_list_params import FieldListParams as FieldListParams
 from .field_to_template import FieldToTemplate as FieldToTemplate
 from .tag_create_params import TagCreateParams as TagCreateParams
 from .tag_list_response import TagListResponse as TagListResponse
@@ -29,7 +30,9 @@ from .profile_tag_params import ProfileTagParams as ProfileTagParams
 from .field_create_params import FieldCreateParams as FieldCreateParams
 from .field_list_response import FieldListResponse as FieldListResponse
 from .field_update_params import FieldUpdateParams as FieldUpdateParams
+from .profile_list_params import ProfileListParams as ProfileListParams
 from .prod_schema_response import ProdSchemaResponse as ProdSchemaResponse
+from .template_list_params import TemplateListParams as TemplateListParams
 from .field_template_params import FieldTemplateParams as FieldTemplateParams
 from .outline_create_params import OutlineCreateParams as OutlineCreateParams
 from .outline_list_response import OutlineListResponse as OutlineListResponse
