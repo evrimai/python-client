@@ -133,7 +133,7 @@ Methods:
 
 - <code title="post /prod/v0/fields/">client.fields.<a href="./src/evrim/resources/fields.py">create</a>(\*\*<a href="src/evrim/types/field_create_params.py">params</a>) -> <a href="./src/evrim/types/field.py">Field</a></code>
 - <code title="get /prod/v0/fields/{id}/">client.fields.<a href="./src/evrim/resources/fields.py">retrieve</a>(id) -> <a href="./src/evrim/types/field.py">Field</a></code>
-- <code title="patch /prod/v0/fields/{id}/">client.fields.<a href="./src/evrim/resources/fields.py">update</a>(\*, path_id, \*\*<a href="src/evrim/types/field_update_params.py">params</a>) -> <a href="./src/evrim/types/field.py">Field</a></code>
+- <code title="patch /prod/v0/fields/{id}/">client.fields.<a href="./src/evrim/resources/fields.py">update</a>(id_1, \*\*<a href="src/evrim/types/field_update_params.py">params</a>) -> <a href="./src/evrim/types/field.py">Field</a></code>
 - <code title="get /prod/v0/fields/">client.fields.<a href="./src/evrim/resources/fields.py">list</a>(\*\*<a href="src/evrim/types/field_list_params.py">params</a>) -> <a href="./src/evrim/types/field_list_response.py">FieldListResponse</a></code>
 - <code title="delete /prod/v0/fields/{id}/">client.fields.<a href="./src/evrim/resources/fields.py">delete</a>(id) -> None</code>
 - <code title="post /prod/v0/fields/{field_id}/template/">client.fields.<a href="./src/evrim/resources/fields.py">template</a>(field_id, \*\*<a href="src/evrim/types/field_template_params.py">params</a>) -> <a href="./src/evrim/types/field_to_template.py">FieldToTemplate</a></code>

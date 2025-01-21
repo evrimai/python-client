@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from typing import List, Optional
-from typing_extensions import Required, Annotated, TypedDict
+from typing_extensions import Annotated, TypedDict
 
 from .._utils import PropertyInfo
 
@@ -11,9 +11,7 @@ __all__ = ["FieldUpdateParams"]
 
 
 class FieldUpdateParams(TypedDict, total=False):
-    path_id: Required[Annotated[int, PropertyInfo(alias="id")]]
-
-    body_id: Annotated[int, PropertyInfo(alias="id")]
+    id_2: Annotated[int, PropertyInfo(alias="id")]
 
     description: str
 
