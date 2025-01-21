@@ -129,9 +129,9 @@ class FieldsResource(SyncAPIResource):
 
     def update(
         self,
+        id_1: int,
         *,
-        path_id: int,
-        body_id: int | NotGiven = NOT_GIVEN,
+        id_2: int | NotGiven = NOT_GIVEN,
         description: str | NotGiven = NOT_GIVEN,
         enum_many: bool | NotGiven = NOT_GIVEN,
         enum_values: List[str] | NotGiven = NOT_GIVEN,
@@ -157,10 +157,10 @@ class FieldsResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._patch(
-            f"/prod/v0/fields/{path_id}/",
+            f"/prod/v0/fields/{id_1}/",
             body=maybe_transform(
                 {
-                    "body_id": body_id,
+                    "id_2": id_2,
                     "description": description,
                     "enum_many": enum_many,
                     "enum_values": enum_values,
@@ -388,9 +388,9 @@ class AsyncFieldsResource(AsyncAPIResource):
 
     async def update(
         self,
+        id_1: int,
         *,
-        path_id: int,
-        body_id: int | NotGiven = NOT_GIVEN,
+        id_2: int | NotGiven = NOT_GIVEN,
         description: str | NotGiven = NOT_GIVEN,
         enum_many: bool | NotGiven = NOT_GIVEN,
         enum_values: List[str] | NotGiven = NOT_GIVEN,
@@ -416,10 +416,10 @@ class AsyncFieldsResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._patch(
-            f"/prod/v0/fields/{path_id}/",
+            f"/prod/v0/fields/{id_1}/",
             body=await async_maybe_transform(
                 {
-                    "body_id": body_id,
+                    "id_2": id_2,
                     "description": description,
                     "enum_many": enum_many,
                     "enum_values": enum_values,
