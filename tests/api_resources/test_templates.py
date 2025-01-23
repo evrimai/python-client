@@ -45,7 +45,6 @@ class TestTemplates:
                     "id": 0,
                     "enum_many": True,
                     "enum_values": ["string"],
-                    "rel_template": 0,
                     "rel_template_id": 0,
                 }
             ],
@@ -144,7 +143,6 @@ class TestTemplates:
                     "id": 0,
                     "enum_many": True,
                     "enum_values": ["string"],
-                    "rel_template": 0,
                     "rel_template_id": 0,
                 }
             ],
@@ -269,7 +267,6 @@ class TestAsyncTemplates:
                     "id": 0,
                     "enum_many": True,
                     "enum_values": ["string"],
-                    "rel_template": 0,
                     "rel_template_id": 0,
                 }
             ],
@@ -368,7 +365,6 @@ class TestAsyncTemplates:
                     "id": 0,
                     "enum_many": True,
                     "enum_values": ["string"],
-                    "rel_template": 0,
                     "rel_template_id": 0,
                 }
             ],

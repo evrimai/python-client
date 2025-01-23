@@ -21,8 +21,6 @@ class FieldUpdateParams(TypedDict, total=False):
 
     name: str
 
-    rel_template: Optional[int]
-
     rel_template_id: Optional[int]
 
     type: str
