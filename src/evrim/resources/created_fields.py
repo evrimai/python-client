@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from typing import List, Optional
+
 import httpx
 
 from ..types import (
@@ -24,6 +26,7 @@ from .._response import (
 )
 from .._base_client import make_request_options
 from ..types.created_field import CreatedField
+from ..types.template_param import TemplateParam
 from ..types.created_field_list_response import CreatedFieldListResponse
 
 __all__ = ["CreatedFieldsResource", "AsyncCreatedFieldsResource"]
@@ -56,6 +59,10 @@ class CreatedFieldsResource(SyncAPIResource):
         name: str,
         specification: str,
         type: str,
+        enum_many: bool | NotGiven = NOT_GIVEN,
+        enum_values: List[str] | NotGiven = NOT_GIVEN,
+        rel_template: TemplateParam | NotGiven = NOT_GIVEN,
+        source_entity_type: Optional[str] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -81,6 +88,10 @@ class CreatedFieldsResource(SyncAPIResource):
                     "name": name,
                     "specification": specification,
                     "type": type,
+                    "enum_many": enum_many,
+                    "enum_values": enum_values,
+                    "rel_template": rel_template,
+                    "source_entity_type": source_entity_type,
                 },
                 created_field_create_params.CreatedFieldCreateParams,
             ),
@@ -124,7 +135,11 @@ class CreatedFieldsResource(SyncAPIResource):
         id: int,
         *,
         description: str | NotGiven = NOT_GIVEN,
+        enum_many: bool | NotGiven = NOT_GIVEN,
+        enum_values: List[str] | NotGiven = NOT_GIVEN,
         name: str | NotGiven = NOT_GIVEN,
+        rel_template: TemplateParam | NotGiven = NOT_GIVEN,
+        source_entity_type: Optional[str] | NotGiven = NOT_GIVEN,
         specification: str | NotGiven = NOT_GIVEN,
         type: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -149,7 +164,11 @@ class CreatedFieldsResource(SyncAPIResource):
             body=maybe_transform(
                 {
                     "description": description,
+                    "enum_many": enum_many,
+                    "enum_values": enum_values,
                     "name": name,
+                    "rel_template": rel_template,
+                    "source_entity_type": source_entity_type,
                     "specification": specification,
                     "type": type,
                 },
@@ -273,6 +292,10 @@ class AsyncCreatedFieldsResource(AsyncAPIResource):
         name: str,
         specification: str,
         type: str,
+        enum_many: bool | NotGiven = NOT_GIVEN,
+        enum_values: List[str] | NotGiven = NOT_GIVEN,
+        rel_template: TemplateParam | NotGiven = NOT_GIVEN,
+        source_entity_type: Optional[str] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -298,6 +321,10 @@ class AsyncCreatedFieldsResource(AsyncAPIResource):
                     "name": name,
                     "specification": specification,
                     "type": type,
+                    "enum_many": enum_many,
+                    "enum_values": enum_values,
+                    "rel_template": rel_template,
+                    "source_entity_type": source_entity_type,
                 },
                 created_field_create_params.CreatedFieldCreateParams,
             ),
@@ -341,7 +368,11 @@ class AsyncCreatedFieldsResource(AsyncAPIResource):
         id: int,
         *,
         description: str | NotGiven = NOT_GIVEN,
+        enum_many: bool | NotGiven = NOT_GIVEN,
+        enum_values: List[str] | NotGiven = NOT_GIVEN,
         name: str | NotGiven = NOT_GIVEN,
+        rel_template: TemplateParam | NotGiven = NOT_GIVEN,
+        source_entity_type: Optional[str] | NotGiven = NOT_GIVEN,
         specification: str | NotGiven = NOT_GIVEN,
         type: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -366,7 +397,11 @@ class AsyncCreatedFieldsResource(AsyncAPIResource):
             body=await async_maybe_transform(
                 {
                     "description": description,
+                    "enum_many": enum_many,
+                    "enum_values": enum_values,
                     "name": name,
+                    "rel_template": rel_template,
+                    "source_entity_type": source_entity_type,
                     "specification": specification,
                     "type": type,
                 },

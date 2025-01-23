@@ -12,4 +12,6 @@ class CreatedField(BaseModel):
 
     field: Field
 
+    status: str
+
     value: object
