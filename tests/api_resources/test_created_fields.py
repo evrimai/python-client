@@ -48,7 +48,6 @@ class TestCreatedFields:
                         "id": 0,
                         "enum_many": True,
                         "enum_values": ["string"],
-                        "rel_template_id": 0,
                     }
                 ],
                 "name": "name",
@@ -144,7 +143,6 @@ class TestCreatedFields:
                         "id": 0,
                         "enum_many": True,
                         "enum_values": ["string"],
-                        "rel_template_id": 0,
                     }
                 ],
                 "name": "name",
@@ -311,7 +309,6 @@ class TestAsyncCreatedFields:
                         "id": 0,
                         "enum_many": True,
                         "enum_values": ["string"],
-                        "rel_template_id": 0,
                     }
                 ],
                 "name": "name",
@@ -407,7 +404,6 @@ class TestAsyncCreatedFields:
                         "id": 0,
                         "enum_many": True,
                         "enum_values": ["string"],
-                        "rel_template_id": 0,
                     }
                 ],
                 "name": "name",
