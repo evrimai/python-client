@@ -3,8 +3,24 @@
 from typing import List
 from typing_extensions import TypeAlias
 
-from ..shared.snapshot import Snapshot
+from ..._models import BaseModel
+from ..created_field import CreatedField
 
-__all__ = ["LatestRetrieveResponse"]
+__all__ = ["LatestRetrieveResponse", "LatestRetrieveResponseItem", "LatestRetrieveResponseItemAnswer"]
 
-LatestRetrieveResponse: TypeAlias = List[Snapshot]
+
+class LatestRetrieveResponseItemAnswer(BaseModel):
+    id: int
+
+    answer: object
+
+
+class LatestRetrieveResponseItem(BaseModel):
+    answers: List[LatestRetrieveResponseItemAnswer]
+
+    fields: List[CreatedField]
+
+    specification: str
+
+
+LatestRetrieveResponse: TypeAlias = List[LatestRetrieveResponseItem]
