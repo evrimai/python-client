@@ -58,20 +58,6 @@ Methods:
 
 - <code title="post /prod/v0/bulk/collections/profiles/">client.bulk.collections.profiles.<a href="./src/evrim/resources/bulk/collections/profiles.py">create</a>(\*\*<a href="src/evrim/types/bulk/collections/profile_create_params.py">params</a>) -> <a href="./src/evrim/types/bulk/collections/bulk_profiles_to_collection.py">BulkProfilesToCollection</a></code>
 
-## CreatedFields
-
-Types:
-
-```python
-from evrim.types.bulk import BulkCreatedField, CreatedFieldListResponse
-```
-
-Methods:
-
-- <code title="post /prod/v0/bulk/created-fields/">client.bulk.created_fields.<a href="./src/evrim/resources/bulk/created_fields.py">create</a>(\*\*<a href="src/evrim/types/bulk/created_field_create_params.py">params</a>) -> <a href="./src/evrim/types/bulk/bulk_created_field.py">BulkCreatedField</a></code>
-- <code title="get /prod/v0/bulk/created-fields/{id}/">client.bulk.created_fields.<a href="./src/evrim/resources/bulk/created_fields.py">retrieve</a>(id) -> <a href="./src/evrim/types/bulk/bulk_created_field.py">BulkCreatedField</a></code>
-- <code title="get /prod/v0/bulk/created-fields/">client.bulk.created_fields.<a href="./src/evrim/resources/bulk/created_fields.py">list</a>() -> <a href="./src/evrim/types/bulk/created_field_list_response.py">CreatedFieldListResponse</a></code>
-
 ## Templates
 
 ### Profiles
@@ -143,16 +129,8 @@ Methods:
 Types:
 
 ```python
-from evrim.types import Outline, OutlineListResponse
+from evrim.types import Outline
 ```
-
-Methods:
-
-- <code title="post /prod/v0/outlines/">client.outlines.<a href="./src/evrim/resources/outlines.py">create</a>(\*\*<a href="src/evrim/types/outline_create_params.py">params</a>) -> <a href="./src/evrim/types/outline.py">Outline</a></code>
-- <code title="get /prod/v0/outlines/{id}/">client.outlines.<a href="./src/evrim/resources/outlines.py">retrieve</a>(id) -> <a href="./src/evrim/types/outline.py">Outline</a></code>
-- <code title="patch /prod/v0/outlines/{id}/">client.outlines.<a href="./src/evrim/resources/outlines.py">update</a>(id, \*\*<a href="src/evrim/types/outline_update_params.py">params</a>) -> <a href="./src/evrim/types/outline.py">Outline</a></code>
-- <code title="get /prod/v0/outlines/">client.outlines.<a href="./src/evrim/resources/outlines.py">list</a>() -> <a href="./src/evrim/types/outline_list_response.py">OutlineListResponse</a></code>
-- <code title="delete /prod/v0/outlines/{id}/">client.outlines.<a href="./src/evrim/resources/outlines.py">delete</a>(id) -> None</code>
 
 # Profiles
 
@@ -234,22 +212,6 @@ Methods:
 - <code title="post /prod/v0/prompt-templates/">client.prompt_templates.<a href="./src/evrim/resources/prompt_templates.py">create</a>(\*\*<a href="src/evrim/types/prompt_template_create_params.py">params</a>) -> <a href="./src/evrim/types/prompt_template.py">PromptTemplate</a></code>
 - <code title="get /prod/v0/prompt-templates/{id}/">client.prompt_templates.<a href="./src/evrim/resources/prompt_templates.py">retrieve</a>(id) -> <a href="./src/evrim/types/prompt_template.py">PromptTemplate</a></code>
 - <code title="get /prod/v0/prompt-templates/">client.prompt_templates.<a href="./src/evrim/resources/prompt_templates.py">list</a>() -> <a href="./src/evrim/types/prompt_template_list_response.py">PromptTemplateListResponse</a></code>
-
-# ReportsV3
-
-Types:
-
-```python
-from evrim.types import ReportsV3ListResponse
-```
-
-Methods:
-
-- <code title="post /prod/v0/reports-v3/">client.reports_v3.<a href="./src/evrim/resources/reports_v3.py">create</a>(\*\*<a href="src/evrim/types/reports_v3_create_params.py">params</a>) -> <a href="./src/evrim/types/shared/report.py">Report</a></code>
-- <code title="get /prod/v0/reports-v3/{id}/">client.reports_v3.<a href="./src/evrim/resources/reports_v3.py">retrieve</a>(id) -> <a href="./src/evrim/types/shared/report.py">Report</a></code>
-- <code title="patch /prod/v0/reports-v3/{id}/">client.reports_v3.<a href="./src/evrim/resources/reports_v3.py">update</a>(id, \*\*<a href="src/evrim/types/reports_v3_update_params.py">params</a>) -> <a href="./src/evrim/types/shared/report.py">Report</a></code>
-- <code title="get /prod/v0/reports-v3/">client.reports_v3.<a href="./src/evrim/resources/reports_v3.py">list</a>() -> <a href="./src/evrim/types/reports_v3_list_response.py">ReportsV3ListResponse</a></code>
-- <code title="delete /prod/v0/reports-v3/{id}/">client.reports_v3.<a href="./src/evrim/resources/reports_v3.py">delete</a>(id) -> None</code>
 
 # Snapshots
 
