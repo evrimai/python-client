@@ -24,7 +24,7 @@ from ._utils import (
     get_async_library,
 )
 from ._version import __version__
-from .resources import prod, fields, outlines, snapshots, reports_v3, collections, created_fields, prompt_templates
+from .resources import prod, fields, snapshots, collections, created_fields, prompt_templates
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
 from ._exceptions import EvrimError, APIStatusError
 from ._base_client import (
@@ -48,10 +48,8 @@ class Evrim(SyncAPIClient):
     collections: collections.CollectionsResource
     created_fields: created_fields.CreatedFieldsResource
     fields: fields.FieldsResource
-    outlines: outlines.OutlinesResource
     profiles: profiles.ProfilesResource
     prompt_templates: prompt_templates.PromptTemplatesResource
-    reports_v3: reports_v3.ReportsV3Resource
     snapshots: snapshots.SnapshotsResource
     tags: tags.TagsResource
     templates: templates.TemplatesResource
@@ -118,10 +116,8 @@ class Evrim(SyncAPIClient):
         self.collections = collections.CollectionsResource(self)
         self.created_fields = created_fields.CreatedFieldsResource(self)
         self.fields = fields.FieldsResource(self)
-        self.outlines = outlines.OutlinesResource(self)
         self.profiles = profiles.ProfilesResource(self)
         self.prompt_templates = prompt_templates.PromptTemplatesResource(self)
-        self.reports_v3 = reports_v3.ReportsV3Resource(self)
         self.snapshots = snapshots.SnapshotsResource(self)
         self.tags = tags.TagsResource(self)
         self.templates = templates.TemplatesResource(self)
@@ -240,10 +236,8 @@ class AsyncEvrim(AsyncAPIClient):
     collections: collections.AsyncCollectionsResource
     created_fields: created_fields.AsyncCreatedFieldsResource
     fields: fields.AsyncFieldsResource
-    outlines: outlines.AsyncOutlinesResource
     profiles: profiles.AsyncProfilesResource
     prompt_templates: prompt_templates.AsyncPromptTemplatesResource
-    reports_v3: reports_v3.AsyncReportsV3Resource
     snapshots: snapshots.AsyncSnapshotsResource
     tags: tags.AsyncTagsResource
     templates: templates.AsyncTemplatesResource
@@ -310,10 +304,8 @@ class AsyncEvrim(AsyncAPIClient):
         self.collections = collections.AsyncCollectionsResource(self)
         self.created_fields = created_fields.AsyncCreatedFieldsResource(self)
         self.fields = fields.AsyncFieldsResource(self)
-        self.outlines = outlines.AsyncOutlinesResource(self)
         self.profiles = profiles.AsyncProfilesResource(self)
         self.prompt_templates = prompt_templates.AsyncPromptTemplatesResource(self)
-        self.reports_v3 = reports_v3.AsyncReportsV3Resource(self)
         self.snapshots = snapshots.AsyncSnapshotsResource(self)
         self.tags = tags.AsyncTagsResource(self)
         self.templates = templates.AsyncTemplatesResource(self)
@@ -433,10 +425,8 @@ class EvrimWithRawResponse:
         self.collections = collections.CollectionsResourceWithRawResponse(client.collections)
         self.created_fields = created_fields.CreatedFieldsResourceWithRawResponse(client.created_fields)
         self.fields = fields.FieldsResourceWithRawResponse(client.fields)
-        self.outlines = outlines.OutlinesResourceWithRawResponse(client.outlines)
         self.profiles = profiles.ProfilesResourceWithRawResponse(client.profiles)
         self.prompt_templates = prompt_templates.PromptTemplatesResourceWithRawResponse(client.prompt_templates)
-        self.reports_v3 = reports_v3.ReportsV3ResourceWithRawResponse(client.reports_v3)
         self.snapshots = snapshots.SnapshotsResourceWithRawResponse(client.snapshots)
         self.tags = tags.TagsResourceWithRawResponse(client.tags)
         self.templates = templates.TemplatesResourceWithRawResponse(client.templates)
@@ -450,10 +440,8 @@ class AsyncEvrimWithRawResponse:
         self.collections = collections.AsyncCollectionsResourceWithRawResponse(client.collections)
         self.created_fields = created_fields.AsyncCreatedFieldsResourceWithRawResponse(client.created_fields)
         self.fields = fields.AsyncFieldsResourceWithRawResponse(client.fields)
-        self.outlines = outlines.AsyncOutlinesResourceWithRawResponse(client.outlines)
         self.profiles = profiles.AsyncProfilesResourceWithRawResponse(client.profiles)
         self.prompt_templates = prompt_templates.AsyncPromptTemplatesResourceWithRawResponse(client.prompt_templates)
-        self.reports_v3 = reports_v3.AsyncReportsV3ResourceWithRawResponse(client.reports_v3)
         self.snapshots = snapshots.AsyncSnapshotsResourceWithRawResponse(client.snapshots)
         self.tags = tags.AsyncTagsResourceWithRawResponse(client.tags)
         self.templates = templates.AsyncTemplatesResourceWithRawResponse(client.templates)
@@ -467,10 +455,8 @@ class EvrimWithStreamedResponse:
         self.collections = collections.CollectionsResourceWithStreamingResponse(client.collections)
         self.created_fields = created_fields.CreatedFieldsResourceWithStreamingResponse(client.created_fields)
         self.fields = fields.FieldsResourceWithStreamingResponse(client.fields)
-        self.outlines = outlines.OutlinesResourceWithStreamingResponse(client.outlines)
         self.profiles = profiles.ProfilesResourceWithStreamingResponse(client.profiles)
         self.prompt_templates = prompt_templates.PromptTemplatesResourceWithStreamingResponse(client.prompt_templates)
-        self.reports_v3 = reports_v3.ReportsV3ResourceWithStreamingResponse(client.reports_v3)
         self.snapshots = snapshots.SnapshotsResourceWithStreamingResponse(client.snapshots)
         self.tags = tags.TagsResourceWithStreamingResponse(client.tags)
         self.templates = templates.TemplatesResourceWithStreamingResponse(client.templates)
@@ -484,12 +470,10 @@ class AsyncEvrimWithStreamedResponse:
         self.collections = collections.AsyncCollectionsResourceWithStreamingResponse(client.collections)
         self.created_fields = created_fields.AsyncCreatedFieldsResourceWithStreamingResponse(client.created_fields)
         self.fields = fields.AsyncFieldsResourceWithStreamingResponse(client.fields)
-        self.outlines = outlines.AsyncOutlinesResourceWithStreamingResponse(client.outlines)
         self.profiles = profiles.AsyncProfilesResourceWithStreamingResponse(client.profiles)
         self.prompt_templates = prompt_templates.AsyncPromptTemplatesResourceWithStreamingResponse(
             client.prompt_templates
         )
-        self.reports_v3 = reports_v3.AsyncReportsV3ResourceWithStreamingResponse(client.reports_v3)
         self.snapshots = snapshots.AsyncSnapshotsResourceWithStreamingResponse(client.snapshots)
         self.tags = tags.AsyncTagsResourceWithStreamingResponse(client.tags)
         self.templates = templates.AsyncTemplatesResourceWithStreamingResponse(client.templates)

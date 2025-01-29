@@ -40,14 +40,6 @@ from .fields import (
     FieldsResourceWithStreamingResponse,
     AsyncFieldsResourceWithStreamingResponse,
 )
-from .outlines import (
-    OutlinesResource,
-    AsyncOutlinesResource,
-    OutlinesResourceWithRawResponse,
-    AsyncOutlinesResourceWithRawResponse,
-    OutlinesResourceWithStreamingResponse,
-    AsyncOutlinesResourceWithStreamingResponse,
-)
 from .profiles import (
     ProfilesResource,
     AsyncProfilesResource,
@@ -71,14 +63,6 @@ from .templates import (
     AsyncTemplatesResourceWithRawResponse,
     TemplatesResourceWithStreamingResponse,
     AsyncTemplatesResourceWithStreamingResponse,
-)
-from .reports_v3 import (
-    ReportsV3Resource,
-    AsyncReportsV3Resource,
-    ReportsV3ResourceWithRawResponse,
-    AsyncReportsV3ResourceWithRawResponse,
-    ReportsV3ResourceWithStreamingResponse,
-    AsyncReportsV3ResourceWithStreamingResponse,
 )
 from .collections import (
     CollectionsResource,
@@ -142,12 +126,6 @@ __all__ = [
     "AsyncFieldsResourceWithRawResponse",
     "FieldsResourceWithStreamingResponse",
     "AsyncFieldsResourceWithStreamingResponse",
-    "OutlinesResource",
-    "AsyncOutlinesResource",
-    "OutlinesResourceWithRawResponse",
-    "AsyncOutlinesResourceWithRawResponse",
-    "OutlinesResourceWithStreamingResponse",
-    "AsyncOutlinesResourceWithStreamingResponse",
     "ProfilesResource",
     "AsyncProfilesResource",
     "ProfilesResourceWithRawResponse",
@@ -160,12 +138,6 @@ __all__ = [
     "AsyncPromptTemplatesResourceWithRawResponse",
     "PromptTemplatesResourceWithStreamingResponse",
     "AsyncPromptTemplatesResourceWithStreamingResponse",
-    "ReportsV3Resource",
-    "AsyncReportsV3Resource",
-    "ReportsV3ResourceWithRawResponse",
-    "AsyncReportsV3ResourceWithRawResponse",
-    "ReportsV3ResourceWithStreamingResponse",
-    "AsyncReportsV3ResourceWithStreamingResponse",
     "SnapshotsResource",
     "AsyncSnapshotsResource",
     "SnapshotsResourceWithRawResponse",

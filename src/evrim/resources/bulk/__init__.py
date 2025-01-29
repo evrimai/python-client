@@ -24,14 +24,6 @@ from .collections import (
     CollectionsResourceWithStreamingResponse,
     AsyncCollectionsResourceWithStreamingResponse,
 )
-from .created_fields import (
-    CreatedFieldsResource,
-    AsyncCreatedFieldsResource,
-    CreatedFieldsResourceWithRawResponse,
-    AsyncCreatedFieldsResourceWithRawResponse,
-    CreatedFieldsResourceWithStreamingResponse,
-    AsyncCreatedFieldsResourceWithStreamingResponse,
-)
 
 __all__ = [
     "CollectionsResource",
@@ -40,12 +32,6 @@ __all__ = [
     "AsyncCollectionsResourceWithRawResponse",
     "CollectionsResourceWithStreamingResponse",
     "AsyncCollectionsResourceWithStreamingResponse",
-    "CreatedFieldsResource",
-    "AsyncCreatedFieldsResource",
-    "CreatedFieldsResourceWithRawResponse",
-    "AsyncCreatedFieldsResourceWithRawResponse",
-    "CreatedFieldsResourceWithStreamingResponse",
-    "AsyncCreatedFieldsResourceWithStreamingResponse",
     "TemplatesResource",
     "AsyncTemplatesResource",
     "TemplatesResourceWithRawResponse",

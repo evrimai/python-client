@@ -4,14 +4,6 @@ from __future__ import annotations
 
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
-from .created_fields import (
-    CreatedFieldsResource,
-    AsyncCreatedFieldsResource,
-    CreatedFieldsResourceWithRawResponse,
-    AsyncCreatedFieldsResourceWithRawResponse,
-    CreatedFieldsResourceWithStreamingResponse,
-    AsyncCreatedFieldsResourceWithStreamingResponse,
-)
 from .templates.templates import (
     TemplatesResource,
     AsyncTemplatesResource,
@@ -36,10 +28,6 @@ class BulkResource(SyncAPIResource):
     @cached_property
     def collections(self) -> CollectionsResource:
         return CollectionsResource(self._client)
-
-    @cached_property
-    def created_fields(self) -> CreatedFieldsResource:
-        return CreatedFieldsResource(self._client)
 
     @cached_property
     def templates(self) -> TemplatesResource:
@@ -69,10 +57,6 @@ class AsyncBulkResource(AsyncAPIResource):
     @cached_property
     def collections(self) -> AsyncCollectionsResource:
         return AsyncCollectionsResource(self._client)
-
-    @cached_property
-    def created_fields(self) -> AsyncCreatedFieldsResource:
-        return AsyncCreatedFieldsResource(self._client)
 
     @cached_property
     def templates(self) -> AsyncTemplatesResource:
@@ -107,10 +91,6 @@ class BulkResourceWithRawResponse:
         return CollectionsResourceWithRawResponse(self._bulk.collections)
 
     @cached_property
-    def created_fields(self) -> CreatedFieldsResourceWithRawResponse:
-        return CreatedFieldsResourceWithRawResponse(self._bulk.created_fields)
-
-    @cached_property
     def templates(self) -> TemplatesResourceWithRawResponse:
         return TemplatesResourceWithRawResponse(self._bulk.templates)
 
@@ -122,10 +102,6 @@ class AsyncBulkResourceWithRawResponse:
     @cached_property
     def collections(self) -> AsyncCollectionsResourceWithRawResponse:
         return AsyncCollectionsResourceWithRawResponse(self._bulk.collections)
-
-    @cached_property
-    def created_fields(self) -> AsyncCreatedFieldsResourceWithRawResponse:
-        return AsyncCreatedFieldsResourceWithRawResponse(self._bulk.created_fields)
 
     @cached_property
     def templates(self) -> AsyncTemplatesResourceWithRawResponse:
@@ -141,10 +117,6 @@ class BulkResourceWithStreamingResponse:
         return CollectionsResourceWithStreamingResponse(self._bulk.collections)
 
     @cached_property
-    def created_fields(self) -> CreatedFieldsResourceWithStreamingResponse:
-        return CreatedFieldsResourceWithStreamingResponse(self._bulk.created_fields)
-
-    @cached_property
     def templates(self) -> TemplatesResourceWithStreamingResponse:
         return TemplatesResourceWithStreamingResponse(self._bulk.templates)
 
@@ -156,10 +128,6 @@ class AsyncBulkResourceWithStreamingResponse:
     @cached_property
     def collections(self) -> AsyncCollectionsResourceWithStreamingResponse:
         return AsyncCollectionsResourceWithStreamingResponse(self._bulk.collections)
-
-    @cached_property
-    def created_fields(self) -> AsyncCreatedFieldsResourceWithStreamingResponse:
-        return AsyncCreatedFieldsResourceWithStreamingResponse(self._bulk.created_fields)
 
     @cached_property
     def templates(self) -> AsyncTemplatesResourceWithStreamingResponse:
