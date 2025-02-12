@@ -23,4 +23,6 @@ class FieldUpdateParams(TypedDict, total=False):
 
     rel_template_id: Optional[int]
 
+    sources: Optional[List[str]]
+
     type: str

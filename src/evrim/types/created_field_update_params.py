@@ -23,6 +23,8 @@ class CreatedFieldUpdateParams(TypedDict, total=False):
 
     source_entity_type: Optional[str]
 
+    sources: Optional[List[str]]
+
     specification: str
 
     type: str
