@@ -63,6 +63,7 @@ class CreatedFieldsResource(SyncAPIResource):
         enum_values: List[str] | NotGiven = NOT_GIVEN,
         rel_template: TemplateParam | NotGiven = NOT_GIVEN,
         source_entity_type: Optional[str] | NotGiven = NOT_GIVEN,
+        sources: Optional[List[str]] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -92,6 +93,7 @@ class CreatedFieldsResource(SyncAPIResource):
                     "enum_values": enum_values,
                     "rel_template": rel_template,
                     "source_entity_type": source_entity_type,
+                    "sources": sources,
                 },
                 created_field_create_params.CreatedFieldCreateParams,
             ),
@@ -140,6 +142,7 @@ class CreatedFieldsResource(SyncAPIResource):
         name: str | NotGiven = NOT_GIVEN,
         rel_template: TemplateParam | NotGiven = NOT_GIVEN,
         source_entity_type: Optional[str] | NotGiven = NOT_GIVEN,
+        sources: Optional[List[str]] | NotGiven = NOT_GIVEN,
         specification: str | NotGiven = NOT_GIVEN,
         type: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -169,6 +172,7 @@ class CreatedFieldsResource(SyncAPIResource):
                     "name": name,
                     "rel_template": rel_template,
                     "source_entity_type": source_entity_type,
+                    "sources": sources,
                     "specification": specification,
                     "type": type,
                 },
@@ -296,6 +300,7 @@ class AsyncCreatedFieldsResource(AsyncAPIResource):
         enum_values: List[str] | NotGiven = NOT_GIVEN,
         rel_template: TemplateParam | NotGiven = NOT_GIVEN,
         source_entity_type: Optional[str] | NotGiven = NOT_GIVEN,
+        sources: Optional[List[str]] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -325,6 +330,7 @@ class AsyncCreatedFieldsResource(AsyncAPIResource):
                     "enum_values": enum_values,
                     "rel_template": rel_template,
                     "source_entity_type": source_entity_type,
+                    "sources": sources,
                 },
                 created_field_create_params.CreatedFieldCreateParams,
             ),
@@ -373,6 +379,7 @@ class AsyncCreatedFieldsResource(AsyncAPIResource):
         name: str | NotGiven = NOT_GIVEN,
         rel_template: TemplateParam | NotGiven = NOT_GIVEN,
         source_entity_type: Optional[str] | NotGiven = NOT_GIVEN,
+        sources: Optional[List[str]] | NotGiven = NOT_GIVEN,
         specification: str | NotGiven = NOT_GIVEN,
         type: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -402,6 +409,7 @@ class AsyncCreatedFieldsResource(AsyncAPIResource):
                     "name": name,
                     "rel_template": rel_template,
                     "source_entity_type": source_entity_type,
+                    "sources": sources,
                     "specification": specification,
                     "type": type,
                 },

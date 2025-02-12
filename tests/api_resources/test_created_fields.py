@@ -49,6 +49,7 @@ class TestCreatedFields:
                         "enum_many": True,
                         "enum_values": ["string"],
                         "rel_template_id": 0,
+                        "sources": ["string"],
                     }
                 ],
                 "name": "name",
@@ -56,6 +57,7 @@ class TestCreatedFields:
                 "questions": ["string"],
             },
             source_entity_type="source_entity_type",
+            sources=["string"],
         )
         assert_matches_type(CreatedField, created_field, path=["response"])
 
@@ -145,6 +147,7 @@ class TestCreatedFields:
                         "enum_many": True,
                         "enum_values": ["string"],
                         "rel_template_id": 0,
+                        "sources": ["string"],
                     }
                 ],
                 "name": "name",
@@ -152,6 +155,7 @@ class TestCreatedFields:
                 "questions": ["string"],
             },
             source_entity_type="source_entity_type",
+            sources=["string"],
             specification="specification",
             type="xxx",
         )
@@ -312,6 +316,7 @@ class TestAsyncCreatedFields:
                         "enum_many": True,
                         "enum_values": ["string"],
                         "rel_template_id": 0,
+                        "sources": ["string"],
                     }
                 ],
                 "name": "name",
@@ -319,6 +324,7 @@ class TestAsyncCreatedFields:
                 "questions": ["string"],
             },
             source_entity_type="source_entity_type",
+            sources=["string"],
         )
         assert_matches_type(CreatedField, created_field, path=["response"])
 
@@ -408,6 +414,7 @@ class TestAsyncCreatedFields:
                         "enum_many": True,
                         "enum_values": ["string"],
                         "rel_template_id": 0,
+                        "sources": ["string"],
                     }
                 ],
                 "name": "name",
@@ -415,6 +422,7 @@ class TestAsyncCreatedFields:
                 "questions": ["string"],
             },
             source_entity_type="source_entity_type",
+            sources=["string"],
             specification="specification",
             type="xxx",
         )

@@ -40,6 +40,7 @@ class TestFields:
             enum_many=True,
             enum_values=["string"],
             rel_template_id=0,
+            sources=["string"],
         )
         assert_matches_type(Field, field, path=["response"])
 
@@ -119,6 +120,7 @@ class TestFields:
             enum_values=["string"],
             name="name",
             rel_template_id=0,
+            sources=["string"],
             type="xxx",
         )
         assert_matches_type(Field, field, path=["response"])
@@ -276,6 +278,7 @@ class TestAsyncFields:
             enum_many=True,
             enum_values=["string"],
             rel_template_id=0,
+            sources=["string"],
         )
         assert_matches_type(Field, field, path=["response"])
 
@@ -355,6 +358,7 @@ class TestAsyncFields:
             enum_values=["string"],
             name="name",
             rel_template_id=0,
+            sources=["string"],
             type="xxx",
         )
         assert_matches_type(Field, field, path=["response"])

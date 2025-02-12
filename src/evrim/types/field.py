@@ -21,3 +21,5 @@ class Field(BaseModel):
     enum_many: Optional[bool] = None
 
     enum_values: Optional[List[str]] = None
+
+    sources: Optional[List[str]] = None

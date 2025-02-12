@@ -26,3 +26,5 @@ class CreatedFieldCreateParams(TypedDict, total=False):
     rel_template: TemplateParam
 
     source_entity_type: Optional[str]
+
+    sources: Optional[List[str]]
