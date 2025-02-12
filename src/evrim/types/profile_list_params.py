@@ -4,10 +4,8 @@ from __future__ import annotations
 
 from typing_extensions import TypedDict
 
-__all__ = ["ReportsV3UpdateParams"]
+__all__ = ["ProfileListParams"]
 
 
-class ReportsV3UpdateParams(TypedDict, total=False):
-    outline_id: int
-
-    profile_id: int
+class ProfileListParams(TypedDict, total=False):
+    specification: str

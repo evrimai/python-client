@@ -12,6 +12,8 @@ class Field(BaseModel):
 
     name: str
 
+    rel_template: int
+
     type: str
 
     id: Optional[int] = None
@@ -20,4 +22,4 @@ class Field(BaseModel):
 
     enum_values: Optional[List[str]] = None
 
-    rel_template: Optional[int] = None
+    sources: Optional[List[str]] = None

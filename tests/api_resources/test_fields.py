@@ -39,8 +39,8 @@ class TestFields:
             id=0,
             enum_many=True,
             enum_values=["string"],
-            rel_template=0,
             rel_template_id=0,
+            sources=["string"],
         )
         assert_matches_type(Field, field, path=["response"])
 
@@ -119,8 +119,8 @@ class TestFields:
             enum_many=True,
             enum_values=["string"],
             name="name",
-            rel_template=0,
             rel_template_id=0,
+            sources=["string"],
             type="xxx",
         )
         assert_matches_type(Field, field, path=["response"])
@@ -152,6 +152,14 @@ class TestFields:
     @parametrize
     def test_method_list(self, client: Evrim) -> None:
         field = client.fields.list()
+        assert_matches_type(FieldListResponse, field, path=["response"])
+
+    @parametrize
+    def test_method_list_with_all_params(self, client: Evrim) -> None:
+        field = client.fields.list(
+            name="name",
+            type="bln",
+        )
         assert_matches_type(FieldListResponse, field, path=["response"])
 
     @parametrize
@@ -269,8 +277,8 @@ class TestAsyncFields:
             id=0,
             enum_many=True,
             enum_values=["string"],
-            rel_template=0,
             rel_template_id=0,
+            sources=["string"],
         )
         assert_matches_type(Field, field, path=["response"])
 
@@ -349,8 +357,8 @@ class TestAsyncFields:
             enum_many=True,
             enum_values=["string"],
             name="name",
-            rel_template=0,
             rel_template_id=0,
+            sources=["string"],
             type="xxx",
         )
         assert_matches_type(Field, field, path=["response"])
@@ -382,6 +390,14 @@ class TestAsyncFields:
     @parametrize
     async def test_method_list(self, async_client: AsyncEvrim) -> None:
         field = await async_client.fields.list()
+        assert_matches_type(FieldListResponse, field, path=["response"])
+
+    @parametrize
+    async def test_method_list_with_all_params(self, async_client: AsyncEvrim) -> None:
+        field = await async_client.fields.list(
+            name="name",
+            type="bln",
+        )
         assert_matches_type(FieldListResponse, field, path=["response"])
 
     @parametrize

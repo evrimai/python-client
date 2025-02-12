@@ -14,7 +14,12 @@ from .latest import (
     LatestResourceWithStreamingResponse,
     AsyncLatestResourceWithStreamingResponse,
 )
-from ...types import profile_tag_params, profile_create_params, profile_update_params
+from ...types import (
+    profile_tag_params,
+    profile_list_params,
+    profile_create_params,
+    profile_update_params,
+)
 from .reports import (
     ReportsResource,
     AsyncReportsResource,
@@ -93,7 +98,7 @@ class ProfilesResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> ProfilesResourceWithRawResponse:
         """
-        This property can be used as a prefix for any HTTP method call to return the
+        This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
         For more information, see https://www.github.com/evrimai/python-client#accessing-raw-response-data-eg-headers
@@ -220,6 +225,7 @@ class ProfilesResource(SyncAPIResource):
     def list(
         self,
         *,
+        specification: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -227,10 +233,24 @@ class ProfilesResource(SyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ProfileListResponse:
+        """
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
         return self._get(
             "/prod/v0/profiles/",
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform({"specification": specification}, profile_list_params.ProfileListParams),
             ),
             cast_to=ProfileListResponse,
         )
@@ -325,7 +345,7 @@ class AsyncProfilesResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncProfilesResourceWithRawResponse:
         """
-        This property can be used as a prefix for any HTTP method call to return the
+        This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
         For more information, see https://www.github.com/evrimai/python-client#accessing-raw-response-data-eg-headers
@@ -452,6 +472,7 @@ class AsyncProfilesResource(AsyncAPIResource):
     async def list(
         self,
         *,
+        specification: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -459,10 +480,26 @@ class AsyncProfilesResource(AsyncAPIResource):
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
     ) -> ProfileListResponse:
+        """
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
         return await self._get(
             "/prod/v0/profiles/",
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {"specification": specification}, profile_list_params.ProfileListParams
+                ),
             ),
             cast_to=ProfileListResponse,
         )

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from typing import List, Optional
+
 import httpx
 
 from ..types import (
@@ -24,6 +26,7 @@ from .._response import (
 )
 from .._base_client import make_request_options
 from ..types.created_field import CreatedField
+from ..types.template_param import TemplateParam
 from ..types.created_field_list_response import CreatedFieldListResponse
 
 __all__ = ["CreatedFieldsResource", "AsyncCreatedFieldsResource"]
@@ -33,7 +36,7 @@ class CreatedFieldsResource(SyncAPIResource):
     @cached_property
     def with_raw_response(self) -> CreatedFieldsResourceWithRawResponse:
         """
-        This property can be used as a prefix for any HTTP method call to return the
+        This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
         For more information, see https://www.github.com/evrimai/python-client#accessing-raw-response-data-eg-headers
@@ -56,6 +59,11 @@ class CreatedFieldsResource(SyncAPIResource):
         name: str,
         specification: str,
         type: str,
+        enum_many: bool | NotGiven = NOT_GIVEN,
+        enum_values: List[str] | NotGiven = NOT_GIVEN,
+        rel_template: TemplateParam | NotGiven = NOT_GIVEN,
+        source_entity_type: Optional[str] | NotGiven = NOT_GIVEN,
+        sources: Optional[List[str]] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -81,6 +89,11 @@ class CreatedFieldsResource(SyncAPIResource):
                     "name": name,
                     "specification": specification,
                     "type": type,
+                    "enum_many": enum_many,
+                    "enum_values": enum_values,
+                    "rel_template": rel_template,
+                    "source_entity_type": source_entity_type,
+                    "sources": sources,
                 },
                 created_field_create_params.CreatedFieldCreateParams,
             ),
@@ -124,7 +137,12 @@ class CreatedFieldsResource(SyncAPIResource):
         id: int,
         *,
         description: str | NotGiven = NOT_GIVEN,
+        enum_many: bool | NotGiven = NOT_GIVEN,
+        enum_values: List[str] | NotGiven = NOT_GIVEN,
         name: str | NotGiven = NOT_GIVEN,
+        rel_template: TemplateParam | NotGiven = NOT_GIVEN,
+        source_entity_type: Optional[str] | NotGiven = NOT_GIVEN,
+        sources: Optional[List[str]] | NotGiven = NOT_GIVEN,
         specification: str | NotGiven = NOT_GIVEN,
         type: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -149,7 +167,12 @@ class CreatedFieldsResource(SyncAPIResource):
             body=maybe_transform(
                 {
                     "description": description,
+                    "enum_many": enum_many,
+                    "enum_values": enum_values,
                     "name": name,
+                    "rel_template": rel_template,
+                    "source_entity_type": source_entity_type,
+                    "sources": sources,
                     "specification": specification,
                     "type": type,
                 },
@@ -250,7 +273,7 @@ class AsyncCreatedFieldsResource(AsyncAPIResource):
     @cached_property
     def with_raw_response(self) -> AsyncCreatedFieldsResourceWithRawResponse:
         """
-        This property can be used as a prefix for any HTTP method call to return the
+        This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
         For more information, see https://www.github.com/evrimai/python-client#accessing-raw-response-data-eg-headers
@@ -273,6 +296,11 @@ class AsyncCreatedFieldsResource(AsyncAPIResource):
         name: str,
         specification: str,
         type: str,
+        enum_many: bool | NotGiven = NOT_GIVEN,
+        enum_values: List[str] | NotGiven = NOT_GIVEN,
+        rel_template: TemplateParam | NotGiven = NOT_GIVEN,
+        source_entity_type: Optional[str] | NotGiven = NOT_GIVEN,
+        sources: Optional[List[str]] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -298,6 +326,11 @@ class AsyncCreatedFieldsResource(AsyncAPIResource):
                     "name": name,
                     "specification": specification,
                     "type": type,
+                    "enum_many": enum_many,
+                    "enum_values": enum_values,
+                    "rel_template": rel_template,
+                    "source_entity_type": source_entity_type,
+                    "sources": sources,
                 },
                 created_field_create_params.CreatedFieldCreateParams,
             ),
@@ -341,7 +374,12 @@ class AsyncCreatedFieldsResource(AsyncAPIResource):
         id: int,
         *,
         description: str | NotGiven = NOT_GIVEN,
+        enum_many: bool | NotGiven = NOT_GIVEN,
+        enum_values: List[str] | NotGiven = NOT_GIVEN,
         name: str | NotGiven = NOT_GIVEN,
+        rel_template: TemplateParam | NotGiven = NOT_GIVEN,
+        source_entity_type: Optional[str] | NotGiven = NOT_GIVEN,
+        sources: Optional[List[str]] | NotGiven = NOT_GIVEN,
         specification: str | NotGiven = NOT_GIVEN,
         type: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
@@ -366,7 +404,12 @@ class AsyncCreatedFieldsResource(AsyncAPIResource):
             body=await async_maybe_transform(
                 {
                     "description": description,
+                    "enum_many": enum_many,
+                    "enum_values": enum_values,
                     "name": name,
+                    "rel_template": rel_template,
+                    "source_entity_type": source_entity_type,
+                    "sources": sources,
                     "specification": specification,
                     "type": type,
                 },

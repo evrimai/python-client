@@ -21,6 +21,6 @@ class FieldParam(TypedDict, total=False):
 
     enum_values: List[str]
 
-    rel_template: Optional[int]
-
     rel_template_id: Optional[int]
+
+    sources: Optional[List[str]]

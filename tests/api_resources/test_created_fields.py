@@ -31,6 +31,37 @@ class TestCreatedFields:
         assert_matches_type(CreatedField, created_field, path=["response"])
 
     @parametrize
+    def test_method_create_with_all_params(self, client: Evrim) -> None:
+        created_field = client.created_fields.create(
+            description="description",
+            name="name",
+            specification="specification",
+            type="xxx",
+            enum_many=True,
+            enum_values=["string"],
+            rel_template={
+                "fields": [
+                    {
+                        "description": "description",
+                        "name": "name",
+                        "type": "xxx",
+                        "id": 0,
+                        "enum_many": True,
+                        "enum_values": ["string"],
+                        "rel_template_id": 0,
+                        "sources": ["string"],
+                    }
+                ],
+                "name": "name",
+                "description": "description",
+                "questions": ["string"],
+            },
+            source_entity_type="source_entity_type",
+            sources=["string"],
+        )
+        assert_matches_type(CreatedField, created_field, path=["response"])
+
+    @parametrize
     def test_raw_response_create(self, client: Evrim) -> None:
         response = client.created_fields.with_raw_response.create(
             description="description",
@@ -103,7 +134,28 @@ class TestCreatedFields:
         created_field = client.created_fields.update(
             id=0,
             description="description",
+            enum_many=True,
+            enum_values=["string"],
             name="name",
+            rel_template={
+                "fields": [
+                    {
+                        "description": "description",
+                        "name": "name",
+                        "type": "xxx",
+                        "id": 0,
+                        "enum_many": True,
+                        "enum_values": ["string"],
+                        "rel_template_id": 0,
+                        "sources": ["string"],
+                    }
+                ],
+                "name": "name",
+                "description": "description",
+                "questions": ["string"],
+            },
+            source_entity_type="source_entity_type",
+            sources=["string"],
             specification="specification",
             type="xxx",
         )
@@ -246,6 +298,37 @@ class TestAsyncCreatedFields:
         assert_matches_type(CreatedField, created_field, path=["response"])
 
     @parametrize
+    async def test_method_create_with_all_params(self, async_client: AsyncEvrim) -> None:
+        created_field = await async_client.created_fields.create(
+            description="description",
+            name="name",
+            specification="specification",
+            type="xxx",
+            enum_many=True,
+            enum_values=["string"],
+            rel_template={
+                "fields": [
+                    {
+                        "description": "description",
+                        "name": "name",
+                        "type": "xxx",
+                        "id": 0,
+                        "enum_many": True,
+                        "enum_values": ["string"],
+                        "rel_template_id": 0,
+                        "sources": ["string"],
+                    }
+                ],
+                "name": "name",
+                "description": "description",
+                "questions": ["string"],
+            },
+            source_entity_type="source_entity_type",
+            sources=["string"],
+        )
+        assert_matches_type(CreatedField, created_field, path=["response"])
+
+    @parametrize
     async def test_raw_response_create(self, async_client: AsyncEvrim) -> None:
         response = await async_client.created_fields.with_raw_response.create(
             description="description",
@@ -318,7 +401,28 @@ class TestAsyncCreatedFields:
         created_field = await async_client.created_fields.update(
             id=0,
             description="description",
+            enum_many=True,
+            enum_values=["string"],
             name="name",
+            rel_template={
+                "fields": [
+                    {
+                        "description": "description",
+                        "name": "name",
+                        "type": "xxx",
+                        "id": 0,
+                        "enum_many": True,
+                        "enum_values": ["string"],
+                        "rel_template_id": 0,
+                        "sources": ["string"],
+                    }
+                ],
+                "name": "name",
+                "description": "description",
+                "questions": ["string"],
+            },
+            source_entity_type="source_entity_type",
+            sources=["string"],
             specification="specification",
             type="xxx",
         )
