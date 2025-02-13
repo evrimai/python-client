@@ -23,10 +23,12 @@ from pydantic import ValidationError
 
 from evrim import Evrim, AsyncEvrim, APIResponseValidationError
 from evrim._types import Omit
+from evrim._utils import maybe_transform
 from evrim._models import BaseModel, FinalRequestOptions
 from evrim._constants import RAW_RESPONSE_HEADER
 from evrim._exceptions import APIStatusError, APITimeoutError, APIResponseValidationError
 from evrim._base_client import DEFAULT_TIMEOUT, HTTPX_DEFAULT_TIMEOUT, BaseClient, make_request_options
+from evrim.types.profile_create_params import ProfileCreateParams
 
 from .utils import update_env
 
@@ -705,7 +707,9 @@ class TestEvrim:
         with pytest.raises(APITimeoutError):
             self.client.post(
                 "/prod/v0/profiles/",
-                body=cast(object, dict(specification="specification", template_id=0)),
+                body=cast(
+                    object, maybe_transform(dict(specification="specification", template_id=0), ProfileCreateParams)
+                ),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
@@ -720,7 +724,9 @@ class TestEvrim:
         with pytest.raises(APIStatusError):
             self.client.post(
                 "/prod/v0/profiles/",
-                body=cast(object, dict(specification="specification", template_id=0)),
+                body=cast(
+                    object, maybe_transform(dict(specification="specification", template_id=0), ProfileCreateParams)
+                ),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
@@ -1476,7 +1482,9 @@ class TestAsyncEvrim:
         with pytest.raises(APITimeoutError):
             await self.client.post(
                 "/prod/v0/profiles/",
-                body=cast(object, dict(specification="specification", template_id=0)),
+                body=cast(
+                    object, maybe_transform(dict(specification="specification", template_id=0), ProfileCreateParams)
+                ),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
@@ -1491,7 +1499,9 @@ class TestAsyncEvrim:
         with pytest.raises(APIStatusError):
             await self.client.post(
                 "/prod/v0/profiles/",
-                body=cast(object, dict(specification="specification", template_id=0)),
+                body=cast(
+                    object, maybe_transform(dict(specification="specification", template_id=0), ProfileCreateParams)
+                ),
                 cast_to=httpx.Response,
                 options={"headers": {RAW_RESPONSE_HEADER: "stream"}},
             )
