@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.2.1 (2025-02-14)
+
+Full Changelog: [v2.2.0...v2.2.1](https://github.com/evrimai/python-client/compare/v2.2.0...v2.2.1)
+
+### Bug Fixes
+
+* asyncify on non-asyncio runtimes ([#33](https://github.com/evrimai/python-client/issues/33)) ([0f678a0](https://github.com/evrimai/python-client/commit/0f678a04c97b4f8b20cc0ff16e913df13271d468))
+
+
+### Chores
+
+* **internal:** update client tests ([#31](https://github.com/evrimai/python-client/issues/31)) ([662aa3f](https://github.com/evrimai/python-client/commit/662aa3fe8b98abb811f323efb6e08d8c039c93d7))
+
 ## 2.2.0 (2025-02-12)
 
 Full Changelog: [v2.1.1...v2.2.0](https://github.com/evrimai/python-client/compare/v2.1.1...v2.2.0)
