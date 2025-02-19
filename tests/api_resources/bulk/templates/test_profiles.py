@@ -88,6 +88,14 @@ class TestProfiles:
         assert_matches_type(ProfileListResponse, profile, path=["response"])
 
     @parametrize
+    def test_method_list_with_all_params(self, client: Evrim) -> None:
+        profile = client.bulk.templates.profiles.list(
+            limit=0,
+            offset=0,
+        )
+        assert_matches_type(ProfileListResponse, profile, path=["response"])
+
+    @parametrize
     def test_raw_response_list(self, client: Evrim) -> None:
         response = client.bulk.templates.profiles.with_raw_response.list()
 
@@ -179,6 +187,14 @@ class TestAsyncProfiles:
     @parametrize
     async def test_method_list(self, async_client: AsyncEvrim) -> None:
         profile = await async_client.bulk.templates.profiles.list()
+        assert_matches_type(ProfileListResponse, profile, path=["response"])
+
+    @parametrize
+    async def test_method_list_with_all_params(self, async_client: AsyncEvrim) -> None:
+        profile = await async_client.bulk.templates.profiles.list(
+            limit=0,
+            offset=0,
+        )
         assert_matches_type(ProfileListResponse, profile, path=["response"])
 
     @parametrize

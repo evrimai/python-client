@@ -4,14 +4,12 @@ from __future__ import annotations
 
 from typing_extensions import TypedDict
 
-__all__ = ["TemplateListParams"]
+__all__ = ["SnapshotListParams"]
 
 
-class TemplateListParams(TypedDict, total=False):
+class SnapshotListParams(TypedDict, total=False):
     limit: int
     """Number of results to return per page."""
-
-    name: str
 
     offset: int
     """The initial index from which to return the results."""

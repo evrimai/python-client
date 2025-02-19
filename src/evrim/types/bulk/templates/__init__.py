@@ -3,5 +3,6 @@
 from __future__ import annotations
 
 from .bulk_job import BulkJob as BulkJob
+from .profile_list_params import ProfileListParams as ProfileListParams
 from .profile_create_params import ProfileCreateParams as ProfileCreateParams
 from .profile_list_response import ProfileListResponse as ProfileListResponse

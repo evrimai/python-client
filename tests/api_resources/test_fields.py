@@ -157,7 +157,9 @@ class TestFields:
     @parametrize
     def test_method_list_with_all_params(self, client: Evrim) -> None:
         field = client.fields.list(
+            limit=0,
             name="name",
+            offset=0,
             type="bln",
         )
         assert_matches_type(FieldListResponse, field, path=["response"])
@@ -395,7 +397,9 @@ class TestAsyncFields:
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncEvrim) -> None:
         field = await async_client.fields.list(
+            limit=0,
             name="name",
+            offset=0,
             type="bln",
         )
         assert_matches_type(FieldListResponse, field, path=["response"])

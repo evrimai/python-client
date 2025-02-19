@@ -8,4 +8,10 @@ __all__ = ["ProfileListParams"]
 
 
 class ProfileListParams(TypedDict, total=False):
+    limit: int
+    """Number of results to return per page."""
+
+    offset: int
+    """The initial index from which to return the results."""
+
     specification: str
