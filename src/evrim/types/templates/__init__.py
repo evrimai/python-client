@@ -2,4 +2,5 @@
 
 from __future__ import annotations
 
+from .profile_list_params import ProfileListParams as ProfileListParams
 from .profile_list_response import ProfileListResponse as ProfileListResponse

@@ -1,26 +1,32 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import List
-from typing_extensions import TypeAlias
+from typing import List, Optional
 
 from ..._models import BaseModel
 from ..created_field import CreatedField
 
-__all__ = ["LatestRetrieveResponse", "LatestRetrieveResponseItem", "LatestRetrieveResponseItemAnswer"]
+__all__ = ["LatestRetrieveResponse", "Result", "ResultAnswer"]
 
 
-class LatestRetrieveResponseItemAnswer(BaseModel):
+class ResultAnswer(BaseModel):
     id: int
 
     answer: object
 
 
-class LatestRetrieveResponseItem(BaseModel):
-    answers: List[LatestRetrieveResponseItemAnswer]
+class Result(BaseModel):
+    answers: List[ResultAnswer]
 
     fields: List[CreatedField]
 
     specification: str
 
 
-LatestRetrieveResponse: TypeAlias = List[LatestRetrieveResponseItem]
+class LatestRetrieveResponse(BaseModel):
+    count: int
+
+    results: List[Result]
+
+    next: Optional[str] = None
+
+    previous: Optional[str] = None

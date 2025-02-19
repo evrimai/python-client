@@ -19,7 +19,7 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from ...types.tags import profile_tag_params
+from ...types.tags import profile_tag_params, profile_list_params
 from ..._base_client import make_request_options
 from ...types.tags.profile_list_response import ProfileListResponse
 
@@ -50,6 +50,8 @@ class ProfilesResource(SyncAPIResource):
         self,
         tag_id: str,
         *,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -61,6 +63,10 @@ class ProfilesResource(SyncAPIResource):
         Get all profiles associated with a tag
 
         Args:
+          limit: Number of results to return per page.
+
+          offset: The initial index from which to return the results.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -74,7 +80,17 @@ class ProfilesResource(SyncAPIResource):
         return self._get(
             f"/prod/v0/tags/{tag_id}/profiles/",
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "limit": limit,
+                        "offset": offset,
+                    },
+                    profile_list_params.ProfileListParams,
+                ),
             ),
             cast_to=ProfileListResponse,
         )
@@ -140,6 +156,8 @@ class AsyncProfilesResource(AsyncAPIResource):
         self,
         tag_id: str,
         *,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -151,6 +169,10 @@ class AsyncProfilesResource(AsyncAPIResource):
         Get all profiles associated with a tag
 
         Args:
+          limit: Number of results to return per page.
+
+          offset: The initial index from which to return the results.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -164,7 +186,17 @@ class AsyncProfilesResource(AsyncAPIResource):
         return await self._get(
             f"/prod/v0/tags/{tag_id}/profiles/",
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {
+                        "limit": limit,
+                        "offset": offset,
+                    },
+                    profile_list_params.ProfileListParams,
+                ),
             ),
             cast_to=ProfileListResponse,
         )
