@@ -106,14 +106,23 @@ class TestSnapshots:
     @parametrize
     def test_method_list(self, client: Evrim) -> None:
         snapshot = client.profiles.snapshots.list(
-            "321669910225",
+            profile_id="321669910225",
+        )
+        assert_matches_type(SnapshotListResponse, snapshot, path=["response"])
+
+    @parametrize
+    def test_method_list_with_all_params(self, client: Evrim) -> None:
+        snapshot = client.profiles.snapshots.list(
+            profile_id="321669910225",
+            limit=0,
+            offset=0,
         )
         assert_matches_type(SnapshotListResponse, snapshot, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: Evrim) -> None:
         response = client.profiles.snapshots.with_raw_response.list(
-            "321669910225",
+            profile_id="321669910225",
         )
 
         assert response.is_closed is True
@@ -124,7 +133,7 @@ class TestSnapshots:
     @parametrize
     def test_streaming_response_list(self, client: Evrim) -> None:
         with client.profiles.snapshots.with_streaming_response.list(
-            "321669910225",
+            profile_id="321669910225",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -138,7 +147,7 @@ class TestSnapshots:
     def test_path_params_list(self, client: Evrim) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `profile_id` but received ''"):
             client.profiles.snapshots.with_raw_response.list(
-                "",
+                profile_id="",
             )
 
 
@@ -234,14 +243,23 @@ class TestAsyncSnapshots:
     @parametrize
     async def test_method_list(self, async_client: AsyncEvrim) -> None:
         snapshot = await async_client.profiles.snapshots.list(
-            "321669910225",
+            profile_id="321669910225",
+        )
+        assert_matches_type(SnapshotListResponse, snapshot, path=["response"])
+
+    @parametrize
+    async def test_method_list_with_all_params(self, async_client: AsyncEvrim) -> None:
+        snapshot = await async_client.profiles.snapshots.list(
+            profile_id="321669910225",
+            limit=0,
+            offset=0,
         )
         assert_matches_type(SnapshotListResponse, snapshot, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncEvrim) -> None:
         response = await async_client.profiles.snapshots.with_raw_response.list(
-            "321669910225",
+            profile_id="321669910225",
         )
 
         assert response.is_closed is True
@@ -252,7 +270,7 @@ class TestAsyncSnapshots:
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncEvrim) -> None:
         async with async_client.profiles.snapshots.with_streaming_response.list(
-            "321669910225",
+            profile_id="321669910225",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -266,5 +284,5 @@ class TestAsyncSnapshots:
     async def test_path_params_list(self, async_client: AsyncEvrim) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `profile_id` but received ''"):
             await async_client.profiles.snapshots.with_raw_response.list(
-                "",
+                profile_id="",
             )

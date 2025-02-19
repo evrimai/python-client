@@ -225,6 +225,8 @@ class ProfilesResource(SyncAPIResource):
     def list(
         self,
         *,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
         specification: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -235,6 +237,10 @@ class ProfilesResource(SyncAPIResource):
     ) -> ProfileListResponse:
         """
         Args:
+          limit: Number of results to return per page.
+
+          offset: The initial index from which to return the results.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -250,7 +256,14 @@ class ProfilesResource(SyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform({"specification": specification}, profile_list_params.ProfileListParams),
+                query=maybe_transform(
+                    {
+                        "limit": limit,
+                        "offset": offset,
+                        "specification": specification,
+                    },
+                    profile_list_params.ProfileListParams,
+                ),
             ),
             cast_to=ProfileListResponse,
         )
@@ -472,6 +485,8 @@ class AsyncProfilesResource(AsyncAPIResource):
     async def list(
         self,
         *,
+        limit: int | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
         specification: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -482,6 +497,10 @@ class AsyncProfilesResource(AsyncAPIResource):
     ) -> ProfileListResponse:
         """
         Args:
+          limit: Number of results to return per page.
+
+          offset: The initial index from which to return the results.
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -498,7 +517,12 @@ class AsyncProfilesResource(AsyncAPIResource):
                 extra_body=extra_body,
                 timeout=timeout,
                 query=await async_maybe_transform(
-                    {"specification": specification}, profile_list_params.ProfileListParams
+                    {
+                        "limit": limit,
+                        "offset": offset,
+                        "specification": specification,
+                    },
+                    profile_list_params.ProfileListParams,
                 ),
             ),
             cast_to=ProfileListResponse,

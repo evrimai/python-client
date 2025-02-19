@@ -20,14 +20,25 @@ class TestProfiles:
     @parametrize
     def test_method_list(self, client: Evrim) -> None:
         profile = client.templates.profiles.list(
-            "321669910225",
+            template_id=0,
+        )
+        assert_matches_type(ProfileListResponse, profile, path=["response"])
+
+    @parametrize
+    def test_method_list_with_all_params(self, client: Evrim) -> None:
+        profile = client.templates.profiles.list(
+            template_id=0,
+            include_answers=True,
+            include_fields=True,
+            include_snapshots=True,
+            to_records=True,
         )
         assert_matches_type(ProfileListResponse, profile, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: Evrim) -> None:
         response = client.templates.profiles.with_raw_response.list(
-            "321669910225",
+            template_id=0,
         )
 
         assert response.is_closed is True
@@ -38,7 +49,7 @@ class TestProfiles:
     @parametrize
     def test_streaming_response_list(self, client: Evrim) -> None:
         with client.templates.profiles.with_streaming_response.list(
-            "321669910225",
+            template_id=0,
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -48,13 +59,6 @@ class TestProfiles:
 
         assert cast(Any, response.is_closed) is True
 
-    @parametrize
-    def test_path_params_list(self, client: Evrim) -> None:
-        with pytest.raises(ValueError, match=r"Expected a non-empty value for `template_id` but received ''"):
-            client.templates.profiles.with_raw_response.list(
-                "",
-            )
-
 
 class TestAsyncProfiles:
     parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=["loose", "strict"])
@@ -62,14 +66,25 @@ class TestAsyncProfiles:
     @parametrize
     async def test_method_list(self, async_client: AsyncEvrim) -> None:
         profile = await async_client.templates.profiles.list(
-            "321669910225",
+            template_id=0,
+        )
+        assert_matches_type(ProfileListResponse, profile, path=["response"])
+
+    @parametrize
+    async def test_method_list_with_all_params(self, async_client: AsyncEvrim) -> None:
+        profile = await async_client.templates.profiles.list(
+            template_id=0,
+            include_answers=True,
+            include_fields=True,
+            include_snapshots=True,
+            to_records=True,
         )
         assert_matches_type(ProfileListResponse, profile, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncEvrim) -> None:
         response = await async_client.templates.profiles.with_raw_response.list(
-            "321669910225",
+            template_id=0,
         )
 
         assert response.is_closed is True
@@ -80,7 +95,7 @@ class TestAsyncProfiles:
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncEvrim) -> None:
         async with async_client.templates.profiles.with_streaming_response.list(
-            "321669910225",
+            template_id=0,
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -89,10 +104,3 @@ class TestAsyncProfiles:
             assert_matches_type(ProfileListResponse, profile, path=["response"])
 
         assert cast(Any, response.is_closed) is True
-
-    @parametrize
-    async def test_path_params_list(self, async_client: AsyncEvrim) -> None:
-        with pytest.raises(ValueError, match=r"Expected a non-empty value for `template_id` but received ''"):
-            await async_client.templates.profiles.with_raw_response.list(
-                "",
-            )

@@ -191,6 +191,14 @@ class TestCreatedFields:
         assert_matches_type(CreatedFieldListResponse, created_field, path=["response"])
 
     @parametrize
+    def test_method_list_with_all_params(self, client: Evrim) -> None:
+        created_field = client.created_fields.list(
+            limit=0,
+            offset=0,
+        )
+        assert_matches_type(CreatedFieldListResponse, created_field, path=["response"])
+
+    @parametrize
     def test_raw_response_list(self, client: Evrim) -> None:
         response = client.created_fields.with_raw_response.list()
 
@@ -455,6 +463,14 @@ class TestAsyncCreatedFields:
     @parametrize
     async def test_method_list(self, async_client: AsyncEvrim) -> None:
         created_field = await async_client.created_fields.list()
+        assert_matches_type(CreatedFieldListResponse, created_field, path=["response"])
+
+    @parametrize
+    async def test_method_list_with_all_params(self, async_client: AsyncEvrim) -> None:
+        created_field = await async_client.created_fields.list(
+            limit=0,
+            offset=0,
+        )
         assert_matches_type(CreatedFieldListResponse, created_field, path=["response"])
 
     @parametrize

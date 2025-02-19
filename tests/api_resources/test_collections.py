@@ -8,7 +8,10 @@ from typing import Any, cast
 import pytest
 
 from evrim import Evrim, AsyncEvrim
-from evrim.types import Collection, CollectionListResponse
+from evrim.types import (
+    Collection,
+    CollectionListResponse,
+)
 from tests.utils import assert_matches_type
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -125,6 +128,14 @@ class TestCollections:
     @parametrize
     def test_method_list(self, client: Evrim) -> None:
         collection = client.collections.list()
+        assert_matches_type(CollectionListResponse, collection, path=["response"])
+
+    @parametrize
+    def test_method_list_with_all_params(self, client: Evrim) -> None:
+        collection = client.collections.list(
+            limit=0,
+            offset=0,
+        )
         assert_matches_type(CollectionListResponse, collection, path=["response"])
 
     @parametrize
@@ -290,6 +301,14 @@ class TestAsyncCollections:
     @parametrize
     async def test_method_list(self, async_client: AsyncEvrim) -> None:
         collection = await async_client.collections.list()
+        assert_matches_type(CollectionListResponse, collection, path=["response"])
+
+    @parametrize
+    async def test_method_list_with_all_params(self, async_client: AsyncEvrim) -> None:
+        collection = await async_client.collections.list(
+            limit=0,
+            offset=0,
+        )
         assert_matches_type(CollectionListResponse, collection, path=["response"])
 
     @parametrize

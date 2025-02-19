@@ -133,6 +133,14 @@ class TestTags:
         assert_matches_type(TagListResponse, tag, path=["response"])
 
     @parametrize
+    def test_method_list_with_all_params(self, client: Evrim) -> None:
+        tag = client.tags.list(
+            limit=0,
+            offset=0,
+        )
+        assert_matches_type(TagListResponse, tag, path=["response"])
+
+    @parametrize
     def test_raw_response_list(self, client: Evrim) -> None:
         response = client.tags.with_raw_response.list()
 
@@ -300,6 +308,14 @@ class TestAsyncTags:
     @parametrize
     async def test_method_list(self, async_client: AsyncEvrim) -> None:
         tag = await async_client.tags.list()
+        assert_matches_type(TagListResponse, tag, path=["response"])
+
+    @parametrize
+    async def test_method_list_with_all_params(self, async_client: AsyncEvrim) -> None:
+        tag = await async_client.tags.list(
+            limit=0,
+            offset=0,
+        )
         assert_matches_type(TagListResponse, tag, path=["response"])
 
     @parametrize
