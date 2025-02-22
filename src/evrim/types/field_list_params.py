@@ -8,7 +8,13 @@ __all__ = ["FieldListParams"]
 
 
 class FieldListParams(TypedDict, total=False):
+    limit: int
+    """Number of results to return per page."""
+
     name: str
+
+    offset: int
+    """The initial index from which to return the results."""
 
     type: Literal["bln", "enm", "flt", "int", "rel", "str"]
     """

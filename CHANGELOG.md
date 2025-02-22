@@ -1,5 +1,24 @@
 # Changelog
 
+## 2.3.0 (2025-02-22)
+
+Full Changelog: [v2.2.1...v2.3.0](https://github.com/evrimai/python-client/compare/v2.2.1...v2.3.0)
+
+### Features
+
+* **api:** api update ([#35](https://github.com/evrimai/python-client/issues/35)) ([64dfb1f](https://github.com/evrimai/python-client/commit/64dfb1ff52376e845259ba48a028f4fba2d729a8))
+* **client:** allow passing `NotGiven` for body ([#37](https://github.com/evrimai/python-client/issues/37)) ([9237c01](https://github.com/evrimai/python-client/commit/9237c0197cb4a55c8b23d5f418c53893ad7b1f3d))
+
+
+### Bug Fixes
+
+* **client:** mark some request bodies as optional ([9237c01](https://github.com/evrimai/python-client/commit/9237c0197cb4a55c8b23d5f418c53893ad7b1f3d))
+
+
+### Chores
+
+* **internal:** fix devcontainers setup ([#38](https://github.com/evrimai/python-client/issues/38)) ([32a10dc](https://github.com/evrimai/python-client/commit/32a10dc3ab18a7e9d74ab92707446b9dec4c847a))
+
 ## 2.2.1 (2025-02-14)
 
 Full Changelog: [v2.2.0...v2.2.1](https://github.com/evrimai/python-client/compare/v2.2.0...v2.2.1)

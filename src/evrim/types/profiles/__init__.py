@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 from .report_list_response import ReportListResponse as ReportListResponse
+from .snapshot_list_params import SnapshotListParams as SnapshotListParams
+from .latest_retrieve_params import LatestRetrieveParams as LatestRetrieveParams
 from .snapshot_list_response import SnapshotListResponse as SnapshotListResponse
 from .create_profile_snapshot import CreateProfileSnapshot as CreateProfileSnapshot
 from .collection_create_params import CollectionCreateParams as CollectionCreateParams

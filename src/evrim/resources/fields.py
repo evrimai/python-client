@@ -180,7 +180,9 @@ class FieldsResource(SyncAPIResource):
     def list(
         self,
         *,
+        limit: int | NotGiven = NOT_GIVEN,
         name: str | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
         type: Literal["bln", "enm", "flt", "int", "rel", "str"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -191,6 +193,10 @@ class FieldsResource(SyncAPIResource):
     ) -> FieldListResponse:
         """
         Args:
+          limit: Number of results to return per page.
+
+          offset: The initial index from which to return the results.
+
           type: - `str` - String
               - `int` - Integer
               - `flt` - Float
@@ -215,7 +221,9 @@ class FieldsResource(SyncAPIResource):
                 timeout=timeout,
                 query=maybe_transform(
                     {
+                        "limit": limit,
                         "name": name,
+                        "offset": offset,
                         "type": type,
                     },
                     field_list_params.FieldListParams,
@@ -439,7 +447,9 @@ class AsyncFieldsResource(AsyncAPIResource):
     async def list(
         self,
         *,
+        limit: int | NotGiven = NOT_GIVEN,
         name: str | NotGiven = NOT_GIVEN,
+        offset: int | NotGiven = NOT_GIVEN,
         type: Literal["bln", "enm", "flt", "int", "rel", "str"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -450,6 +460,10 @@ class AsyncFieldsResource(AsyncAPIResource):
     ) -> FieldListResponse:
         """
         Args:
+          limit: Number of results to return per page.
+
+          offset: The initial index from which to return the results.
+
           type: - `str` - String
               - `int` - Integer
               - `flt` - Float
@@ -474,7 +488,9 @@ class AsyncFieldsResource(AsyncAPIResource):
                 timeout=timeout,
                 query=await async_maybe_transform(
                     {
+                        "limit": limit,
                         "name": name,
+                        "offset": offset,
                         "type": type,
                     },
                     field_list_params.FieldListParams,

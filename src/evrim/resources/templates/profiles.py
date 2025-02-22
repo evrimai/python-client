@@ -5,6 +5,10 @@ from __future__ import annotations
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ..._utils import (
+    maybe_transform,
+    async_maybe_transform,
+)
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -14,6 +18,7 @@ from ..._response import (
     async_to_streamed_response_wrapper,
 )
 from ..._base_client import make_request_options
+from ...types.templates import profile_list_params
 from ...types.templates.profile_list_response import ProfileListResponse
 
 __all__ = ["ProfilesResource", "AsyncProfilesResource"]
@@ -41,8 +46,12 @@ class ProfilesResource(SyncAPIResource):
 
     def list(
         self,
-        template_id: str,
+        template_id: int,
         *,
+        include_answers: bool | NotGiven = NOT_GIVEN,
+        include_fields: bool | NotGiven = NOT_GIVEN,
+        include_snapshots: bool | NotGiven = NOT_GIVEN,
+        to_records: bool | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -52,6 +61,14 @@ class ProfilesResource(SyncAPIResource):
     ) -> ProfileListResponse:
         """
         Args:
+          include_answers: Include answers in the response
+
+          include_fields: Include fields in the response
+
+          include_snapshots: Include snapshots in the response
+
+          to_records: Transform the snapshot fields into a list of records
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -60,12 +77,22 @@ class ProfilesResource(SyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        if not template_id:
-            raise ValueError(f"Expected a non-empty value for `template_id` but received {template_id!r}")
         return self._get(
             f"/prod/v0/templates/{template_id}/profiles/",
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=maybe_transform(
+                    {
+                        "include_answers": include_answers,
+                        "include_fields": include_fields,
+                        "include_snapshots": include_snapshots,
+                        "to_records": to_records,
+                    },
+                    profile_list_params.ProfileListParams,
+                ),
             ),
             cast_to=ProfileListResponse,
         )
@@ -93,8 +120,12 @@ class AsyncProfilesResource(AsyncAPIResource):
 
     async def list(
         self,
-        template_id: str,
+        template_id: int,
         *,
+        include_answers: bool | NotGiven = NOT_GIVEN,
+        include_fields: bool | NotGiven = NOT_GIVEN,
+        include_snapshots: bool | NotGiven = NOT_GIVEN,
+        to_records: bool | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -104,6 +135,14 @@ class AsyncProfilesResource(AsyncAPIResource):
     ) -> ProfileListResponse:
         """
         Args:
+          include_answers: Include answers in the response
+
+          include_fields: Include fields in the response
+
+          include_snapshots: Include snapshots in the response
+
+          to_records: Transform the snapshot fields into a list of records
+
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -112,12 +151,22 @@ class AsyncProfilesResource(AsyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        if not template_id:
-            raise ValueError(f"Expected a non-empty value for `template_id` but received {template_id!r}")
         return await self._get(
             f"/prod/v0/templates/{template_id}/profiles/",
             options=make_request_options(
-                extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                extra_headers=extra_headers,
+                extra_query=extra_query,
+                extra_body=extra_body,
+                timeout=timeout,
+                query=await async_maybe_transform(
+                    {
+                        "include_answers": include_answers,
+                        "include_fields": include_fields,
+                        "include_snapshots": include_snapshots,
+                        "to_records": to_records,
+                    },
+                    profile_list_params.ProfileListParams,
+                ),
             ),
             cast_to=ProfileListResponse,
         )

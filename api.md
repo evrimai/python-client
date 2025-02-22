@@ -72,7 +72,7 @@ Methods:
 
 - <code title="post /prod/v0/bulk/templates/profiles/">client.bulk.templates.profiles.<a href="./src/evrim/resources/bulk/templates/profiles.py">create</a>(\*\*<a href="src/evrim/types/bulk/templates/profile_create_params.py">params</a>) -> <a href="./src/evrim/types/bulk/templates/bulk_job.py">BulkJob</a></code>
 - <code title="get /prod/v0/bulk/templates/profiles/{id}/">client.bulk.templates.profiles.<a href="./src/evrim/resources/bulk/templates/profiles.py">retrieve</a>(id) -> <a href="./src/evrim/types/bulk/templates/bulk_job.py">BulkJob</a></code>
-- <code title="get /prod/v0/bulk/templates/profiles/">client.bulk.templates.profiles.<a href="./src/evrim/resources/bulk/templates/profiles.py">list</a>() -> <a href="./src/evrim/types/bulk/templates/profile_list_response.py">ProfileListResponse</a></code>
+- <code title="get /prod/v0/bulk/templates/profiles/">client.bulk.templates.profiles.<a href="./src/evrim/resources/bulk/templates/profiles.py">list</a>(\*\*<a href="src/evrim/types/bulk/templates/profile_list_params.py">params</a>) -> <a href="./src/evrim/types/bulk/templates/profile_list_response.py">ProfileListResponse</a></code>
 
 # Collections
 
@@ -87,7 +87,7 @@ Methods:
 - <code title="post /prod/v0/collections/">client.collections.<a href="./src/evrim/resources/collections.py">create</a>(\*\*<a href="src/evrim/types/collection_create_params.py">params</a>) -> <a href="./src/evrim/types/collection.py">Collection</a></code>
 - <code title="get /prod/v0/collections/{id}/">client.collections.<a href="./src/evrim/resources/collections.py">retrieve</a>(id) -> <a href="./src/evrim/types/collection.py">Collection</a></code>
 - <code title="patch /prod/v0/collections/{id}/">client.collections.<a href="./src/evrim/resources/collections.py">update</a>(id, \*\*<a href="src/evrim/types/collection_update_params.py">params</a>) -> <a href="./src/evrim/types/collection.py">Collection</a></code>
-- <code title="get /prod/v0/collections/">client.collections.<a href="./src/evrim/resources/collections.py">list</a>() -> <a href="./src/evrim/types/collection_list_response.py">CollectionListResponse</a></code>
+- <code title="get /prod/v0/collections/">client.collections.<a href="./src/evrim/resources/collections.py">list</a>(\*\*<a href="src/evrim/types/collection_list_params.py">params</a>) -> <a href="./src/evrim/types/collection_list_response.py">CollectionListResponse</a></code>
 - <code title="delete /prod/v0/collections/{id}/">client.collections.<a href="./src/evrim/resources/collections.py">delete</a>(id) -> None</code>
 
 # CreatedFields
@@ -103,7 +103,7 @@ Methods:
 - <code title="post /prod/v0/created-fields/">client.created_fields.<a href="./src/evrim/resources/created_fields.py">create</a>(\*\*<a href="src/evrim/types/created_field_create_params.py">params</a>) -> <a href="./src/evrim/types/created_field.py">CreatedField</a></code>
 - <code title="get /prod/v0/created-fields/{id}/">client.created_fields.<a href="./src/evrim/resources/created_fields.py">retrieve</a>(id) -> <a href="./src/evrim/types/created_field.py">CreatedField</a></code>
 - <code title="patch /prod/v0/created-fields/{id}/">client.created_fields.<a href="./src/evrim/resources/created_fields.py">update</a>(id, \*\*<a href="src/evrim/types/created_field_update_params.py">params</a>) -> <a href="./src/evrim/types/created_field.py">CreatedField</a></code>
-- <code title="get /prod/v0/created-fields/">client.created_fields.<a href="./src/evrim/resources/created_fields.py">list</a>() -> <a href="./src/evrim/types/created_field_list_response.py">CreatedFieldListResponse</a></code>
+- <code title="get /prod/v0/created-fields/">client.created_fields.<a href="./src/evrim/resources/created_fields.py">list</a>(\*\*<a href="src/evrim/types/created_field_list_params.py">params</a>) -> <a href="./src/evrim/types/created_field_list_response.py">CreatedFieldListResponse</a></code>
 - <code title="delete /prod/v0/created-fields/{id}/">client.created_fields.<a href="./src/evrim/resources/created_fields.py">delete</a>(id) -> None</code>
 - <code title="post /prod/v0/created-fields/{field_id}/profile/">client.created_fields.<a href="./src/evrim/resources/created_fields.py">profile</a>(field_id, \*\*<a href="src/evrim/types/created_field_profile_params.py">params</a>) -> None</code>
 
@@ -171,7 +171,7 @@ from evrim.types.profiles import LatestRetrieveResponse
 
 Methods:
 
-- <code title="get /prod/v0/profiles/{profile_id}/latest/">client.profiles.latest.<a href="./src/evrim/resources/profiles/latest.py">retrieve</a>(profile_id) -> <a href="./src/evrim/types/profiles/latest_retrieve_response.py">LatestRetrieveResponse</a></code>
+- <code title="get /prod/v0/profiles/{profile_id}/latest/">client.profiles.latest.<a href="./src/evrim/resources/profiles/latest.py">retrieve</a>(profile_id, \*\*<a href="src/evrim/types/profiles/latest_retrieve_params.py">params</a>) -> <a href="./src/evrim/types/profiles/latest_retrieve_response.py">LatestRetrieveResponse</a></code>
 
 ## Reports
 
@@ -197,7 +197,7 @@ Methods:
 
 - <code title="post /prod/v0/profiles/{profile_id}/snapshots/">client.profiles.snapshots.<a href="./src/evrim/resources/profiles/snapshots.py">create</a>(profile_id) -> <a href="./src/evrim/types/profiles/create_profile_snapshot.py">CreateProfileSnapshot</a></code>
 - <code title="get /prod/v0/profiles/{profile_id}/snapshots/{snapshot_id}/">client.profiles.snapshots.<a href="./src/evrim/resources/profiles/snapshots.py">retrieve</a>(snapshot_id, \*, profile_id) -> <a href="./src/evrim/types/profiles/create_profile_snapshot.py">CreateProfileSnapshot</a></code>
-- <code title="get /prod/v0/profiles/{profile_id}/snapshots/">client.profiles.snapshots.<a href="./src/evrim/resources/profiles/snapshots.py">list</a>(profile_id) -> <a href="./src/evrim/types/profiles/snapshot_list_response.py">SnapshotListResponse</a></code>
+- <code title="get /prod/v0/profiles/{profile_id}/snapshots/">client.profiles.snapshots.<a href="./src/evrim/resources/profiles/snapshots.py">list</a>(profile_id, \*\*<a href="src/evrim/types/profiles/snapshot_list_params.py">params</a>) -> <a href="./src/evrim/types/profiles/snapshot_list_response.py">SnapshotListResponse</a></code>
 
 # PromptTemplates
 
@@ -211,7 +211,7 @@ Methods:
 
 - <code title="post /prod/v0/prompt-templates/">client.prompt_templates.<a href="./src/evrim/resources/prompt_templates.py">create</a>(\*\*<a href="src/evrim/types/prompt_template_create_params.py">params</a>) -> <a href="./src/evrim/types/prompt_template.py">PromptTemplate</a></code>
 - <code title="get /prod/v0/prompt-templates/{id}/">client.prompt_templates.<a href="./src/evrim/resources/prompt_templates.py">retrieve</a>(id) -> <a href="./src/evrim/types/prompt_template.py">PromptTemplate</a></code>
-- <code title="get /prod/v0/prompt-templates/">client.prompt_templates.<a href="./src/evrim/resources/prompt_templates.py">list</a>() -> <a href="./src/evrim/types/prompt_template_list_response.py">PromptTemplateListResponse</a></code>
+- <code title="get /prod/v0/prompt-templates/">client.prompt_templates.<a href="./src/evrim/resources/prompt_templates.py">list</a>(\*\*<a href="src/evrim/types/prompt_template_list_params.py">params</a>) -> <a href="./src/evrim/types/prompt_template_list_response.py">PromptTemplateListResponse</a></code>
 
 # Snapshots
 
@@ -224,7 +224,7 @@ from evrim.types import SnapshotListResponse
 Methods:
 
 - <code title="get /prod/v0/snapshots/{id}/">client.snapshots.<a href="./src/evrim/resources/snapshots.py">retrieve</a>(id) -> <a href="./src/evrim/types/shared/snapshot.py">Snapshot</a></code>
-- <code title="get /prod/v0/snapshots/">client.snapshots.<a href="./src/evrim/resources/snapshots.py">list</a>() -> <a href="./src/evrim/types/snapshot_list_response.py">SnapshotListResponse</a></code>
+- <code title="get /prod/v0/snapshots/">client.snapshots.<a href="./src/evrim/resources/snapshots.py">list</a>(\*\*<a href="src/evrim/types/snapshot_list_params.py">params</a>) -> <a href="./src/evrim/types/snapshot_list_response.py">SnapshotListResponse</a></code>
 
 # Tags
 
@@ -239,7 +239,7 @@ Methods:
 - <code title="post /prod/v0/tags/">client.tags.<a href="./src/evrim/resources/tags/tags.py">create</a>(\*\*<a href="src/evrim/types/tag_create_params.py">params</a>) -> <a href="./src/evrim/types/tag.py">Tag</a></code>
 - <code title="get /prod/v0/tags/{id}/">client.tags.<a href="./src/evrim/resources/tags/tags.py">retrieve</a>(id) -> <a href="./src/evrim/types/tag.py">Tag</a></code>
 - <code title="patch /prod/v0/tags/{id}/">client.tags.<a href="./src/evrim/resources/tags/tags.py">update</a>(id, \*\*<a href="src/evrim/types/tag_update_params.py">params</a>) -> <a href="./src/evrim/types/tag.py">Tag</a></code>
-- <code title="get /prod/v0/tags/">client.tags.<a href="./src/evrim/resources/tags/tags.py">list</a>() -> <a href="./src/evrim/types/tag_list_response.py">TagListResponse</a></code>
+- <code title="get /prod/v0/tags/">client.tags.<a href="./src/evrim/resources/tags/tags.py">list</a>(\*\*<a href="src/evrim/types/tag_list_params.py">params</a>) -> <a href="./src/evrim/types/tag_list_response.py">TagListResponse</a></code>
 - <code title="delete /prod/v0/tags/{id}/">client.tags.<a href="./src/evrim/resources/tags/tags.py">delete</a>(id) -> None</code>
 
 ## Collections
@@ -264,7 +264,7 @@ from evrim.types.tags import ProfileListResponse
 
 Methods:
 
-- <code title="get /prod/v0/tags/{tag_id}/profiles/">client.tags.profiles.<a href="./src/evrim/resources/tags/profiles.py">list</a>(tag_id) -> <a href="./src/evrim/types/tags/profile_list_response.py">ProfileListResponse</a></code>
+- <code title="get /prod/v0/tags/{tag_id}/profiles/">client.tags.profiles.<a href="./src/evrim/resources/tags/profiles.py">list</a>(tag_id, \*\*<a href="src/evrim/types/tags/profile_list_params.py">params</a>) -> <a href="./src/evrim/types/tags/profile_list_response.py">ProfileListResponse</a></code>
 - <code title="post /prod/v0/tags/{tag_id}/profiles/">client.tags.profiles.<a href="./src/evrim/resources/tags/profiles.py">tag</a>(tag_id, \*\*<a href="src/evrim/types/tags/profile_tag_params.py">params</a>) -> None</code>
 
 # Templates
@@ -293,4 +293,4 @@ from evrim.types.templates import ProfileListResponse
 
 Methods:
 
-- <code title="get /prod/v0/templates/{template_id}/profiles/">client.templates.profiles.<a href="./src/evrim/resources/templates/profiles.py">list</a>(template_id) -> <a href="./src/evrim/types/templates/profile_list_response.py">ProfileListResponse</a></code>
+- <code title="get /prod/v0/templates/{template_id}/profiles/">client.templates.profiles.<a href="./src/evrim/resources/templates/profiles.py">list</a>(template_id, \*\*<a href="src/evrim/types/templates/profile_list_params.py">params</a>) -> <a href="./src/evrim/types/templates/profile_list_response.py">ProfileListResponse</a></code>

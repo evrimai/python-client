@@ -1,10 +1,18 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import List
-from typing_extensions import TypeAlias
+from typing import List, Optional
 
 from .tag import Tag
+from .._models import BaseModel
 
 __all__ = ["TagListResponse"]
 
-TagListResponse: TypeAlias = List[Tag]
+
+class TagListResponse(BaseModel):
+    count: int
+
+    results: List[Tag]
+
+    next: Optional[str] = None
+
+    previous: Optional[str] = None

@@ -185,7 +185,9 @@ class TestTemplates:
     @parametrize
     def test_method_list_with_all_params(self, client: Evrim) -> None:
         template = client.templates.list(
+            limit=0,
             name="name",
+            offset=0,
         )
         assert_matches_type(TemplateListResponse, template, path=["response"])
 
@@ -409,7 +411,9 @@ class TestAsyncTemplates:
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncEvrim) -> None:
         template = await async_client.templates.list(
+            limit=0,
             name="name",
+            offset=0,
         )
         assert_matches_type(TemplateListResponse, template, path=["response"])
 
