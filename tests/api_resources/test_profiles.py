@@ -154,6 +154,8 @@ class TestProfiles:
     @parametrize
     def test_method_list_with_all_params(self, client: Evrim) -> None:
         profile = client.profiles.list(
+            limit=0,
+            offset=0,
             specification="specification",
         )
         assert_matches_type(ProfileListResponse, profile, path=["response"])
@@ -388,6 +390,8 @@ class TestAsyncProfiles:
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncEvrim) -> None:
         profile = await async_client.profiles.list(
+            limit=0,
+            offset=0,
             specification="specification",
         )
         assert_matches_type(ProfileListResponse, profile, path=["response"])

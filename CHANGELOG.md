@@ -1,5 +1,32 @@
 # Changelog
 
+## 2.3.0 (2025-03-04)
+
+Full Changelog: [v2.2.1...v2.3.0](https://github.com/evrimai/python-client/compare/v2.2.1...v2.3.0)
+
+### Features
+
+* **api:** api update ([#35](https://github.com/evrimai/python-client/issues/35)) ([64dfb1f](https://github.com/evrimai/python-client/commit/64dfb1ff52376e845259ba48a028f4fba2d729a8))
+* **client:** allow passing `NotGiven` for body ([#37](https://github.com/evrimai/python-client/issues/37)) ([9237c01](https://github.com/evrimai/python-client/commit/9237c0197cb4a55c8b23d5f418c53893ad7b1f3d))
+
+
+### Bug Fixes
+
+* **client:** mark some request bodies as optional ([9237c01](https://github.com/evrimai/python-client/commit/9237c0197cb4a55c8b23d5f418c53893ad7b1f3d))
+
+
+### Chores
+
+* **docs:** update client docstring ([#41](https://github.com/evrimai/python-client/issues/41)) ([cf42821](https://github.com/evrimai/python-client/commit/cf4282194d4f3690645e2e5b4237ed5efc440c69))
+* **internal:** fix devcontainers setup ([#38](https://github.com/evrimai/python-client/issues/38)) ([32a10dc](https://github.com/evrimai/python-client/commit/32a10dc3ab18a7e9d74ab92707446b9dec4c847a))
+* **internal:** properly set __pydantic_private__ ([#39](https://github.com/evrimai/python-client/issues/39)) ([762f1e2](https://github.com/evrimai/python-client/commit/762f1e26e38bd452043a7e35a3313e467e6c9e5b))
+* **internal:** remove unused http client options forwarding ([#42](https://github.com/evrimai/python-client/issues/42)) ([f83be05](https://github.com/evrimai/python-client/commit/f83be0532ea982e95741d05633d11307332bc985))
+
+
+### Documentation
+
+* update URLs from stainlessapi.com to stainless.com ([#40](https://github.com/evrimai/python-client/issues/40)) ([a11c9a7](https://github.com/evrimai/python-client/commit/a11c9a7b194c26e350b74f375ae7504795a078a5))
+
 ## 2.2.1 (2025-02-14)
 
 Full Changelog: [v2.2.0...v2.2.1](https://github.com/evrimai/python-client/compare/v2.2.0...v2.2.1)

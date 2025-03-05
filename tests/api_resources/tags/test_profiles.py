@@ -20,14 +20,23 @@ class TestProfiles:
     @parametrize
     def test_method_list(self, client: Evrim) -> None:
         profile = client.tags.profiles.list(
-            "321669910225",
+            tag_id="321669910225",
+        )
+        assert_matches_type(ProfileListResponse, profile, path=["response"])
+
+    @parametrize
+    def test_method_list_with_all_params(self, client: Evrim) -> None:
+        profile = client.tags.profiles.list(
+            tag_id="321669910225",
+            limit=0,
+            offset=0,
         )
         assert_matches_type(ProfileListResponse, profile, path=["response"])
 
     @parametrize
     def test_raw_response_list(self, client: Evrim) -> None:
         response = client.tags.profiles.with_raw_response.list(
-            "321669910225",
+            tag_id="321669910225",
         )
 
         assert response.is_closed is True
@@ -38,7 +47,7 @@ class TestProfiles:
     @parametrize
     def test_streaming_response_list(self, client: Evrim) -> None:
         with client.tags.profiles.with_streaming_response.list(
-            "321669910225",
+            tag_id="321669910225",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -52,7 +61,7 @@ class TestProfiles:
     def test_path_params_list(self, client: Evrim) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `tag_id` but received ''"):
             client.tags.profiles.with_raw_response.list(
-                "",
+                tag_id="",
             )
 
     @parametrize
@@ -104,14 +113,23 @@ class TestAsyncProfiles:
     @parametrize
     async def test_method_list(self, async_client: AsyncEvrim) -> None:
         profile = await async_client.tags.profiles.list(
-            "321669910225",
+            tag_id="321669910225",
+        )
+        assert_matches_type(ProfileListResponse, profile, path=["response"])
+
+    @parametrize
+    async def test_method_list_with_all_params(self, async_client: AsyncEvrim) -> None:
+        profile = await async_client.tags.profiles.list(
+            tag_id="321669910225",
+            limit=0,
+            offset=0,
         )
         assert_matches_type(ProfileListResponse, profile, path=["response"])
 
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncEvrim) -> None:
         response = await async_client.tags.profiles.with_raw_response.list(
-            "321669910225",
+            tag_id="321669910225",
         )
 
         assert response.is_closed is True
@@ -122,7 +140,7 @@ class TestAsyncProfiles:
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncEvrim) -> None:
         async with async_client.tags.profiles.with_streaming_response.list(
-            "321669910225",
+            tag_id="321669910225",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -136,7 +154,7 @@ class TestAsyncProfiles:
     async def test_path_params_list(self, async_client: AsyncEvrim) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `tag_id` but received ''"):
             await async_client.tags.profiles.with_raw_response.list(
-                "",
+                tag_id="",
             )
 
     @parametrize

@@ -55,6 +55,14 @@ class TestSnapshots:
         assert_matches_type(SnapshotListResponse, snapshot, path=["response"])
 
     @parametrize
+    def test_method_list_with_all_params(self, client: Evrim) -> None:
+        snapshot = client.snapshots.list(
+            limit=0,
+            offset=0,
+        )
+        assert_matches_type(SnapshotListResponse, snapshot, path=["response"])
+
+    @parametrize
     def test_raw_response_list(self, client: Evrim) -> None:
         response = client.snapshots.with_raw_response.list()
 
@@ -112,6 +120,14 @@ class TestAsyncSnapshots:
     @parametrize
     async def test_method_list(self, async_client: AsyncEvrim) -> None:
         snapshot = await async_client.snapshots.list()
+        assert_matches_type(SnapshotListResponse, snapshot, path=["response"])
+
+    @parametrize
+    async def test_method_list_with_all_params(self, async_client: AsyncEvrim) -> None:
+        snapshot = await async_client.snapshots.list(
+            limit=0,
+            offset=0,
+        )
         assert_matches_type(SnapshotListResponse, snapshot, path=["response"])
 
     @parametrize
