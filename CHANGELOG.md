@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.5.0 (2025-03-11)
+
+Full Changelog: [v2.4.0...v2.5.0](https://github.com/evrimai/python-client/compare/v2.4.0...v2.5.0)
+
+### Features
+
+* **api:** api update ([#49](https://github.com/evrimai/python-client/issues/49)) ([84cb8c5](https://github.com/evrimai/python-client/commit/84cb8c5f9419efd9e6cbe5c31ebdf147957ed137))
+
 ## 2.4.0 (2025-03-11)
 
 Full Changelog: [v2.3.0...v2.4.0](https://github.com/evrimai/python-client/compare/v2.3.0...v2.4.0)
