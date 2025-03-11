@@ -73,6 +73,41 @@ Nested request parameters are [TypedDicts](https://docs.python.org/3/library/typ
 
 Typed requests and responses provide autocomplete and documentation within your editor. If you would like to see type errors in VS Code to help catch bugs earlier, set `python.analysis.typeCheckingMode` to `basic`.
 
+## Nested params
+
+Nested parameters are dictionaries, typed using `TypedDict`, for example:
+
+```python
+from evrim import Evrim
+
+client = Evrim()
+
+created_field = client.created_fields.create(
+    description="description",
+    name="name",
+    specification="specification",
+    type="xxx",
+    rel_template={
+        "fields": [
+            {
+                "description": "description",
+                "name": "name",
+                "type": "xxx",
+                "id": 0,
+                "enum_many": True,
+                "enum_values": ["string"],
+                "rel_template_id": 0,
+                "sources": ["string"],
+            }
+        ],
+        "name": "name",
+        "description": "description",
+        "questions": ["string"],
+    },
+)
+print(created_field.rel_template)
+```
+
 ## Handling errors
 
 When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `evrim.APIConnectionError` is raised.
