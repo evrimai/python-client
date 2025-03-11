@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.4.0 (2025-03-11)
+
+Full Changelog: [v2.3.0...v2.4.0](https://github.com/evrimai/python-client/compare/v2.3.0...v2.4.0)
+
+### Features
+
+* **api:** api update ([#47](https://github.com/evrimai/python-client/issues/47)) ([2407001](https://github.com/evrimai/python-client/commit/240700130f8a55325834c9742fc5cd8f02134819))
+
+
+### Documentation
+
+* revise readme docs about nested params ([#44](https://github.com/evrimai/python-client/issues/44)) ([c660316](https://github.com/evrimai/python-client/commit/c6603162721f87febb5d3decdcfb584299da120b))
+
 ## 2.3.0 (2025-03-04)
 
 Full Changelog: [v2.2.1...v2.3.0](https://github.com/evrimai/python-client/compare/v2.2.1...v2.3.0)

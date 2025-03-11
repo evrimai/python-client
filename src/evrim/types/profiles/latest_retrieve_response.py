@@ -13,6 +13,8 @@ class ResultAnswer(BaseModel):
 
     answer: object
 
+    source: Optional[str] = None
+
 
 class Result(BaseModel):
     answers: List[ResultAnswer]

@@ -119,6 +119,8 @@ class ProfilesResource(SyncAPIResource):
         *,
         specification: str,
         template_id: int,
+        source: str | NotGiven = NOT_GIVEN,
+        source_map: object | NotGiven = NOT_GIVEN,
         tags: Iterable[TagParam] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -143,6 +145,8 @@ class ProfilesResource(SyncAPIResource):
                 {
                     "specification": specification,
                     "template_id": template_id,
+                    "source": source,
+                    "source_map": source_map,
                     "tags": tags,
                 },
                 profile_create_params.ProfileCreateParams,
@@ -186,6 +190,8 @@ class ProfilesResource(SyncAPIResource):
         self,
         id: int,
         *,
+        source: str | NotGiven = NOT_GIVEN,
+        source_map: object | NotGiven = NOT_GIVEN,
         specification: str | NotGiven = NOT_GIVEN,
         tags: Iterable[TagParam] | NotGiven = NOT_GIVEN,
         template_id: int | NotGiven = NOT_GIVEN,
@@ -210,6 +216,8 @@ class ProfilesResource(SyncAPIResource):
             f"/prod/v0/profiles/{id}/",
             body=maybe_transform(
                 {
+                    "source": source,
+                    "source_map": source_map,
                     "specification": specification,
                     "tags": tags,
                     "template_id": template_id,
@@ -379,6 +387,8 @@ class AsyncProfilesResource(AsyncAPIResource):
         *,
         specification: str,
         template_id: int,
+        source: str | NotGiven = NOT_GIVEN,
+        source_map: object | NotGiven = NOT_GIVEN,
         tags: Iterable[TagParam] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -403,6 +413,8 @@ class AsyncProfilesResource(AsyncAPIResource):
                 {
                     "specification": specification,
                     "template_id": template_id,
+                    "source": source,
+                    "source_map": source_map,
                     "tags": tags,
                 },
                 profile_create_params.ProfileCreateParams,
@@ -446,6 +458,8 @@ class AsyncProfilesResource(AsyncAPIResource):
         self,
         id: int,
         *,
+        source: str | NotGiven = NOT_GIVEN,
+        source_map: object | NotGiven = NOT_GIVEN,
         specification: str | NotGiven = NOT_GIVEN,
         tags: Iterable[TagParam] | NotGiven = NOT_GIVEN,
         template_id: int | NotGiven = NOT_GIVEN,
@@ -470,6 +484,8 @@ class AsyncProfilesResource(AsyncAPIResource):
             f"/prod/v0/profiles/{id}/",
             body=await async_maybe_transform(
                 {
+                    "source": source,
+                    "source_map": source_map,
                     "specification": specification,
                     "tags": tags,
                     "template_id": template_id,

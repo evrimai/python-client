@@ -15,4 +15,8 @@ class ProfileCreateParams(TypedDict, total=False):
 
     template_id: Required[int]
 
+    source: str
+
+    source_map: object
+
     tags: Iterable[TagParam]

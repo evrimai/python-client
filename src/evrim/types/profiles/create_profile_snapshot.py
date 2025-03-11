@@ -1,6 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from typing import List
+from typing import List, Optional
 
 from ..._models import BaseModel
 from ..created_field import CreatedField
@@ -13,6 +13,8 @@ class Answer(BaseModel):
     id: int
 
     answer: object
+
+    source: Optional[str] = None
 
 
 class CreateProfileSnapshot(BaseModel):

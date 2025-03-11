@@ -11,6 +11,10 @@ __all__ = ["ProfileUpdateParams"]
 
 
 class ProfileUpdateParams(TypedDict, total=False):
+    source: str
+
+    source_map: object
+
     specification: str
 
     tags: Iterable[TagParam]

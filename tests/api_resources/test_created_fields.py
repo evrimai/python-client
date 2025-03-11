@@ -37,8 +37,10 @@ class TestCreatedFields:
             name="name",
             specification="specification",
             type="xxx",
+            directed_source="directed_source",
             enum_many=True,
             enum_values=["string"],
+            keyword_search=True,
             rel_template={
                 "fields": [
                     {
@@ -46,6 +48,7 @@ class TestCreatedFields:
                         "name": "name",
                         "type": "xxx",
                         "id": 0,
+                        "directed": True,
                         "enum_many": True,
                         "enum_values": ["string"],
                         "rel_template_id": 0,
@@ -134,8 +137,10 @@ class TestCreatedFields:
         created_field = client.created_fields.update(
             id=0,
             description="description",
+            directed_source="directed_source",
             enum_many=True,
             enum_values=["string"],
+            keyword_search=True,
             name="name",
             rel_template={
                 "fields": [
@@ -144,6 +149,7 @@ class TestCreatedFields:
                         "name": "name",
                         "type": "xxx",
                         "id": 0,
+                        "directed": True,
                         "enum_many": True,
                         "enum_values": ["string"],
                         "rel_template_id": 0,
@@ -312,8 +318,10 @@ class TestAsyncCreatedFields:
             name="name",
             specification="specification",
             type="xxx",
+            directed_source="directed_source",
             enum_many=True,
             enum_values=["string"],
+            keyword_search=True,
             rel_template={
                 "fields": [
                     {
@@ -321,6 +329,7 @@ class TestAsyncCreatedFields:
                         "name": "name",
                         "type": "xxx",
                         "id": 0,
+                        "directed": True,
                         "enum_many": True,
                         "enum_values": ["string"],
                         "rel_template_id": 0,
@@ -409,8 +418,10 @@ class TestAsyncCreatedFields:
         created_field = await async_client.created_fields.update(
             id=0,
             description="description",
+            directed_source="directed_source",
             enum_many=True,
             enum_values=["string"],
+            keyword_search=True,
             name="name",
             rel_template={
                 "fields": [
@@ -419,6 +430,7 @@ class TestAsyncCreatedFields:
                         "name": "name",
                         "type": "xxx",
                         "id": 0,
+                        "directed": True,
                         "enum_many": True,
                         "enum_values": ["string"],
                         "rel_template_id": 0,

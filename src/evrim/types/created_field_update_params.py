@@ -13,9 +13,13 @@ __all__ = ["CreatedFieldUpdateParams"]
 class CreatedFieldUpdateParams(TypedDict, total=False):
     description: str
 
+    directed_source: Optional[str]
+
     enum_many: bool
 
     enum_values: List[str]
+
+    keyword_search: Optional[bool]
 
     name: str
 
