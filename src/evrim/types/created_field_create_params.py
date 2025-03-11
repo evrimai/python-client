@@ -19,9 +19,13 @@ class CreatedFieldCreateParams(TypedDict, total=False):
 
     type: Required[str]
 
+    directed_source: Optional[str]
+
     enum_many: bool
 
     enum_values: List[str]
+
+    keyword_search: Optional[bool]
 
     rel_template: TemplateParam
 

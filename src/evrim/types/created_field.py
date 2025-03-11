@@ -1,5 +1,6 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+from typing import Optional
 
 from .field import Field
 from .._models import BaseModel
@@ -15,3 +16,5 @@ class CreatedField(BaseModel):
     status: str
 
     value: object
+
+    keyword_search: Optional[bool] = None
