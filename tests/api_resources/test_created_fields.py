@@ -41,6 +41,7 @@ class TestCreatedFields:
             enum_many=True,
             enum_values=["string"],
             keyword_search=True,
+            raw_documents=True,
             rel_template={
                 "fields": [
                     {
@@ -51,6 +52,8 @@ class TestCreatedFields:
                         "directed": True,
                         "enum_many": True,
                         "enum_values": ["string"],
+                        "keyword_search": True,
+                        "raw_documents": True,
                         "rel_template_id": 0,
                         "sources": ["string"],
                     }
@@ -142,6 +145,7 @@ class TestCreatedFields:
             enum_values=["string"],
             keyword_search=True,
             name="name",
+            raw_documents=True,
             rel_template={
                 "fields": [
                     {
@@ -152,6 +156,8 @@ class TestCreatedFields:
                         "directed": True,
                         "enum_many": True,
                         "enum_values": ["string"],
+                        "keyword_search": True,
+                        "raw_documents": True,
                         "rel_template_id": 0,
                         "sources": ["string"],
                     }
@@ -322,6 +328,7 @@ class TestAsyncCreatedFields:
             enum_many=True,
             enum_values=["string"],
             keyword_search=True,
+            raw_documents=True,
             rel_template={
                 "fields": [
                     {
@@ -332,6 +339,8 @@ class TestAsyncCreatedFields:
                         "directed": True,
                         "enum_many": True,
                         "enum_values": ["string"],
+                        "keyword_search": True,
+                        "raw_documents": True,
                         "rel_template_id": 0,
                         "sources": ["string"],
                     }
@@ -423,6 +432,7 @@ class TestAsyncCreatedFields:
             enum_values=["string"],
             keyword_search=True,
             name="name",
+            raw_documents=True,
             rel_template={
                 "fields": [
                     {
@@ -433,6 +443,8 @@ class TestAsyncCreatedFields:
                         "directed": True,
                         "enum_many": True,
                         "enum_values": ["string"],
+                        "keyword_search": True,
+                        "raw_documents": True,
                         "rel_template_id": 0,
                         "sources": ["string"],
                     }

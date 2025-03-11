@@ -97,6 +97,8 @@ created_field = client.created_fields.create(
                 "directed": True,
                 "enum_many": True,
                 "enum_values": ["string"],
+                "keyword_search": True,
+                "raw_documents": True,
                 "rel_template_id": 0,
                 "sources": ["string"],
             }

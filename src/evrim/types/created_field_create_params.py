@@ -27,6 +27,8 @@ class CreatedFieldCreateParams(TypedDict, total=False):
 
     keyword_search: Optional[bool]
 
+    raw_documents: Optional[bool]
+
     rel_template: TemplateParam
 
     source_entity_type: Optional[str]
