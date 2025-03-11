@@ -94,6 +94,7 @@ created_field = client.created_fields.create(
                 "name": "name",
                 "type": "xxx",
                 "id": 0,
+                "directed": True,
                 "enum_many": True,
                 "enum_values": ["string"],
                 "rel_template_id": 0,

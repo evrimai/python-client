@@ -18,6 +18,8 @@ class Field(BaseModel):
 
     id: Optional[int] = None
 
+    directed: Optional[bool] = None
+
     enum_many: Optional[bool] = None
 
     enum_values: Optional[List[str]] = None

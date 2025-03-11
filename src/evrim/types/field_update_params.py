@@ -15,6 +15,8 @@ class FieldUpdateParams(TypedDict, total=False):
 
     description: str
 
+    directed: bool
+
     enum_many: bool
 
     enum_values: List[str]
