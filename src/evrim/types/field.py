@@ -24,4 +24,8 @@ class Field(BaseModel):
 
     enum_values: Optional[List[str]] = None
 
+    keyword_search: Optional[bool] = None
+
+    raw_documents: Optional[bool] = None
+
     sources: Optional[List[str]] = None

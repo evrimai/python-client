@@ -46,6 +46,8 @@ class TestTemplates:
                     "directed": True,
                     "enum_many": True,
                     "enum_values": ["string"],
+                    "keyword_search": True,
+                    "raw_documents": True,
                     "rel_template_id": 0,
                     "sources": ["string"],
                 }
@@ -146,6 +148,8 @@ class TestTemplates:
                     "directed": True,
                     "enum_many": True,
                     "enum_values": ["string"],
+                    "keyword_search": True,
+                    "raw_documents": True,
                     "rel_template_id": 0,
                     "sources": ["string"],
                 }
@@ -274,6 +278,8 @@ class TestAsyncTemplates:
                     "directed": True,
                     "enum_many": True,
                     "enum_values": ["string"],
+                    "keyword_search": True,
+                    "raw_documents": True,
                     "rel_template_id": 0,
                     "sources": ["string"],
                 }
@@ -374,6 +380,8 @@ class TestAsyncTemplates:
                     "directed": True,
                     "enum_many": True,
                     "enum_values": ["string"],
+                    "keyword_search": True,
+                    "raw_documents": True,
                     "rel_template_id": 0,
                     "sources": ["string"],
                 }
