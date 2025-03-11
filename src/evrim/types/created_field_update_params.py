@@ -23,6 +23,8 @@ class CreatedFieldUpdateParams(TypedDict, total=False):
 
     name: str
 
+    raw_documents: Optional[bool]
+
     rel_template: TemplateParam
 
     source_entity_type: Optional[str]

@@ -21,7 +21,11 @@ class FieldUpdateParams(TypedDict, total=False):
 
     enum_values: List[str]
 
+    keyword_search: bool
+
     name: str
+
+    raw_documents: bool
 
     rel_template_id: Optional[int]
 
