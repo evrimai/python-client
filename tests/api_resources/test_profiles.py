@@ -34,6 +34,8 @@ class TestProfiles:
         profile = client.profiles.create(
             specification="specification",
             template_id=0,
+            source="source",
+            source_map={},
             tags=[
                 {
                     "name": "name",
@@ -111,6 +113,8 @@ class TestProfiles:
     def test_method_update_with_all_params(self, client: Evrim) -> None:
         profile = client.profiles.update(
             id=0,
+            source="source",
+            source_map={},
             specification="specification",
             tags=[
                 {
@@ -270,6 +274,8 @@ class TestAsyncProfiles:
         profile = await async_client.profiles.create(
             specification="specification",
             template_id=0,
+            source="source",
+            source_map={},
             tags=[
                 {
                     "name": "name",
@@ -347,6 +353,8 @@ class TestAsyncProfiles:
     async def test_method_update_with_all_params(self, async_client: AsyncEvrim) -> None:
         profile = await async_client.profiles.update(
             id=0,
+            source="source",
+            source_map={},
             specification="specification",
             tags=[
                 {

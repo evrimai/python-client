@@ -17,6 +17,8 @@ class FieldParam(TypedDict, total=False):
 
     id: int
 
+    directed: bool
+
     enum_many: bool
 
     enum_values: List[str]
