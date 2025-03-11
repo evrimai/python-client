@@ -18,3 +18,5 @@ class CreatedField(BaseModel):
     value: object
 
     keyword_search: Optional[bool] = None
+
+    raw_documents: Optional[bool] = None

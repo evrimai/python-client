@@ -23,6 +23,10 @@ class FieldCreateParams(TypedDict, total=False):
 
     enum_values: List[str]
 
+    keyword_search: bool
+
+    raw_documents: bool
+
     rel_template_id: Optional[int]
 
     sources: Optional[List[str]]
