@@ -12,7 +12,7 @@ class Field(BaseModel):
 
     name: str
 
-    rel_template: int
+    rel_template: Optional[int] = None
 
     type: str
 
