@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.6.1 (2025-03-15)
+
+Full Changelog: [v2.6.0...v2.6.1](https://github.com/evrimai/python-client/compare/v2.6.0...v2.6.1)
+
+### Bug Fixes
+
+* **types:** handle more discriminated union shapes ([#59](https://github.com/evrimai/python-client/issues/59)) ([9956f74](https://github.com/evrimai/python-client/commit/9956f744ea933e4b7887358a3aa53900d2fb4913))
+
+
+### Chores
+
+* **internal:** bump rye to 0.44.0 ([#58](https://github.com/evrimai/python-client/issues/58)) ([07dc6cb](https://github.com/evrimai/python-client/commit/07dc6cbe8eaf16c9ae47d588dda4dea1463aff85))
+* **internal:** codegen related update ([#57](https://github.com/evrimai/python-client/issues/57)) ([7c49da5](https://github.com/evrimai/python-client/commit/7c49da5b3f4beaa6d0a69dcc3e75ce862d582ae5))
+* **internal:** remove extra empty newlines ([#55](https://github.com/evrimai/python-client/issues/55)) ([2eec7ec](https://github.com/evrimai/python-client/commit/2eec7ecdc1093b5b56e2494731ed05c91b118ce2))
+
 ## 2.6.0 (2025-03-12)
 
 Full Changelog: [v2.5.0...v2.6.0](https://github.com/evrimai/python-client/compare/v2.5.0...v2.6.0)
