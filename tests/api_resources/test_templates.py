@@ -194,6 +194,7 @@ class TestTemplates:
             limit=0,
             name="name",
             offset=0,
+            search="search",
         )
         assert_matches_type(TemplateListResponse, template, path=["response"])
 
@@ -426,6 +427,7 @@ class TestAsyncTemplates:
             limit=0,
             name="name",
             offset=0,
+            search="search",
         )
         assert_matches_type(TemplateListResponse, template, path=["response"])
 
