@@ -178,6 +178,7 @@ class TemplatesResource(SyncAPIResource):
         limit: int | NotGiven = NOT_GIVEN,
         name: str | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
+        search: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -190,6 +191,8 @@ class TemplatesResource(SyncAPIResource):
           limit: Number of results to return per page.
 
           offset: The initial index from which to return the results.
+
+          search: A search term.
 
           extra_headers: Send extra headers
 
@@ -211,6 +214,7 @@ class TemplatesResource(SyncAPIResource):
                         "limit": limit,
                         "name": name,
                         "offset": offset,
+                        "search": search,
                     },
                     template_list_params.TemplateListParams,
                 ),
@@ -391,6 +395,7 @@ class AsyncTemplatesResource(AsyncAPIResource):
         limit: int | NotGiven = NOT_GIVEN,
         name: str | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
+        search: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -403,6 +408,8 @@ class AsyncTemplatesResource(AsyncAPIResource):
           limit: Number of results to return per page.
 
           offset: The initial index from which to return the results.
+
+          search: A search term.
 
           extra_headers: Send extra headers
 
@@ -424,6 +431,7 @@ class AsyncTemplatesResource(AsyncAPIResource):
                         "limit": limit,
                         "name": name,
                         "offset": offset,
+                        "search": search,
                     },
                     template_list_params.TemplateListParams,
                 ),
