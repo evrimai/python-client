@@ -14,6 +14,8 @@ class Answer(BaseModel):
 
     answer: object
 
+    question: str
+
     source: Optional[str] = None
 
 
