@@ -64,6 +64,37 @@ class TestLatest:
                 profile_id="",
             )
 
+    @parametrize
+    def test_method_retrieve_relationships(self, client: Evrim) -> None:
+        latest = client.profiles.latest.retrieve_relationships(
+            0,
+        )
+        assert latest is None
+
+    @parametrize
+    def test_raw_response_retrieve_relationships(self, client: Evrim) -> None:
+        response = client.profiles.latest.with_raw_response.retrieve_relationships(
+            0,
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        latest = response.parse()
+        assert latest is None
+
+    @parametrize
+    def test_streaming_response_retrieve_relationships(self, client: Evrim) -> None:
+        with client.profiles.latest.with_streaming_response.retrieve_relationships(
+            0,
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            latest = response.parse()
+            assert latest is None
+
+        assert cast(Any, response.is_closed) is True
+
 
 class TestAsyncLatest:
     parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=["loose", "strict"])
@@ -114,3 +145,34 @@ class TestAsyncLatest:
             await async_client.profiles.latest.with_raw_response.retrieve(
                 profile_id="",
             )
+
+    @parametrize
+    async def test_method_retrieve_relationships(self, async_client: AsyncEvrim) -> None:
+        latest = await async_client.profiles.latest.retrieve_relationships(
+            0,
+        )
+        assert latest is None
+
+    @parametrize
+    async def test_raw_response_retrieve_relationships(self, async_client: AsyncEvrim) -> None:
+        response = await async_client.profiles.latest.with_raw_response.retrieve_relationships(
+            0,
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        latest = await response.parse()
+        assert latest is None
+
+    @parametrize
+    async def test_streaming_response_retrieve_relationships(self, async_client: AsyncEvrim) -> None:
+        async with async_client.profiles.latest.with_streaming_response.retrieve_relationships(
+            0,
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            latest = await response.parse()
+            assert latest is None
+
+        assert cast(Any, response.is_closed) is True

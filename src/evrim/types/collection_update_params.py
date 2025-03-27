@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from typing_extensions import TypedDict
+from typing_extensions import Required, TypedDict
 
 __all__ = ["CollectionUpdateParams"]
 
 
 class CollectionUpdateParams(TypedDict, total=False):
-    description: str
+    description: Required[str]
 
-    name: str
+    name: Required[str]

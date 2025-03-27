@@ -89,13 +89,6 @@ class TestCollections:
     def test_method_update(self, client: Evrim) -> None:
         collection = client.collections.update(
             id=0,
-        )
-        assert_matches_type(Collection, collection, path=["response"])
-
-    @parametrize
-    def test_method_update_with_all_params(self, client: Evrim) -> None:
-        collection = client.collections.update(
-            id=0,
             description="description",
             name="name",
         )
@@ -105,6 +98,8 @@ class TestCollections:
     def test_raw_response_update(self, client: Evrim) -> None:
         response = client.collections.with_raw_response.update(
             id=0,
+            description="description",
+            name="name",
         )
 
         assert response.is_closed is True
@@ -116,6 +111,8 @@ class TestCollections:
     def test_streaming_response_update(self, client: Evrim) -> None:
         with client.collections.with_streaming_response.update(
             id=0,
+            description="description",
+            name="name",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -262,13 +259,6 @@ class TestAsyncCollections:
     async def test_method_update(self, async_client: AsyncEvrim) -> None:
         collection = await async_client.collections.update(
             id=0,
-        )
-        assert_matches_type(Collection, collection, path=["response"])
-
-    @parametrize
-    async def test_method_update_with_all_params(self, async_client: AsyncEvrim) -> None:
-        collection = await async_client.collections.update(
-            id=0,
             description="description",
             name="name",
         )
@@ -278,6 +268,8 @@ class TestAsyncCollections:
     async def test_raw_response_update(self, async_client: AsyncEvrim) -> None:
         response = await async_client.collections.with_raw_response.update(
             id=0,
+            description="description",
+            name="name",
         )
 
         assert response.is_closed is True
@@ -289,6 +281,8 @@ class TestAsyncCollections:
     async def test_streaming_response_update(self, async_client: AsyncEvrim) -> None:
         async with async_client.collections.with_streaming_response.update(
             id=0,
+            description="description",
+            name="name",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"

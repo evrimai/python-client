@@ -6,27 +6,39 @@ from typing_extensions import Literal
 
 import httpx
 
-from ..types import prod_schema_params
-from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from .._utils import (
+from .v0.v0 import (
+    V0Resource,
+    AsyncV0Resource,
+    V0ResourceWithRawResponse,
+    AsyncV0ResourceWithRawResponse,
+    V0ResourceWithStreamingResponse,
+    AsyncV0ResourceWithStreamingResponse,
+)
+from ...types import prod_schema_params
+from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
+from ..._utils import (
     maybe_transform,
     async_maybe_transform,
 )
-from .._compat import cached_property
-from .._resource import SyncAPIResource, AsyncAPIResource
-from .._response import (
+from ..._compat import cached_property
+from ..._resource import SyncAPIResource, AsyncAPIResource
+from ..._response import (
     to_raw_response_wrapper,
     to_streamed_response_wrapper,
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from .._base_client import make_request_options
-from ..types.prod_schema_response import ProdSchemaResponse
+from ..._base_client import make_request_options
+from ...types.prod_schema_response import ProdSchemaResponse
 
 __all__ = ["ProdResource", "AsyncProdResource"]
 
 
 class ProdResource(SyncAPIResource):
+    @cached_property
+    def v0(self) -> V0Resource:
+        return V0Resource(self._client)
+
     @cached_property
     def with_raw_response(self) -> ProdResourceWithRawResponse:
         """
@@ -195,6 +207,10 @@ class ProdResource(SyncAPIResource):
 
 
 class AsyncProdResource(AsyncAPIResource):
+    @cached_property
+    def v0(self) -> AsyncV0Resource:
+        return AsyncV0Resource(self._client)
+
     @cached_property
     def with_raw_response(self) -> AsyncProdResourceWithRawResponse:
         """
@@ -370,6 +386,10 @@ class ProdResourceWithRawResponse:
             prod.schema,
         )
 
+    @cached_property
+    def v0(self) -> V0ResourceWithRawResponse:
+        return V0ResourceWithRawResponse(self._prod.v0)
+
 
 class AsyncProdResourceWithRawResponse:
     def __init__(self, prod: AsyncProdResource) -> None:
@@ -378,6 +398,10 @@ class AsyncProdResourceWithRawResponse:
         self.schema = async_to_raw_response_wrapper(
             prod.schema,
         )
+
+    @cached_property
+    def v0(self) -> AsyncV0ResourceWithRawResponse:
+        return AsyncV0ResourceWithRawResponse(self._prod.v0)
 
 
 class ProdResourceWithStreamingResponse:
@@ -388,6 +412,10 @@ class ProdResourceWithStreamingResponse:
             prod.schema,
         )
 
+    @cached_property
+    def v0(self) -> V0ResourceWithStreamingResponse:
+        return V0ResourceWithStreamingResponse(self._prod.v0)
+
 
 class AsyncProdResourceWithStreamingResponse:
     def __init__(self, prod: AsyncProdResource) -> None:
@@ -396,3 +424,7 @@ class AsyncProdResourceWithStreamingResponse:
         self.schema = async_to_streamed_response_wrapper(
             prod.schema,
         )
+
+    @cached_property
+    def v0(self) -> AsyncV0ResourceWithStreamingResponse:
+        return AsyncV0ResourceWithStreamingResponse(self._prod.v0)

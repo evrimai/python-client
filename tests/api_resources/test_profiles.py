@@ -106,6 +106,8 @@ class TestProfiles:
     def test_method_update(self, client: Evrim) -> None:
         profile = client.profiles.update(
             id=0,
+            specification="specification",
+            template_id=0,
         )
         assert_matches_type(Profile, profile, path=["response"])
 
@@ -113,16 +115,16 @@ class TestProfiles:
     def test_method_update_with_all_params(self, client: Evrim) -> None:
         profile = client.profiles.update(
             id=0,
+            specification="specification",
+            template_id=0,
             source="source",
             source_map={},
-            specification="specification",
             tags=[
                 {
                     "name": "name",
                     "description": "description",
                 }
             ],
-            template_id=0,
         )
         assert_matches_type(Profile, profile, path=["response"])
 
@@ -130,6 +132,8 @@ class TestProfiles:
     def test_raw_response_update(self, client: Evrim) -> None:
         response = client.profiles.with_raw_response.update(
             id=0,
+            specification="specification",
+            template_id=0,
         )
 
         assert response.is_closed is True
@@ -141,6 +145,8 @@ class TestProfiles:
     def test_streaming_response_update(self, client: Evrim) -> None:
         with client.profiles.with_streaming_response.update(
             id=0,
+            specification="specification",
+            template_id=0,
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -346,6 +352,8 @@ class TestAsyncProfiles:
     async def test_method_update(self, async_client: AsyncEvrim) -> None:
         profile = await async_client.profiles.update(
             id=0,
+            specification="specification",
+            template_id=0,
         )
         assert_matches_type(Profile, profile, path=["response"])
 
@@ -353,16 +361,16 @@ class TestAsyncProfiles:
     async def test_method_update_with_all_params(self, async_client: AsyncEvrim) -> None:
         profile = await async_client.profiles.update(
             id=0,
+            specification="specification",
+            template_id=0,
             source="source",
             source_map={},
-            specification="specification",
             tags=[
                 {
                     "name": "name",
                     "description": "description",
                 }
             ],
-            template_id=0,
         )
         assert_matches_type(Profile, profile, path=["response"])
 
@@ -370,6 +378,8 @@ class TestAsyncProfiles:
     async def test_raw_response_update(self, async_client: AsyncEvrim) -> None:
         response = await async_client.profiles.with_raw_response.update(
             id=0,
+            specification="specification",
+            template_id=0,
         )
 
         assert response.is_closed is True
@@ -381,6 +391,8 @@ class TestAsyncProfiles:
     async def test_streaming_response_update(self, async_client: AsyncEvrim) -> None:
         async with async_client.profiles.with_streaming_response.update(
             id=0,
+            specification="specification",
+            template_id=0,
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"

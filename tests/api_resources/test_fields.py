@@ -110,6 +110,9 @@ class TestFields:
     def test_method_update(self, client: Evrim) -> None:
         field = client.fields.update(
             path_id=0,
+            description="description",
+            name="name",
+            type="xxx",
         )
         assert_matches_type(Field, field, path=["response"])
 
@@ -117,17 +120,17 @@ class TestFields:
     def test_method_update_with_all_params(self, client: Evrim) -> None:
         field = client.fields.update(
             path_id=0,
-            body_id=0,
             description="description",
+            name="name",
+            type="xxx",
+            body_id=0,
             directed=True,
             enum_many=True,
             enum_values=["string"],
             keyword_search=True,
-            name="name",
             raw_documents=True,
             rel_template_id=0,
             sources=["string"],
-            type="xxx",
         )
         assert_matches_type(Field, field, path=["response"])
 
@@ -135,6 +138,9 @@ class TestFields:
     def test_raw_response_update(self, client: Evrim) -> None:
         response = client.fields.with_raw_response.update(
             path_id=0,
+            description="description",
+            name="name",
+            type="xxx",
         )
 
         assert response.is_closed is True
@@ -146,6 +152,9 @@ class TestFields:
     def test_streaming_response_update(self, client: Evrim) -> None:
         with client.fields.with_streaming_response.update(
             path_id=0,
+            description="description",
+            name="name",
+            type="xxx",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -356,6 +365,9 @@ class TestAsyncFields:
     async def test_method_update(self, async_client: AsyncEvrim) -> None:
         field = await async_client.fields.update(
             path_id=0,
+            description="description",
+            name="name",
+            type="xxx",
         )
         assert_matches_type(Field, field, path=["response"])
 
@@ -363,17 +375,17 @@ class TestAsyncFields:
     async def test_method_update_with_all_params(self, async_client: AsyncEvrim) -> None:
         field = await async_client.fields.update(
             path_id=0,
-            body_id=0,
             description="description",
+            name="name",
+            type="xxx",
+            body_id=0,
             directed=True,
             enum_many=True,
             enum_values=["string"],
             keyword_search=True,
-            name="name",
             raw_documents=True,
             rel_template_id=0,
             sources=["string"],
-            type="xxx",
         )
         assert_matches_type(Field, field, path=["response"])
 
@@ -381,6 +393,9 @@ class TestAsyncFields:
     async def test_raw_response_update(self, async_client: AsyncEvrim) -> None:
         response = await async_client.fields.with_raw_response.update(
             path_id=0,
+            description="description",
+            name="name",
+            type="xxx",
         )
 
         assert response.is_closed is True
@@ -392,6 +407,9 @@ class TestAsyncFields:
     async def test_streaming_response_update(self, async_client: AsyncEvrim) -> None:
         async with async_client.fields.with_streaming_response.update(
             path_id=0,
+            description="description",
+            name="name",
+            type="xxx",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
