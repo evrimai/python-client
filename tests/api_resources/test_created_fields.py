@@ -132,6 +132,10 @@ class TestCreatedFields:
     def test_method_update(self, client: Evrim) -> None:
         created_field = client.created_fields.update(
             id=0,
+            description="description",
+            name="name",
+            specification="specification",
+            type="xxx",
         )
         assert_matches_type(CreatedField, created_field, path=["response"])
 
@@ -140,11 +144,13 @@ class TestCreatedFields:
         created_field = client.created_fields.update(
             id=0,
             description="description",
+            name="name",
+            specification="specification",
+            type="xxx",
             directed_source="directed_source",
             enum_many=True,
             enum_values=["string"],
             keyword_search=True,
-            name="name",
             raw_documents=True,
             rel_template={
                 "fields": [
@@ -168,8 +174,6 @@ class TestCreatedFields:
             },
             source_entity_type="source_entity_type",
             sources=["string"],
-            specification="specification",
-            type="xxx",
         )
         assert_matches_type(CreatedField, created_field, path=["response"])
 
@@ -177,6 +181,10 @@ class TestCreatedFields:
     def test_raw_response_update(self, client: Evrim) -> None:
         response = client.created_fields.with_raw_response.update(
             id=0,
+            description="description",
+            name="name",
+            specification="specification",
+            type="xxx",
         )
 
         assert response.is_closed is True
@@ -188,6 +196,10 @@ class TestCreatedFields:
     def test_streaming_response_update(self, client: Evrim) -> None:
         with client.created_fields.with_streaming_response.update(
             id=0,
+            description="description",
+            name="name",
+            specification="specification",
+            type="xxx",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -419,6 +431,10 @@ class TestAsyncCreatedFields:
     async def test_method_update(self, async_client: AsyncEvrim) -> None:
         created_field = await async_client.created_fields.update(
             id=0,
+            description="description",
+            name="name",
+            specification="specification",
+            type="xxx",
         )
         assert_matches_type(CreatedField, created_field, path=["response"])
 
@@ -427,11 +443,13 @@ class TestAsyncCreatedFields:
         created_field = await async_client.created_fields.update(
             id=0,
             description="description",
+            name="name",
+            specification="specification",
+            type="xxx",
             directed_source="directed_source",
             enum_many=True,
             enum_values=["string"],
             keyword_search=True,
-            name="name",
             raw_documents=True,
             rel_template={
                 "fields": [
@@ -455,8 +473,6 @@ class TestAsyncCreatedFields:
             },
             source_entity_type="source_entity_type",
             sources=["string"],
-            specification="specification",
-            type="xxx",
         )
         assert_matches_type(CreatedField, created_field, path=["response"])
 
@@ -464,6 +480,10 @@ class TestAsyncCreatedFields:
     async def test_raw_response_update(self, async_client: AsyncEvrim) -> None:
         response = await async_client.created_fields.with_raw_response.update(
             id=0,
+            description="description",
+            name="name",
+            specification="specification",
+            type="xxx",
         )
 
         assert response.is_closed is True
@@ -475,6 +495,10 @@ class TestAsyncCreatedFields:
     async def test_streaming_response_update(self, async_client: AsyncEvrim) -> None:
         async with async_client.created_fields.with_streaming_response.update(
             id=0,
+            description="description",
+            name="name",
+            specification="specification",
+            type="xxx",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"

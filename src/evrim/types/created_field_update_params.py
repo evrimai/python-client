@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from typing import List, Optional
-from typing_extensions import TypedDict
+from typing_extensions import Required, TypedDict
 
 from .template_param import TemplateParam
 
@@ -11,7 +11,13 @@ __all__ = ["CreatedFieldUpdateParams"]
 
 
 class CreatedFieldUpdateParams(TypedDict, total=False):
-    description: str
+    description: Required[str]
+
+    name: Required[str]
+
+    specification: Required[str]
+
+    type: Required[str]
 
     directed_source: Optional[str]
 
@@ -21,8 +27,6 @@ class CreatedFieldUpdateParams(TypedDict, total=False):
 
     keyword_search: Optional[bool]
 
-    name: str
-
     raw_documents: Optional[bool]
 
     rel_template: TemplateParam
@@ -30,7 +34,3 @@ class CreatedFieldUpdateParams(TypedDict, total=False):
     source_entity_type: Optional[str]
 
     sources: Optional[List[str]]
-
-    specification: str
-
-    type: str

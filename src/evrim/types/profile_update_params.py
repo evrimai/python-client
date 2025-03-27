@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from typing import Iterable
-from typing_extensions import TypedDict
+from typing_extensions import Required, TypedDict
 
 from .tag_param import TagParam
 
@@ -11,12 +11,12 @@ __all__ = ["ProfileUpdateParams"]
 
 
 class ProfileUpdateParams(TypedDict, total=False):
+    specification: Required[str]
+
+    template_id: Required[int]
+
     source: str
 
     source_map: object
 
-    specification: str
-
     tags: Iterable[TagParam]
-
-    template_id: int

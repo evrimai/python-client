@@ -131,6 +131,14 @@ class TestTemplates:
     def test_method_update(self, client: Evrim) -> None:
         template = client.templates.update(
             id=0,
+            fields=[
+                {
+                    "description": "description",
+                    "name": "name",
+                    "type": "xxx",
+                }
+            ],
+            name="name",
         )
         assert_matches_type(Template, template, path=["response"])
 
@@ -138,7 +146,6 @@ class TestTemplates:
     def test_method_update_with_all_params(self, client: Evrim) -> None:
         template = client.templates.update(
             id=0,
-            description="description",
             fields=[
                 {
                     "description": "description",
@@ -155,6 +162,7 @@ class TestTemplates:
                 }
             ],
             name="name",
+            description="description",
             questions=["string"],
         )
         assert_matches_type(Template, template, path=["response"])
@@ -163,6 +171,14 @@ class TestTemplates:
     def test_raw_response_update(self, client: Evrim) -> None:
         response = client.templates.with_raw_response.update(
             id=0,
+            fields=[
+                {
+                    "description": "description",
+                    "name": "name",
+                    "type": "xxx",
+                }
+            ],
+            name="name",
         )
 
         assert response.is_closed is True
@@ -174,6 +190,14 @@ class TestTemplates:
     def test_streaming_response_update(self, client: Evrim) -> None:
         with client.templates.with_streaming_response.update(
             id=0,
+            fields=[
+                {
+                    "description": "description",
+                    "name": "name",
+                    "type": "xxx",
+                }
+            ],
+            name="name",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -364,6 +388,14 @@ class TestAsyncTemplates:
     async def test_method_update(self, async_client: AsyncEvrim) -> None:
         template = await async_client.templates.update(
             id=0,
+            fields=[
+                {
+                    "description": "description",
+                    "name": "name",
+                    "type": "xxx",
+                }
+            ],
+            name="name",
         )
         assert_matches_type(Template, template, path=["response"])
 
@@ -371,7 +403,6 @@ class TestAsyncTemplates:
     async def test_method_update_with_all_params(self, async_client: AsyncEvrim) -> None:
         template = await async_client.templates.update(
             id=0,
-            description="description",
             fields=[
                 {
                     "description": "description",
@@ -388,6 +419,7 @@ class TestAsyncTemplates:
                 }
             ],
             name="name",
+            description="description",
             questions=["string"],
         )
         assert_matches_type(Template, template, path=["response"])
@@ -396,6 +428,14 @@ class TestAsyncTemplates:
     async def test_raw_response_update(self, async_client: AsyncEvrim) -> None:
         response = await async_client.templates.with_raw_response.update(
             id=0,
+            fields=[
+                {
+                    "description": "description",
+                    "name": "name",
+                    "type": "xxx",
+                }
+            ],
+            name="name",
         )
 
         assert response.is_closed is True
@@ -407,6 +447,14 @@ class TestAsyncTemplates:
     async def test_streaming_response_update(self, async_client: AsyncEvrim) -> None:
         async with async_client.templates.with_streaming_response.update(
             id=0,
+            fields=[
+                {
+                    "description": "description",
+                    "name": "name",
+                    "type": "xxx",
+                }
+            ],
+            name="name",
         ) as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"

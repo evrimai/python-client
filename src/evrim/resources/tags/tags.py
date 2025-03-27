@@ -141,8 +141,8 @@ class TagsResource(SyncAPIResource):
         self,
         id: int,
         *,
+        name: str,
         description: Optional[str] | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -160,12 +160,12 @@ class TagsResource(SyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return self._patch(
+        return self._put(
             f"/prod/v0/tags/{id}/",
             body=maybe_transform(
                 {
-                    "description": description,
                     "name": name,
+                    "description": description,
                 },
                 tag_update_params.TagUpdateParams,
             ),
@@ -348,8 +348,8 @@ class AsyncTagsResource(AsyncAPIResource):
         self,
         id: int,
         *,
+        name: str,
         description: Optional[str] | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -367,12 +367,12 @@ class AsyncTagsResource(AsyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return await self._patch(
+        return await self._put(
             f"/prod/v0/tags/{id}/",
             body=await async_maybe_transform(
                 {
-                    "description": description,
                     "name": name,
+                    "description": description,
                 },
                 tag_update_params.TagUpdateParams,
             ),

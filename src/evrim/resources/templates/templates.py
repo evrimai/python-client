@@ -134,9 +134,9 @@ class TemplatesResource(SyncAPIResource):
         self,
         id: int,
         *,
+        fields: Iterable[FieldParam],
+        name: str,
         description: Optional[str] | NotGiven = NOT_GIVEN,
-        fields: Iterable[FieldParam] | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
         questions: List[str] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -155,13 +155,13 @@ class TemplatesResource(SyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return self._patch(
+        return self._put(
             f"/prod/v0/templates/{id}/",
             body=maybe_transform(
                 {
-                    "description": description,
                     "fields": fields,
                     "name": name,
+                    "description": description,
                     "questions": questions,
                 },
                 template_update_params.TemplateUpdateParams,
@@ -351,9 +351,9 @@ class AsyncTemplatesResource(AsyncAPIResource):
         self,
         id: int,
         *,
+        fields: Iterable[FieldParam],
+        name: str,
         description: Optional[str] | NotGiven = NOT_GIVEN,
-        fields: Iterable[FieldParam] | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
         questions: List[str] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -372,13 +372,13 @@ class AsyncTemplatesResource(AsyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return await self._patch(
+        return await self._put(
             f"/prod/v0/templates/{id}/",
             body=await async_maybe_transform(
                 {
-                    "description": description,
                     "fields": fields,
                     "name": name,
+                    "description": description,
                     "questions": questions,
                 },
                 template_update_params.TemplateUpdateParams,
