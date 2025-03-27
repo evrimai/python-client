@@ -190,11 +190,11 @@ class ProfilesResource(SyncAPIResource):
         self,
         id: int,
         *,
+        specification: str,
+        template_id: int,
         source: str | NotGiven = NOT_GIVEN,
         source_map: object | NotGiven = NOT_GIVEN,
-        specification: str | NotGiven = NOT_GIVEN,
         tags: Iterable[TagParam] | NotGiven = NOT_GIVEN,
-        template_id: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -212,15 +212,15 @@ class ProfilesResource(SyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return self._patch(
+        return self._put(
             f"/prod/v0/profiles/{id}/",
             body=maybe_transform(
                 {
+                    "specification": specification,
+                    "template_id": template_id,
                     "source": source,
                     "source_map": source_map,
-                    "specification": specification,
                     "tags": tags,
-                    "template_id": template_id,
                 },
                 profile_update_params.ProfileUpdateParams,
             ),
@@ -458,11 +458,11 @@ class AsyncProfilesResource(AsyncAPIResource):
         self,
         id: int,
         *,
+        specification: str,
+        template_id: int,
         source: str | NotGiven = NOT_GIVEN,
         source_map: object | NotGiven = NOT_GIVEN,
-        specification: str | NotGiven = NOT_GIVEN,
         tags: Iterable[TagParam] | NotGiven = NOT_GIVEN,
-        template_id: int | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -480,15 +480,15 @@ class AsyncProfilesResource(AsyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return await self._patch(
+        return await self._put(
             f"/prod/v0/profiles/{id}/",
             body=await async_maybe_transform(
                 {
+                    "specification": specification,
+                    "template_id": template_id,
                     "source": source,
                     "source_map": source_map,
-                    "specification": specification,
                     "tags": tags,
-                    "template_id": template_id,
                 },
                 profile_update_params.ProfileUpdateParams,
             ),

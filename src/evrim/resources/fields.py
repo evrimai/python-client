@@ -137,17 +137,17 @@ class FieldsResource(SyncAPIResource):
         self,
         path_id: int,
         *,
+        description: str,
+        name: str,
+        type: str,
         body_id: int | NotGiven = NOT_GIVEN,
-        description: str | NotGiven = NOT_GIVEN,
         directed: bool | NotGiven = NOT_GIVEN,
         enum_many: bool | NotGiven = NOT_GIVEN,
         enum_values: List[str] | NotGiven = NOT_GIVEN,
         keyword_search: bool | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
         raw_documents: bool | NotGiven = NOT_GIVEN,
         rel_template_id: Optional[int] | NotGiven = NOT_GIVEN,
         sources: Optional[List[str]] | NotGiven = NOT_GIVEN,
-        type: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -165,21 +165,21 @@ class FieldsResource(SyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return self._patch(
+        return self._put(
             f"/prod/v0/fields/{path_id}/",
             body=maybe_transform(
                 {
-                    "body_id": body_id,
                     "description": description,
+                    "name": name,
+                    "type": type,
+                    "body_id": body_id,
                     "directed": directed,
                     "enum_many": enum_many,
                     "enum_values": enum_values,
                     "keyword_search": keyword_search,
-                    "name": name,
                     "raw_documents": raw_documents,
                     "rel_template_id": rel_template_id,
                     "sources": sources,
-                    "type": type,
                 },
                 field_update_params.FieldUpdateParams,
             ),
@@ -416,17 +416,17 @@ class AsyncFieldsResource(AsyncAPIResource):
         self,
         path_id: int,
         *,
+        description: str,
+        name: str,
+        type: str,
         body_id: int | NotGiven = NOT_GIVEN,
-        description: str | NotGiven = NOT_GIVEN,
         directed: bool | NotGiven = NOT_GIVEN,
         enum_many: bool | NotGiven = NOT_GIVEN,
         enum_values: List[str] | NotGiven = NOT_GIVEN,
         keyword_search: bool | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
         raw_documents: bool | NotGiven = NOT_GIVEN,
         rel_template_id: Optional[int] | NotGiven = NOT_GIVEN,
         sources: Optional[List[str]] | NotGiven = NOT_GIVEN,
-        type: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -444,21 +444,21 @@ class AsyncFieldsResource(AsyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return await self._patch(
+        return await self._put(
             f"/prod/v0/fields/{path_id}/",
             body=await async_maybe_transform(
                 {
-                    "body_id": body_id,
                     "description": description,
+                    "name": name,
+                    "type": type,
+                    "body_id": body_id,
                     "directed": directed,
                     "enum_many": enum_many,
                     "enum_values": enum_values,
                     "keyword_search": keyword_search,
-                    "name": name,
                     "raw_documents": raw_documents,
                     "rel_template_id": rel_template_id,
                     "sources": sources,
-                    "type": type,
                 },
                 field_update_params.FieldUpdateParams,
             ),
