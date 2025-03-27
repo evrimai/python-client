@@ -24,7 +24,7 @@ from ._utils import (
     get_async_library,
 )
 from ._version import __version__
-from .resources import prod, fields, snapshots, collections, created_fields, prompt_templates
+from .resources import fields, snapshots, collections, created_fields, prompt_templates
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
 from ._exceptions import EvrimError, APIStatusError
 from ._base_client import (
@@ -33,6 +33,7 @@ from ._base_client import (
     AsyncAPIClient,
 )
 from .resources.bulk import bulk
+from .resources.prod import prod
 from .resources.tags import tags
 from .resources.blank import blank
 from .resources.profiles import profiles

@@ -143,18 +143,18 @@ class CreatedFieldsResource(SyncAPIResource):
         self,
         id: int,
         *,
-        description: str | NotGiven = NOT_GIVEN,
+        description: str,
+        name: str,
+        specification: str,
+        type: str,
         directed_source: Optional[str] | NotGiven = NOT_GIVEN,
         enum_many: bool | NotGiven = NOT_GIVEN,
         enum_values: List[str] | NotGiven = NOT_GIVEN,
         keyword_search: Optional[bool] | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
         raw_documents: Optional[bool] | NotGiven = NOT_GIVEN,
         rel_template: TemplateParam | NotGiven = NOT_GIVEN,
         source_entity_type: Optional[str] | NotGiven = NOT_GIVEN,
         sources: Optional[List[str]] | NotGiven = NOT_GIVEN,
-        specification: str | NotGiven = NOT_GIVEN,
-        type: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -172,22 +172,22 @@ class CreatedFieldsResource(SyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return self._patch(
+        return self._put(
             f"/prod/v0/created-fields/{id}/",
             body=maybe_transform(
                 {
                     "description": description,
+                    "name": name,
+                    "specification": specification,
+                    "type": type,
                     "directed_source": directed_source,
                     "enum_many": enum_many,
                     "enum_values": enum_values,
                     "keyword_search": keyword_search,
-                    "name": name,
                     "raw_documents": raw_documents,
                     "rel_template": rel_template,
                     "source_entity_type": source_entity_type,
                     "sources": sources,
-                    "specification": specification,
-                    "type": type,
                 },
                 created_field_update_params.CreatedFieldUpdateParams,
             ),
@@ -418,18 +418,18 @@ class AsyncCreatedFieldsResource(AsyncAPIResource):
         self,
         id: int,
         *,
-        description: str | NotGiven = NOT_GIVEN,
+        description: str,
+        name: str,
+        specification: str,
+        type: str,
         directed_source: Optional[str] | NotGiven = NOT_GIVEN,
         enum_many: bool | NotGiven = NOT_GIVEN,
         enum_values: List[str] | NotGiven = NOT_GIVEN,
         keyword_search: Optional[bool] | NotGiven = NOT_GIVEN,
-        name: str | NotGiven = NOT_GIVEN,
         raw_documents: Optional[bool] | NotGiven = NOT_GIVEN,
         rel_template: TemplateParam | NotGiven = NOT_GIVEN,
         source_entity_type: Optional[str] | NotGiven = NOT_GIVEN,
         sources: Optional[List[str]] | NotGiven = NOT_GIVEN,
-        specification: str | NotGiven = NOT_GIVEN,
-        type: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -447,22 +447,22 @@ class AsyncCreatedFieldsResource(AsyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
-        return await self._patch(
+        return await self._put(
             f"/prod/v0/created-fields/{id}/",
             body=await async_maybe_transform(
                 {
                     "description": description,
+                    "name": name,
+                    "specification": specification,
+                    "type": type,
                     "directed_source": directed_source,
                     "enum_many": enum_many,
                     "enum_values": enum_values,
                     "keyword_search": keyword_search,
-                    "name": name,
                     "raw_documents": raw_documents,
                     "rel_template": rel_template,
                     "source_entity_type": source_entity_type,
                     "sources": sources,
-                    "specification": specification,
-                    "type": type,
                 },
                 created_field_update_params.CreatedFieldUpdateParams,
             ),
