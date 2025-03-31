@@ -18,3 +18,5 @@ class TemplateUpdateParams(TypedDict, total=False):
     description: Optional[str]
 
     questions: List[str]
+
+    tags: List[str]
