@@ -25,6 +25,8 @@ class Result(BaseModel):
 
     specification: str
 
+    tags: List[str]
+
 
 class LatestRetrieveResponse(BaseModel):
     count: int

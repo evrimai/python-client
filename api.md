@@ -413,41 +413,12 @@ Methods:
 Types:
 
 ```python
-from evrim.types import Tag, TagListResponse
+from evrim.types import Tag
 ```
 
 Methods:
 
-- <code title="post /prod/v0/tags/">client.tags.<a href="./src/evrim/resources/tags/tags.py">create</a>(\*\*<a href="src/evrim/types/tag_create_params.py">params</a>) -> <a href="./src/evrim/types/tag.py">Tag</a></code>
-- <code title="get /prod/v0/tags/{id}/">client.tags.<a href="./src/evrim/resources/tags/tags.py">retrieve</a>(id) -> <a href="./src/evrim/types/tag.py">Tag</a></code>
-- <code title="put /prod/v0/tags/{id}/">client.tags.<a href="./src/evrim/resources/tags/tags.py">update</a>(id, \*\*<a href="src/evrim/types/tag_update_params.py">params</a>) -> <a href="./src/evrim/types/tag.py">Tag</a></code>
-- <code title="get /prod/v0/tags/">client.tags.<a href="./src/evrim/resources/tags/tags.py">list</a>(\*\*<a href="src/evrim/types/tag_list_params.py">params</a>) -> <a href="./src/evrim/types/tag_list_response.py">TagListResponse</a></code>
-- <code title="delete /prod/v0/tags/{id}/">client.tags.<a href="./src/evrim/resources/tags/tags.py">delete</a>(id) -> None</code>
-
-## Collections
-
-Types:
-
-```python
-from evrim.types.tags import TagToCollection
-```
-
-Methods:
-
-- <code title="post /prod/v0/tags/{tag_id}/collections/">client.tags.collections.<a href="./src/evrim/resources/tags/collections.py">tag</a>(tag_id, \*\*<a href="src/evrim/types/tags/collection_tag_params.py">params</a>) -> <a href="./src/evrim/types/tags/tag_to_collection.py">TagToCollection</a></code>
-
-## Profiles
-
-Types:
-
-```python
-from evrim.types.tags import ProfileListResponse
-```
-
-Methods:
-
-- <code title="get /prod/v0/tags/{tag_id}/profiles/">client.tags.profiles.<a href="./src/evrim/resources/tags/profiles.py">list</a>(tag_id, \*\*<a href="src/evrim/types/tags/profile_list_params.py">params</a>) -> <a href="./src/evrim/types/tags/profile_list_response.py">ProfileListResponse</a></code>
-- <code title="post /prod/v0/tags/{tag_id}/profiles/">client.tags.profiles.<a href="./src/evrim/resources/tags/profiles.py">tag</a>(tag_id, \*\*<a href="src/evrim/types/tags/profile_tag_params.py">params</a>) -> None</code>
+- <code title="get /prod/v0/tags/">client.tags.<a href="./src/evrim/resources/tags/tags.py">list</a>() -> None</code>
 
 # Templates
 

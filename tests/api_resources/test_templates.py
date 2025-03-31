@@ -55,6 +55,7 @@ class TestTemplates:
             name="name",
             description="description",
             questions=["string"],
+            tags=["string"],
         )
         assert_matches_type(Template, template, path=["response"])
 
@@ -164,6 +165,7 @@ class TestTemplates:
             name="name",
             description="description",
             questions=["string"],
+            tags=["string"],
         )
         assert_matches_type(Template, template, path=["response"])
 
@@ -218,6 +220,7 @@ class TestTemplates:
             limit=0,
             name="name",
             offset=0,
+            ordering="ordering",
             search="search",
         )
         assert_matches_type(TemplateListResponse, template, path=["response"])
@@ -312,6 +315,7 @@ class TestAsyncTemplates:
             name="name",
             description="description",
             questions=["string"],
+            tags=["string"],
         )
         assert_matches_type(Template, template, path=["response"])
 
@@ -421,6 +425,7 @@ class TestAsyncTemplates:
             name="name",
             description="description",
             questions=["string"],
+            tags=["string"],
         )
         assert_matches_type(Template, template, path=["response"])
 
@@ -475,6 +480,7 @@ class TestAsyncTemplates:
             limit=0,
             name="name",
             offset=0,
+            ordering="ordering",
             search="search",
         )
         assert_matches_type(TemplateListResponse, template, path=["response"])
