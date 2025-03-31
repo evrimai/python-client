@@ -67,6 +67,7 @@ class TemplatesResource(SyncAPIResource):
         name: str,
         description: Optional[str] | NotGiven = NOT_GIVEN,
         questions: List[str] | NotGiven = NOT_GIVEN,
+        tags: List[str] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -92,6 +93,7 @@ class TemplatesResource(SyncAPIResource):
                     "name": name,
                     "description": description,
                     "questions": questions,
+                    "tags": tags,
                 },
                 template_create_params.TemplateCreateParams,
             ),
@@ -138,6 +140,7 @@ class TemplatesResource(SyncAPIResource):
         name: str,
         description: Optional[str] | NotGiven = NOT_GIVEN,
         questions: List[str] | NotGiven = NOT_GIVEN,
+        tags: List[str] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -163,6 +166,7 @@ class TemplatesResource(SyncAPIResource):
                     "name": name,
                     "description": description,
                     "questions": questions,
+                    "tags": tags,
                 },
                 template_update_params.TemplateUpdateParams,
             ),
@@ -178,6 +182,7 @@ class TemplatesResource(SyncAPIResource):
         limit: int | NotGiven = NOT_GIVEN,
         name: str | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
+        ordering: str | NotGiven = NOT_GIVEN,
         search: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -191,6 +196,8 @@ class TemplatesResource(SyncAPIResource):
           limit: Number of results to return per page.
 
           offset: The initial index from which to return the results.
+
+          ordering: Which field to use when ordering the results.
 
           search: A search term.
 
@@ -214,6 +221,7 @@ class TemplatesResource(SyncAPIResource):
                         "limit": limit,
                         "name": name,
                         "offset": offset,
+                        "ordering": ordering,
                         "search": search,
                     },
                     template_list_params.TemplateListParams,
@@ -284,6 +292,7 @@ class AsyncTemplatesResource(AsyncAPIResource):
         name: str,
         description: Optional[str] | NotGiven = NOT_GIVEN,
         questions: List[str] | NotGiven = NOT_GIVEN,
+        tags: List[str] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -309,6 +318,7 @@ class AsyncTemplatesResource(AsyncAPIResource):
                     "name": name,
                     "description": description,
                     "questions": questions,
+                    "tags": tags,
                 },
                 template_create_params.TemplateCreateParams,
             ),
@@ -355,6 +365,7 @@ class AsyncTemplatesResource(AsyncAPIResource):
         name: str,
         description: Optional[str] | NotGiven = NOT_GIVEN,
         questions: List[str] | NotGiven = NOT_GIVEN,
+        tags: List[str] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -380,6 +391,7 @@ class AsyncTemplatesResource(AsyncAPIResource):
                     "name": name,
                     "description": description,
                     "questions": questions,
+                    "tags": tags,
                 },
                 template_update_params.TemplateUpdateParams,
             ),
@@ -395,6 +407,7 @@ class AsyncTemplatesResource(AsyncAPIResource):
         limit: int | NotGiven = NOT_GIVEN,
         name: str | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
+        ordering: str | NotGiven = NOT_GIVEN,
         search: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -408,6 +421,8 @@ class AsyncTemplatesResource(AsyncAPIResource):
           limit: Number of results to return per page.
 
           offset: The initial index from which to return the results.
+
+          ordering: Which field to use when ordering the results.
 
           search: A search term.
 
@@ -431,6 +446,7 @@ class AsyncTemplatesResource(AsyncAPIResource):
                         "limit": limit,
                         "name": name,
                         "offset": offset,
+                        "ordering": ordering,
                         "search": search,
                     },
                     template_list_params.TemplateListParams,
