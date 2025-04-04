@@ -1604,7 +1604,7 @@ class TestAsyncEvrim:
         import threading
 
         from evrim._utils import asyncify
-        from evrim._base_client import get_platform 
+        from evrim._base_client import get_platform
 
         async def test_main() -> None:
             result = await asyncify(get_platform)()
