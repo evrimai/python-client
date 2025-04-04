@@ -8,36 +8,8 @@ from .tags import (
     TagsResourceWithStreamingResponse,
     AsyncTagsResourceWithStreamingResponse,
 )
-from .profiles import (
-    ProfilesResource,
-    AsyncProfilesResource,
-    ProfilesResourceWithRawResponse,
-    AsyncProfilesResourceWithRawResponse,
-    ProfilesResourceWithStreamingResponse,
-    AsyncProfilesResourceWithStreamingResponse,
-)
-from .collections import (
-    CollectionsResource,
-    AsyncCollectionsResource,
-    CollectionsResourceWithRawResponse,
-    AsyncCollectionsResourceWithRawResponse,
-    CollectionsResourceWithStreamingResponse,
-    AsyncCollectionsResourceWithStreamingResponse,
-)
 
 __all__ = [
-    "CollectionsResource",
-    "AsyncCollectionsResource",
-    "CollectionsResourceWithRawResponse",
-    "AsyncCollectionsResourceWithRawResponse",
-    "CollectionsResourceWithStreamingResponse",
-    "AsyncCollectionsResourceWithStreamingResponse",
-    "ProfilesResource",
-    "AsyncProfilesResource",
-    "ProfilesResourceWithRawResponse",
-    "AsyncProfilesResourceWithRawResponse",
-    "ProfilesResourceWithStreamingResponse",
-    "AsyncProfilesResourceWithStreamingResponse",
     "TagsResource",
     "AsyncTagsResource",
     "TagsResourceWithRawResponse",

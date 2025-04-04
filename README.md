@@ -106,6 +106,7 @@ created_field = client.created_fields.create(
         "name": "name",
         "description": "description",
         "questions": ["string"],
+        "tags": ["string"],
     },
 )
 print(created_field.rel_template)

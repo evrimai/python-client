@@ -14,4 +14,7 @@ class ProfileListParams(TypedDict, total=False):
     offset: int
     """The initial index from which to return the results."""
 
+    search: str
+    """A search term."""
+
     specification: str
