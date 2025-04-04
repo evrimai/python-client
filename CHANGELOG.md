@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.9.0 (2025-04-04)
+
+Full Changelog: [v2.8.0...v2.9.0](https://github.com/evrimai/python-client/compare/v2.8.0...v2.9.0)
+
+### Features
+
+* **api:** api update ([#71](https://github.com/evrimai/python-client/issues/71)) ([f1d74e2](https://github.com/evrimai/python-client/commit/f1d74e2bd52f9c00e8d14c894716b2719469b260))
+
+
+### Chores
+
+* **internal:** remove trailing character ([#73](https://github.com/evrimai/python-client/issues/73)) ([75e43a9](https://github.com/evrimai/python-client/commit/75e43a9ab76587d240d151003f1f8a9d37a82ca2))
+
 ## 2.8.0 (2025-03-27)
 
 Full Changelog: [v2.7.0...v2.8.0](https://github.com/evrimai/python-client/compare/v2.7.0...v2.8.0)
