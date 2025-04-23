@@ -14,12 +14,7 @@ from .latest import (
     LatestResourceWithStreamingResponse,
     AsyncLatestResourceWithStreamingResponse,
 )
-from ...types import (
-    profile_tag_params,
-    profile_list_params,
-    profile_create_params,
-    profile_update_params,
-)
+from ...types import profile_tag_params, profile_list_params, profile_create_params, profile_update_params
 from .reports import (
     ReportsResource,
     AsyncReportsResource,
@@ -29,10 +24,7 @@ from .reports import (
     AsyncReportsResourceWithStreamingResponse,
 )
 from ..._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven
-from ..._utils import (
-    maybe_transform,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from .snapshots import (
     SnapshotsResource,
