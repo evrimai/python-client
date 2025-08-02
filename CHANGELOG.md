@@ -1,5 +1,46 @@
 # Changelog
 
+## 2.9.0 (2025-08-02)
+
+Full Changelog: [v2.8.0...v2.9.0](https://github.com/evrimai/python-client/compare/v2.8.0...v2.9.0)
+
+### Features
+
+* **api:** api update ([#71](https://github.com/evrimai/python-client/issues/71)) ([f1d74e2](https://github.com/evrimai/python-client/commit/f1d74e2bd52f9c00e8d14c894716b2719469b260))
+
+
+### Bug Fixes
+
+* **package:** support direct resource imports ([db3beee](https://github.com/evrimai/python-client/commit/db3beee83baa64b866436c219e6f7d8c5df1a136))
+* **perf:** optimize some hot paths ([2130460](https://github.com/evrimai/python-client/commit/21304602461229683e8e63f72e0122550b05a618))
+* **perf:** skip traversing types for NotGiven values ([62cf11f](https://github.com/evrimai/python-client/commit/62cf11fba968715c7b31d901c8f5f34a30c8fa3a))
+* **pydantic v1:** more robust ModelField.annotation check ([c9e8911](https://github.com/evrimai/python-client/commit/c9e89114a21af9de22041087891f2b6cdea8dae9))
+
+
+### Chores
+
+* broadly detect json family of content-type headers ([893312b](https://github.com/evrimai/python-client/commit/893312b59fd147d1356c543ecef0195387d3aa26))
+* **ci:** add timeout thresholds for CI jobs ([e3ab35a](https://github.com/evrimai/python-client/commit/e3ab35a64fd929598a179e0060020676d8021c29))
+* **ci:** fix installation instructions ([1edfc67](https://github.com/evrimai/python-client/commit/1edfc678a53fc7ad6f86170a9dbbb606cde8baca))
+* **ci:** only use depot for staging repos ([efaf732](https://github.com/evrimai/python-client/commit/efaf732c2b77ec26698b61dde3b9dc017cfc725b))
+* **ci:** upload sdks to package manager ([6ee22ad](https://github.com/evrimai/python-client/commit/6ee22adb50be0070098473c84a7ac1d00a5a2bff))
+* **client:** minor internal fixes ([024b925](https://github.com/evrimai/python-client/commit/024b9254751ef8643f0b72037b0e0d7f0f526798))
+* **docs:** grammar improvements ([60b41d0](https://github.com/evrimai/python-client/commit/60b41d0be94a2e55a1cc126373f042bc9d4c5273))
+* **internal:** avoid errors for isinstance checks on proxies ([b109cd3](https://github.com/evrimai/python-client/commit/b109cd3d1021ef045774eab4c9068810bd915227))
+* **internal:** base client updates ([bd85924](https://github.com/evrimai/python-client/commit/bd85924eebfe9f9e6e0b205a83857cd6c3dbfd2b))
+* **internal:** bump pyright version ([730f781](https://github.com/evrimai/python-client/commit/730f781a69dd8f10c9f5cc63c79b718541e51c4a))
+* **internal:** codegen related update ([a5c88eb](https://github.com/evrimai/python-client/commit/a5c88ebfa9dc2918c163753e090ffe8afaf7d2df))
+* **internal:** expand CI branch coverage ([064117a](https://github.com/evrimai/python-client/commit/064117a7bce50f9d30e416365d912fddd4a5318f))
+* **internal:** fix list file params ([4ac36d0](https://github.com/evrimai/python-client/commit/4ac36d01d2bc29c158fd5f0a598dfb4dc7e48c12))
+* **internal:** import reformatting ([0541854](https://github.com/evrimai/python-client/commit/05418549ab67acf639f7cd9300e3971262d3fa8b))
+* **internal:** minor formatting changes ([0ef9e84](https://github.com/evrimai/python-client/commit/0ef9e84193f9b9ef3db29972d7981766fac89628))
+* **internal:** reduce CI branch coverage ([e0381ae](https://github.com/evrimai/python-client/commit/e0381ae7b71c11737c073e30ec83a890e0ee147a))
+* **internal:** refactor retries to not use recursion ([85d0556](https://github.com/evrimai/python-client/commit/85d0556f0a2eb3727941f0230f47ac1fb9869c9a))
+* **internal:** remove trailing character ([#73](https://github.com/evrimai/python-client/issues/73)) ([75e43a9](https://github.com/evrimai/python-client/commit/75e43a9ab76587d240d151003f1f8a9d37a82ca2))
+* **internal:** slight transform perf improvement ([#74](https://github.com/evrimai/python-client/issues/74)) ([9808a93](https://github.com/evrimai/python-client/commit/9808a9315129182b4304802653ce7b27ddd83ad7))
+* **internal:** update models test ([02396c5](https://github.com/evrimai/python-client/commit/02396c5343fa736ec016cb541e803dbbd95792c0))
+* **internal:** update pyright settings ([ccd70c6](https://github.com/evrimai/python-client/commit/ccd70c617998c7e2f0193455bd7b47b4da04e4e2))
+
 ## 2.8.0 (2025-03-27)
 
 Full Changelog: [v2.7.0...v2.8.0](https://github.com/evrimai/python-client/compare/v2.7.0...v2.8.0)
