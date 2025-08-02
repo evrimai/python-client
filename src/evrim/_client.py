@@ -19,10 +19,7 @@ from ._types import (
     ProxiesTypes,
     RequestOptions,
 )
-from ._utils import (
-    is_given,
-    get_async_library,
-)
+from ._utils import is_given, get_async_library
 from ._version import __version__
 from .resources import fields, snapshots, collections, created_fields, prompt_templates
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream

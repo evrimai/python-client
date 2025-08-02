@@ -166,6 +166,7 @@ class TestProfiles:
         profile = client.profiles.list(
             limit=0,
             offset=0,
+            search="search",
             specification="specification",
         )
         assert_matches_type(ProfileListResponse, profile, path=["response"])
@@ -412,6 +413,7 @@ class TestAsyncProfiles:
         profile = await async_client.profiles.list(
             limit=0,
             offset=0,
+            search="search",
             specification="specification",
         )
         assert_matches_type(ProfileListResponse, profile, path=["response"])

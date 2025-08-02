@@ -16,5 +16,8 @@ class TemplateListParams(TypedDict, total=False):
     offset: int
     """The initial index from which to return the results."""
 
+    ordering: str
+    """Which field to use when ordering the results."""
+
     search: str
     """A search term."""

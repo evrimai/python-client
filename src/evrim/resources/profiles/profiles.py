@@ -14,12 +14,7 @@ from .latest import (
     LatestResourceWithStreamingResponse,
     AsyncLatestResourceWithStreamingResponse,
 )
-from ...types import (
-    profile_tag_params,
-    profile_list_params,
-    profile_create_params,
-    profile_update_params,
-)
+from ...types import profile_tag_params, profile_list_params, profile_create_params, profile_update_params
 from .reports import (
     ReportsResource,
     AsyncReportsResource,
@@ -29,10 +24,7 @@ from .reports import (
     AsyncReportsResourceWithStreamingResponse,
 )
 from ..._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven
-from ..._utils import (
-    maybe_transform,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from .snapshots import (
     SnapshotsResource,
@@ -235,6 +227,7 @@ class ProfilesResource(SyncAPIResource):
         *,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
+        search: str | NotGiven = NOT_GIVEN,
         specification: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -248,6 +241,8 @@ class ProfilesResource(SyncAPIResource):
           limit: Number of results to return per page.
 
           offset: The initial index from which to return the results.
+
+          search: A search term.
 
           extra_headers: Send extra headers
 
@@ -268,6 +263,7 @@ class ProfilesResource(SyncAPIResource):
                     {
                         "limit": limit,
                         "offset": offset,
+                        "search": search,
                         "specification": specification,
                     },
                     profile_list_params.ProfileListParams,
@@ -503,6 +499,7 @@ class AsyncProfilesResource(AsyncAPIResource):
         *,
         limit: int | NotGiven = NOT_GIVEN,
         offset: int | NotGiven = NOT_GIVEN,
+        search: str | NotGiven = NOT_GIVEN,
         specification: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -516,6 +513,8 @@ class AsyncProfilesResource(AsyncAPIResource):
           limit: Number of results to return per page.
 
           offset: The initial index from which to return the results.
+
+          search: A search term.
 
           extra_headers: Send extra headers
 
@@ -536,6 +535,7 @@ class AsyncProfilesResource(AsyncAPIResource):
                     {
                         "limit": limit,
                         "offset": offset,
+                        "search": search,
                         "specification": specification,
                     },
                     profile_list_params.ProfileListParams,
